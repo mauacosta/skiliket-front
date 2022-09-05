@@ -8,6 +8,7 @@ import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { TableroComponent } from './body/tablero/tablero.component';
 import { EstadisticasComponent } from './body/estadisticas/estadisticas.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { EstadisticasComponent } from './body/estadisticas/estadisticas.componen
     EstadisticasComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
