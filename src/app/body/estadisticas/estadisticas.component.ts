@@ -33,7 +33,7 @@ export class EstadisticasComponent implements OnInit {
 			  type: 'column'
 			},
 			title: {
-			  text: 'Restaurants Complaints'
+			  text: 'Quejas ciudadanas'
 			},
 			tooltip: {
 			  shared: true
@@ -79,7 +79,7 @@ export class EstadisticasComponent implements OnInit {
 				valueSuffix: '%'
 			  }
 			}, {
-			  name: 'Complaints',
+			  name: 'Quejas',
 			  type: 'column',
 			  zIndex: 2,
 			  data: [755, 222, 151, 86, 72, 51, 36, 10]

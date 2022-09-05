@@ -9,6 +9,7 @@ import { BodyComponent } from './body/body.component';
 import { TableroComponent } from './body/tablero/tablero.component';
 import { EstadisticasComponent } from './body/estadisticas/estadisticas.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NoticiasComponent } from './body/noticias/noticias.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
     FooterComponent,
     BodyComponent,
     TableroComponent,
-    EstadisticasComponent
+    EstadisticasComponent,
+    NoticiasComponent
   ],
   imports: [
     BrowserModule,

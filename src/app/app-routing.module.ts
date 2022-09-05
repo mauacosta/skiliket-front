@@ -6,10 +6,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import {EstadisticasComponent} from './body/estadisticas/estadisticas.component';
 import {TableroComponent} from './body/tablero/tablero.component';
+import {NoticiasComponent} from './body/noticias/noticias.component';
 
 const routes: Routes = [
 	{path:'estadisticas',component:EstadisticasComponent},
 	{path:'tablero',component:TableroComponent},
+	{path:'noticias',component:NoticiasComponent},
 	
 	
 	];
