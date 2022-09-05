@@ -46,8 +46,7 @@
 padding-left: 1vw;
 }
 #infoSeccion{
-	float: left;
-	background-color: red;
+	float: right;
 	width: 80%;
 	height: 100vh;
 }
