@@ -40,12 +40,12 @@ export class EstadisticasComponent implements OnInit {
 			},
 			xAxis: {
 			  categories: [
-				'Overpriced',
-				'Small portions',
-				'Wait time',
-				'Food is tasteless',
-				'No atmosphere',
-				'Not clean',
+				'Robos',
+				'Inundaciones',
+				'Tráfico',
+				'Contaminación',
+				'Suciedad',
+				'Mucho ruido',
 				'Too noisy',
 				'Unfriendly staff'
 			  ],
@@ -69,6 +69,7 @@ export class EstadisticasComponent implements OnInit {
 			  }
 			}],
 			series: [{
+			  color: 'rgb(201, 223, 238)',
 			  type: 'pareto',
 			  name: 'Pareto',
 			  yAxis: 1,
@@ -79,6 +80,7 @@ export class EstadisticasComponent implements OnInit {
 				valueSuffix: '%'
 			  }
 			}, {
+			  color: 'rgb(0, 100, 175)',
 			  name: 'Quejas',
 			  type: 'column',
 			  zIndex: 2,
