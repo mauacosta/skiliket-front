@@ -10,6 +10,7 @@ import { TableroComponent } from './body/tablero/tablero.component';
 import { EstadisticasComponent } from './body/estadisticas/estadisticas.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NoticiasComponent } from './body/noticias/noticias.component';
+import { PerfilComponent } from './body/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NoticiasComponent } from './body/noticias/noticias.component';
     BodyComponent,
     TableroComponent,
     EstadisticasComponent,
-    NoticiasComponent
+    NoticiasComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
