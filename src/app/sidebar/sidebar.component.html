@@ -66,87 +66,66 @@
 							<form class="needs-validation" novalidate>
 								<div class="row g-3">
 									<div class="col-sm-6">
-										<label for="firstName" class="form-label">First name</label>
+										<label for="firstName" class="form-label">Nombre(s)</label>
 										<input type="text" class="form-control" id="firstName" placeholder="" value=""
 											required>
 										<div class="invalid-feedback">
-											Valid first name is required.
+											Nombre valido es requerido.
 										</div>
 									</div>
 
 									<div class="col-sm-6">
-										<label for="lastName" class="form-label">Last name</label>
+										<label for="lastName" class="form-label">Apellidos</label>
 										<input type="text" class="form-control" id="lastName" placeholder="" value=""
 											required>
 										<div class="invalid-feedback">
-											Valid last name is required.
+											Apellidos validos son requeridos
 										</div>
 									</div>
 
 									<div class="col-12">
-										<label for="username" class="form-label">Username</label>
-										<div class="input-group has-validation">
-											<span class="input-group-text">@</span>
-											<input type="text" class="form-control" id="username" placeholder="Username"
-												required>
-											<div class="invalid-feedback">
-												Your username is required.
-											</div>
-										</div>
+										<div class="form-floating">
+											<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" style="height: 100px"></textarea>
+											<label for="floatingTextarea">Describa el reporte</label>
+										  </div>
 									</div>
 
 									<div class="col-12">
 										<label for="email" class="form-label">Correo</label>
 										<input type="email" class="form-control" id="email"
-											placeholder="you@example.com">
+											placeholder="juan@ejemplo.com">
 										<div class="invalid-feedback">
 											Favor de escribir un correo valido de contacto.
 										</div>
 									</div>
 
 									<div class="col-12">
-										<label for="address" class="form-label">Dirección</label>
+										<label for="address" class="form-label">Dirección del incidente</label>
 										<input type="text" class="form-control" id="address" placeholder="15630 Teresa Urrea"
 											required>
 										<div class="invalid-feedback">
-											Faor de introducir la dirección de lo sucedido.
+											Favor de introducir la dirección de lo sucedido.
 										</div>
 									</div>
 
-									<div class="col-12">
-										<label for="address2" class="form-label">Address 2 <span
-												class="text-muted">(Optional)</span></label>
-										<input type="text" class="form-control" id="address2"
-											placeholder="Apartment or suite">
-									</div>
 
-									<div class="col-md-5">
-										<label for="country" class="form-label">Country</label>
+									<div class="col-md-8">
+										<label for="country" class="form-label">Colonia</label>
 										<select class="form-select" id="country" required>
-											<option value="">Choose...</option>
-											<option>United States</option>
+											<option value="">Escoger...</option>
+											<option>San Bartolo el Chico</option>
+											<option>San Bartolo el Chico</option>
 										</select>
 										<div class="invalid-feedback">
-											Please select a valid country.
+											Fabor de seleccionar una colonia
 										</div>
 									</div>
 
 									<div class="col-md-4">
-										<label for="state" class="form-label">State</label>
-										<select class="form-select" id="state" required>
-											<option value="">Choose...</option>
-											<option>California</option>
-										</select>
-										<div class="invalid-feedback">
-											Please provide a valid state.
-										</div>
-									</div>
-
-									<div class="col-md-3">
-										<label for="zip" class="form-label">Zip</label>
+										<label for="zip" class="form-label">Codigo Postal</label>
 										<input type="text" class="form-control" id="zip" placeholder="" required>
 										<div class="invalid-feedback">
-											Zip code required.
+											Codigo Postal requerido.
 										</div>
 									</div>
 								</div>
