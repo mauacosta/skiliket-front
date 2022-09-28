@@ -31,7 +31,8 @@ import { ReportesComponent } from './body/reportes/reportes.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-	HttpClientModule
+	HttpClientModule,
+	FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

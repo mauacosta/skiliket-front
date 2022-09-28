@@ -1,15 +1,36 @@
 import { Component, OnInit } from '@angular/core';
+import { climaData } from 'src/app/modelos/clima.model';
+import { ClimaService } from 'src/app/services/clima.service';
 
 @Component({
-  selector: 'app-reportes',
-  templateUrl: './reportes.component.html',
-  styleUrls: ['./reportes.component.css']
+	selector: 'app-reportes',
+	templateUrl: './reportes.component.html',
+	styleUrls: ['./reportes.component.css']
 })
 export class ReportesComponent implements OnInit {
 
-  constructor() { }
+	constructor(private climaService: ClimaService) { }
 
-  ngOnInit(): void {
-  }
+	nombreCiudad: string = 'Buenos Aires';
+	climaData?: climaData;
 
+	ngOnInit(): void {
+		this.getClimaData(this.nombreCiudad);
+		this.nombreCiudad = '';
+	}
+
+	onSubmit() { 
+		this.getClimaData(this.nombreCiudad);
+		this.nombreCiudad = '';
+	}
+
+	private getClimaData(nombreCiudad: string) {
+		this.climaService.getClimaData(nombreCiudad)
+			.subscribe({
+				next: (response) => {
+					this.climaData = response;
+					console.log(response);
+				}
+			});
+	}
 }

@@ -1,13 +1,19 @@
 <app-sidebar></app-sidebar>
 <div class="col" id="infoSeccion">
-	<div class="container">
+	<div class="container" *ngIf="climaData">
+		<div class="buscar">
+			<form #form="ngForm" (submit)="onSubmit()">
+				<input type="text" placeholder="Buscar ciudad" name="ciudad" [(ngModel)]="nombreCiudad">
+				
+			</form>
+		</div>
 		<div class="upper-data">
-			<img src="../../../assets/img/dia.png" *ngIf="14 > 15" alt="">
-			<img src="../../../assets/img/noche.png" *ngIf="14 <= 15" alt="">
+			<img src="../../../assets/img/dia.png" *ngIf="climaData.main.temp> 15" alt="">
+			<img src="../../../assets/img/noche.png" *ngIf="climaData.main.temp <= 15" alt="">
 
 			<div class="weather-data">
-				<div class="location">Ciudad de México</div>
-				<div class="temperature">{{ 14.40 | number: '1.0-0'}}°C</div>
+				<div class="location">{{climaData.name}}</div>
+				<div class="temperature">{{ climaData.main.temp | number: '1.0-0'}}°C</div>
 			</div>
 		</div>
 
@@ -21,7 +27,7 @@
 						<img src="../../../assets/img/termo-frio.jpg" alt="">
 						<span>min</span>
 					</div>
-					<div class="info-block-value">10°C</div>
+					<div class="info-block-value">{{climaData.main.temp_min | number: '1.0-0'}}°C</div>
 				</div>
 
 				<div class="info-block">
@@ -29,7 +35,7 @@
 						<img src="../../../assets/img/termo-calor.jpg" alt="">
 						<span>max</span>	
 					</div>
-					<div class="info-block-value">20°C</div>
+					<div class="info-block-value">{{climaData.main.temp_max | number: '1.0-0'}}°C</div>
 				</div>
 
 				<div class="info-block">
@@ -37,7 +43,7 @@
 						<img src="../../../assets/img/humedad.png" alt="">
 						<span>humidity</span>	
 					</div>
-					<div class="info-block-value">77%</div>
+					<div class="info-block-value">{{climaData.main.humidity}}%</div>
 				</div>
 
 				<div class="info-block">
@@ -45,7 +51,7 @@
 						<img src="../../../assets/img/viento.png" alt="">
 						<span>viento</span>
 					</div>
-					<div class="info-block-value">11km/h</div>
+					<div class="info-block-value">{{climaData.wind.speed}}km/h</div>
 				</div>
 			</div>
 		</div>
