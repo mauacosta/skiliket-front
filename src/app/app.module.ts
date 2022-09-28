@@ -11,6 +11,7 @@ import { EstadisticasComponent } from './body/estadisticas/estadisticas.componen
 import { AppRoutingModule } from './app-routing.module';
 import { NoticiasComponent } from './body/noticias/noticias.component';
 import { PerfilComponent } from './body/perfil/perfil.component';
+import { ReportesComponent } from './body/reportes/reportes.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { PerfilComponent } from './body/perfil/perfil.component';
     TableroComponent,
     EstadisticasComponent,
     NoticiasComponent,
-    PerfilComponent
+    PerfilComponent,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,
