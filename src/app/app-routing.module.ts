@@ -11,6 +11,7 @@ import { MainComponent } from './body/main/main.component';
 import { PerfilComponent } from './body/perfil/perfil.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { AdministarCuentasComponent } from './body/administrarCuentas/administrarCuentas.component';
 
 const routes: Routes = [
 	{ path: 'estadisticas', component: EstadisticasComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
 	{ path: 'main', component: MainComponent },
 	{ path: 'sidebar', component: SidebarComponent },
 	{ path: 'header', component: HeaderComponent },
-	{ path: 'perfil', component: PerfilComponent }
+	{ path: 'perfil', component: PerfilComponent },
+	{ path: 'admin/cuentas', component: AdministarCuentasComponent}
 
 
 ];
