@@ -4,11 +4,11 @@
 
 export const environment = {
   production: false,
-  climaApiUrl: 'https://community-open-weather-map.p.rapidapi.com/weather',
+  climaApiUrl: 'https://open-weather13.p.rapidapi.com/city/mexico%20city',
   XRapidAPIHostLabel: 'X-RapidAPI-Host',
-  XRapidAPIHostHeaderValue: 'community-open-weather-map.p.rapidapi.com',
+  XRapidAPIHostHeaderValue: 'open-weather13.p.rapidapi.com',
   XRapidAPIKeyHeaderName: 'X-RapidAPI-Key',
-  XRapidAPIKeyHeaderValue: '9a2a38dbc0msh7572512ec0d630ap100a12jsnbaf79654fdd0'
+  XRapidAPIKeyHeaderValue: '117e5349c3mshf6db570f4919973p1c8aedjsnba7adc1dcc02'
 };
 
 /*

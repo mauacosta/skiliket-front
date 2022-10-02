@@ -15,6 +15,7 @@ import { ReportesComponent } from './body/reportes/reportes.component';
 
 const routes: Routes = [
 	{ path: 'estadisticas', component: EstadisticasComponent },
+	{ path: 'estadisticas/:Mes', component: EstadisticasComponent },
 	{ path: 'tablero', component: TableroComponent },
 	{ path: 'noticias', component: NoticiasComponent },
 	{ path: 'main', component: MainComponent },

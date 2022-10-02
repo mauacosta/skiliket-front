@@ -11,7 +11,7 @@ export class ReportesComponent implements OnInit {
 
 	constructor(private climaService: ClimaService) { }
 
-	nombreCiudad: string = 'Buenos Aires';
+	nombreCiudad: string = 'Mexico City';
 	climaData?: climaData;
 
 	ngOnInit(): void {

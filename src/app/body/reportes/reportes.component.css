@@ -3,7 +3,7 @@
 	width: 80%;
 	height: 100vh;
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-	font-size: 16px;
+	font-size: 14px;
 	background-color: var(--blue-2);
 	display: flex;
 	justify-content: center;
@@ -17,8 +17,9 @@
 }
 
 .container {
-	width: 400px;
+	width: 22vw;
 	height: 80vh;
+	margin-left: -70%;
 	background-color: var(--blue-2);
 	border-radius: 20px;
 	box-shadow: 10px 10px 10px var(--shadow-dark);
