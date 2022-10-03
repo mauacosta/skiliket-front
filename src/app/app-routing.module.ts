@@ -9,8 +9,8 @@ import { TableroComponent } from './body/tablero/tablero.component';
 import { NoticiasComponent } from './body/noticias/noticias.component';
 import { MainComponent } from './body/main/main.component';
 import { PerfilComponent } from './body/perfil/perfil.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { HeaderComponent } from './header/header.component';
+import { SidebarComponent } from './body/sidebar/sidebar.component';
+import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 
 const routes: Routes = [
