@@ -28,7 +28,7 @@ const routes: Routes = [
 	{ path: 'sidebar', component: SidebarComponent },
 	{ path: 'header', component: HeaderComponent },
 	{ path: 'perfil', component: PerfilComponent },
-	{ path: 'admin/cuentas', component: AdministarCuentasComponent}
+	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
 	{ path:'registro', component: RegistroComponent },
 	{ path: 'reportes', component: ReportesComponent }
 ];

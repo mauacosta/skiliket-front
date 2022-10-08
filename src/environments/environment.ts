@@ -1,3 +1,5 @@
+import * as dotenv from 'dotenv';
+dotenv.config();
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
@@ -12,12 +14,12 @@ export const environment = {
 };
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAY41XV2sUpxLEAlCU4ji-Lv9TSHqmtnbY",
-  authDomain: "smooth-league-364220.firebaseapp.com",
-  projectId: "smooth-league-364220",
-  storageBucket: "smooth-league-364220.appspot.com",
-  messagingSenderId: "214332462127",
-  appId: "1:214332462127:web:a5d8db5170bef4b09f62da"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID,
 };
 
 /*
