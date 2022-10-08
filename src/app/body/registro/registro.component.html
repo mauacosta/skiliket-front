@@ -1,0 +1,26 @@
+<div class="col-6" style="margin-left: 25%;" >
+    <img src="../../assets/img/logo.png" style="width: 12vw; height: auto;">
+    <h1 class="h3 mb-3 fw-normal">Bienvenido</h1>
+    <div class="authBlock">
+        <div class="form-floating">
+            <input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" #userEmail required>
+            <label for="floatingInput">Correo Electronico</label>
+        </div>
+    
+        <div class="form-floating">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" #userPwd required>
+            <label for="floatingPassword">Contraseña</label>
+        </div>
+    </div>
+    
+    <input type="button" class="w-100 mt-2 btn btn-lg btn-primary" value="Registrate" (click)="authService.SignUp(userEmail.value, userPwd.value)" />
+    <p class="mt-5 mb-3 text-muted">Skiliket&copy; 2022</p>
+
+    <div class="redirectToLogin">
+        <span>¿Ya tienes una cuenta en Skiliket? <a class="redirect link-secondary" routerLink="/header">Ingresa</a></span>
+    </div>
+
+</div>
+
+
+

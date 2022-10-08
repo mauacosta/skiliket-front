@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
-
+import { AuthGuard } from './guard/auth.guard';
 
 import { EstadisticasComponent } from './body/estadisticas/estadisticas.component';
 import { TableroComponent } from './body/tablero/tablero.component';
@@ -12,8 +12,12 @@ import { PerfilComponent } from './body/perfil/perfil.component';
 import { SidebarComponent } from './body/sidebar/sidebar.component';
 import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
+import { RegistroComponent } from './body/registro/registro.component';
+
+
 
 const routes: Routes = [
+	{ path: '', redirectTo: 'header', pathMatch: 'full' },
 	{ path: 'estadisticas', component: EstadisticasComponent },
 	{ path: 'estadisticas/:Mes', component: EstadisticasComponent },
 	{ path: 'tablero', component: TableroComponent },
@@ -21,10 +25,9 @@ const routes: Routes = [
 	{ path: 'main', component: MainComponent },
 	{ path: 'sidebar', component: SidebarComponent },
 	{ path: 'header', component: HeaderComponent },
+	{ path:'registro', component: RegistroComponent },
 	{ path: 'perfil', component: PerfilComponent },
 	{ path: 'reportes', component: ReportesComponent }
-
-
 ];
 
 @NgModule({

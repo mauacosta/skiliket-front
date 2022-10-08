@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { climaData } from 'src/app/modelos/clima.model';
+import { climaData } from 'src/app/models/clima.model';
 import { ClimaService } from 'src/app/services/clima.service';
 
 @Component({
