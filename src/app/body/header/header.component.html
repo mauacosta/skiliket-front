@@ -1,25 +1,23 @@
 <div class="col-6" style="margin-left: 25%;" *ngIf="mostrar">
 	<form>
 		<img src="../../assets/img/logo.png" style="width: 12vw; height: auto;">
-		<h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
-	
-		<div class="form-floating">
-			<input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
-			<label for="floatingInput">Correo Electronico</label>
-		</div>
-		<div class="form-floating">
-			<input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
-			<label for="floatingPassword">Contraseña</label>
-		</div>
-	
-		<div class="checkbox mb-3">
-		</div>
-		<button class="w-100 btn btn-lg btn-primary"><a href="/sidebar" (click)="iniciarSesion()" style="color: white; text-decoration:none;">Iniciar Sesión</a>
-		</button>
-		<button class="w-100 btn btn-lg btn-primary"><a href="/sidebar"  data-bs-toggle="modal"
-			data-bs-target="#exampleModal" style="color: white; text-decoration:none;">Registrarse</a>
-		</button>
-		<p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+	  <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
+  
+	  <div class="form-floating">
+		<input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" #userName required>
+		<label for="floatingInput">Correo Electronico</label>
+	  </div>
+	  <div class="form-floating">
+		<input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" #userPassword required>
+		<label for="floatingPassword">Contraseña</label>
+	  </div>
+  
+	  <div class="checkbox mb-3">
+		
+	  </div>
+	  <button class="w-100 btn btn-lg btn-primary"><a href="/sidebar" (click)="authService.SignIn(userName.value, userPassword.value)" style="color: white; text-decoration:none;">Iniciar Sesión</a>
+	  </button>
+	  <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 	</form>
 </div>
 
