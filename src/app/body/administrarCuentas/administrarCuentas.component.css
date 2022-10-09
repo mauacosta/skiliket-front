@@ -3,3 +3,11 @@
 	width: 80%;
 	height: 100vh;
 }
+.form-select{
+	width: 20%;
+	margin-right: 0px;
+	margin-left: 68%;
+}
+.bg-body{
+	width: 75%;
+}
