@@ -1,81 +1,229 @@
 <app-sidebar></app-sidebar>
-<div class="col" id="infoSeccion" >
-<main class="container">
-	<div class="d-flex align-items-center p-3 my-3 text-black bg-purple rounded shadow-sm">
-	  <img class="me-3" src="../../assets/img/logo.png" alt="" width="80" height="auto">
-	  <div class="lh-1">
-		<h1 class="h6 mb-0 text-black lh-1">Skilliket</h1>
-		<small>Desde 2022</small>
-	  </div>
-	</div>
-  
-	<div class="my-3 p-3 bg-body rounded shadow-sm">
-	  <h6 class="border-bottom pb-2 mb-0">Información reciente</h6>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-  
-		<p class="pb-3 mb-0 small lh-sm border-bottom">
-		  <strong class="d-block text-gray-dark">@username</strong>
-		  Some representative placeholder content, with some information about this user. Imagine this being some sort of status update, perhaps?
-		</p>
-	  </div>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#e83e8c"/><text x="50%" y="50%" fill="#e83e8c" dy=".3em">32x32</text></svg>
-  
-		<p class="pb-3 mb-0 small lh-sm border-bottom">
-		  <strong class="d-block text-gray-dark">@username</strong>
-		  Some more representative placeholder content, related to this other user. Another status update, perhaps.
-		</p>
-	  </div>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#6f42c1"/><text x="50%" y="50%" fill="#6f42c1" dy=".3em">32x32</text></svg>
-  
-		<p class="pb-3 mb-0 small lh-sm border-bottom">
-		  <strong class="d-block text-gray-dark">@username</strong>
-		  This user also gets some representative placeholder content. Maybe they did something interesting, and you really want to highlight this in the recent updates.
-		</p>
-	  </div>
-	  <small class="d-block text-end mt-3">
-		<a href="#">All updates</a>
-	  </small>
-	</div>
-  
-	<div class="my-3 p-3 bg-body rounded shadow-sm">
-	  <h6 class="border-bottom pb-2 mb-0">Vecinos destacados en la última semana</h6>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-  
-		<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-		  <div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">Full Name</strong>
-		  </div>
-		  <span class="d-block"><a href="/perfil">@username</a></span>
+<div class="col" id="infoSeccion">
+	<main class="container">
+		<div class="d-flex align-items-center p-3 my-3 text-black bg-purple rounded shadow-sm">
+			<img class="me-3" src="../../assets/img/logo.png" alt="" width="80" height="auto">
+			<div class="lh-1">
+				<h1 class="h6 mb-0 text-black lh-1">Skilliket</h1>
+				<small>Desde 2022</small>
+			</div>
 		</div>
-	  </div>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-  
-		<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-		  <div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">Full Name</strong>
-		  </div>
-		  <span class="d-block"><a href="/perfil">@username</a></span>
+
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<h6 class="border-bottom pb-2 mb-0">Últimas noticias</h6>
+			<ng-container *ngFor="let noticiaItem of NoticiaList; let i=index;">
+				<div class="d-flex text-muted pt-3" *ngIf="i<3">
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 0" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+							dy=".3em">32x32</text>
+					</svg>
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 1" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#e83e8c" /><text x="50%" y="50%" fill="#e83e8c"
+							dy=".3em">32x32</text>
+					</svg>
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 2" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#6f42c1" /><text x="50%" y="50%" fill="#6f42c1"
+							dy=".3em">32x32</text>
+					</svg>
+					<div class="col-9">
+						<p class="pb-3 mb-0 small lh-sm border-bottom">
+							<strong class="d-block text-gray-dark">{{noticiaItem.nombre}}</strong>
+							{{noticiaItem.descripcion}}<br>
+							<strong>Por: {{noticiaItem.correo}}</strong>
+						</p>
+					</div>
+					<!--Modal para editar las noticias-->
+					<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.correo" tabindex="-1"
+						aria-labelledby="modalRiesgoLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title fs-5 fw-bold">Llene los campos para
+										editar la noticia {{noticiaItem.descripcion}}</h5>
+									<button type="button" class="btn-close" data-bs-dismiss="modal"
+										aria-label="Close"></button>
+								</div>
+								<div class="modal-body">
+									<app-form-noticias [noticia]="noticia"></app-form-noticias>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-2" style="margin-left: 3vw;">
+						<button type="button" class="btn btn-success" (click)="editClick(noticiaItem)"
+							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.correo"
+							data-backdrop="static" data-keyboard="false">Editar
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-pencil-square" viewBox="0 0 16 16">
+								<path
+									d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+								<path fill-rule="evenodd"
+									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+							</svg>
+						</button>
+						<button type="button" class="btn btn-danger">Eliminar
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-trash3" viewBox="0 0 16 16">
+								<path
+									d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</ng-container>
+			<small class="d-block text-end mt-3">
+				<a href="#">Todas las noticias</a>
+			</small>
 		</div>
-	  </div>
-	  <div class="d-flex text-muted pt-3">
-		<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-  
-		<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-		  <div class="d-flex justify-content-between">
-			<strong class="text-gray-dark">Full Name</strong>
-			
-		  </div>
-		  <span class="d-block"><a href="/perfil">@username</a></span>
+		<div class="my-3 p-3 bg-body rounded shadow-sm">
+			<!--<h6 class="border-bottom pb-2 mb-0">Vecinos destacados en la última semana</h6>-->
+			<h6 class="border-bottom pb-2 mb-0">Quejas más recientes</h6>
+			<ng-container *ngFor="let quejaItem of QuejaList; let i=index;">
+				<!--Modal para editar las noticias-->
+				<div class="modal fade" [attr.id]="'editarQueja' + quejaItem.correo" tabindex="-1"
+					aria-labelledby="modalRiesgoLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title fs-5 fw-bold">Llene los campos para
+									editar la queja:  {{quejaItem.descripcion}}</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<app-form-quejas [queja]="queja"></app-form-quejas>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="d-flex text-muted pt-3" *ngIf="i<3">
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 0" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#007bff" /><text x="50%" y="50%" fill="#007bff"
+							dy=".3em">32x32</text>
+					</svg>
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 1" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#e83e8c" /><text x="50%" y="50%" fill="#e83e8c"
+							dy=".3em">32x32</text>
+					</svg>
+					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 2" width="32" height="32"
+						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
+						preserveAspectRatio="xMidYMid slice" focusable="false">
+						<title>Placeholder</title>
+						<rect width="100%" height="100%" fill="#6f42c1" /><text x="50%" y="50%" fill="#6f42c1"
+							dy=".3em">32x32</text>
+					</svg>
+					<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+						<div class="d-flex justify-content-between col-10">
+							<p class="pb-3 mb-0 small lh-sm border-bottom">
+								<strong class="d-block text-gray-dark">{{quejaItem.naturaleza}}</strong>
+								{{quejaItem.descripcion}}
+							</p>
+						</div>
+						<span class="d-block">Por: <a href="/perfil">{{quejaItem.correo}}</a></span>
+					</div>
+					<div class="col-2">
+						<button type="button" class="btn btn-success" (click)="editClick(quejaItem)"
+							data-bs-toggle="modal" [attr.data-bs-target]="'#editarQueja' + quejaItem.correo"
+							data-backdrop="static" data-keyboard="false">Editar
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-pencil-square" viewBox="0 0 16 16">
+								<path
+									d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+								<path fill-rule="evenodd"
+									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+							</svg>
+						</button>
+						<button type="button" class="btn btn-danger" data-bs-toggle="modal"
+							[attr.data-bs-target]="'#eliminar' ">Eliminar
+							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+								class="bi bi-trash3" viewBox="0 0 16 16">
+								<path
+									d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
+							</svg>
+						</button>
+					</div>
+				</div>
+			</ng-container>
+			<small class="d-block text-end mt-3">
+				<a href="#">Todas las quejas</a>
+			</small>
 		</div>
-	  </div>
-	  <small class="d-block text-end mt-3">
-		<a href="#">All suggestions</a>
-	  </small>
+	</main>
+</div>
+
+<!--Modal de estatus correcto para la edición de las quejas-->
+<div class="modal" id="editarRiesgo">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/listaRiesgos">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Queja, editado exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/listaRiesgos">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
+		</div>
 	</div>
-  </main>
+</div>
+
+<!--Modal de estatus correcto para la edición de las noticias-->
+<div class="modal" id="editarNoticia">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/listaRiesgos">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Queja, editado exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/listaRiesgos">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
+		</div>
+	</div>
 </div>

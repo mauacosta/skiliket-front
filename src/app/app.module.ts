@@ -23,6 +23,7 @@ import { NoticiasComponent } from './body/noticias/noticias.component';
 import { PerfilComponent } from './body/perfil/perfil.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
+import { FormNoticiasComponent } from './body/form-noticias/form-noticias.component';
 import { AdministarCuentasComponent } from './body/administrarCuentas/administrarCuentas.component';
 import { firebaseConfig } from '../environments/environment';
 
@@ -40,6 +41,7 @@ import { firebaseConfig } from '../environments/environment';
     PerfilComponent,
     ReportesComponent,
     FormQuejasComponent,
+    FormNoticiasComponent,
     AdministarCuentasComponent,
     FormQuejasComponent
   ],

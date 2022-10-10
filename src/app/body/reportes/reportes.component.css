@@ -19,10 +19,17 @@
 .container {
 	width: 22vw;
 	height: 80vh;
-	margin-left: -70%;
 	background-color: var(--blue-2);
 	border-radius: 20px;
 	box-shadow: 10px 10px 10px var(--shadow-dark);
+}
+.reports {
+	width: 70%;
+	height: 100vh;
+	background-color: red;
+	z-index: 5;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-size: 14px;
 }
 
 .upper-data {

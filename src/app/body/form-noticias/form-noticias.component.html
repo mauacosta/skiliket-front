@@ -1,0 +1,97 @@
+<div class="container">
+	<div class="py-5 text-center">
+		<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
+		<h2>Formulario de noticia</h2>
+		<p class="lead">Llene los campos adyacentes para dar de alta está noticia/reporte en su localidad
+		</p>
+	</div>
+
+	<div class="row">
+		<div class="col">
+			<h4 class="mb-3">Información personal</h4>
+			<div class="row g-3">
+				<div class="col-sm-6">
+					<label for="firstName" class="form-label">Nombre(s)</label>
+					<input type="text"  [(ngModel)]="nombre"  class="form-control" id="firstName" placeholder="" required>
+					<div class="invalid-feedback">
+						Nombre valido es requerido.
+					</div>
+				</div>
+
+				<div class="col-sm-6">
+					<label for="lastName" class="form-label">Apellidos</label>
+					<input type="text"  [(ngModel)]="apellido" class="form-control" id="lastName" placeholder="" value="" required>
+					<div class="invalid-feedback">
+						Apellidos validos son requeridos
+					</div>
+				</div>
+
+				<div class="col-12">
+					<div class="form-floating">
+						<textarea class="form-control"  [(ngModel)]="descripcionNoticia" placeholder="Leave a comment here" id="floatingTextarea"
+							style="height: 100px"></textarea>
+						<label for="floatingTextarea">Describa el reporte</label>
+					</div>
+				</div>
+
+				<div class="col-12">
+					<label for="email" class="form-label">Correo</label>
+					<input type="email"  [(ngModel)]="correoNoticia" class="form-control" id="email" placeholder="juan@ejemplo.com">
+					<div class="invalid-feedback">
+						Favor de escribir un correo valido de contacto.
+					</div>
+				</div>
+
+				<div class="col-12">
+					<label for="address" class="form-label">Dirección del incidente</label>
+					<input type="text"  [(ngModel)]="direccionNoticia" class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
+					<div class="invalid-feedback">
+						Favor de introducir la dirección de lo sucedido.
+					</div>
+				</div>
+				<div class="col-md-8">
+					<label for="country" class="form-label">Colonia</label>
+					<select class="form-select"  [(ngModel)]="coloniaNoticia" id="country" required>
+						<option value="">Escoger...</option>
+						<option value="San Bartolo el Chico">San Bartolo el Chico</option>
+						<option value="Teresa Urrea">Teresa Urrea</option>
+					</select>
+					<div class="invalid-feedback">
+						Fabor de seleccionar una colonia
+					</div>
+				</div>
+
+				<div class="col-md-4">
+					<label for="zip" class="form-label">Codigo Postal</label>
+					<input type="text" class="form-control"  [(ngModel)]="codigoPostal"  id="zip" placeholder="" required>
+					<div class="invalid-feedback">
+						Codigo Postal requerido.
+					</div>
+				</div>
+			</div>
+			<hr class="my-4">
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" id="same-address">
+				<label class="form-check-label" for="same-address">Acepto que se publique mi información
+					en la seccion de noticas
+				</label>
+			</div>
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" id="save-info">
+				<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
+					colonia</label>
+			</div>
+			<hr class="my-4">
+			<a >
+				<!--*ngIf="noticia.Anadir === 0" -->
+				<button (click)="anadirNoticia()" class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+					Dar de alta la noticia</button>
+			</a>
+			<a >
+				<button (click)="editarNoticia()"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+					Editar la noticia</button>
+			</a>
+		</div>
+	</div>
+
+</div>
