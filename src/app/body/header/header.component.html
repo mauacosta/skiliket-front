@@ -4,128 +4,19 @@
 	  <h1 class="h3 mb-3 fw-normal">Inicia sesión</h1>
   
 	  <div class="form-floating">
-		<input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com" #userName required>
+		<input type="email" class="form-control" id="floatingInput" placeholder="nombre@ejemplo.com">
 		<label for="floatingInput">Correo Electronico</label>
 	  </div>
 	  <div class="form-floating">
-		<input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña" #userPassword required>
+		<input type="password" class="form-control" id="floatingPassword" placeholder="Contraseña">
 		<label for="floatingPassword">Contraseña</label>
 	  </div>
   
 	  <div class="checkbox mb-3">
-		
 	  </div>
-	  <a (click)="authService.SignIn(userName.value, userPassword.value)" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-primary mb-5">Iniciar Sesión</button></a>
-	  <p class="lead">¿Todavía no tienes una cuenta?</p>
-	  <a data-bs-toggle="modal"data-bs-target="#exampleModal" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-secondary">Registrarse</button></a>
+	  <button class="w-100 btn btn-lg btn-primary"><a href="/sidebar" (click)="iniciarSesion()" style="color: white; text-decoration:none;">Iniciar Sesión</a>
+	  </button>
 	  <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 	</form>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="container">
-			
-					<div class="py-5 px-3">
-						<img class="d-block mx-auto mb-4 text-center" src="../../assets/img/logo.png" alt="logo de skiliket" width="200" height="auto">
-						<h2>¡Bienvenido a Skiliket!</h2>
-						<p class="lead">Llene los campos adyacentes para enviar su solicitud a los Adminsitradores de su colonia</p>
-					</div>
-
-					<div class="row p-inherit">
-						<div class="col">
-							<h4 class="mb-3">Información personal</h4>
-							<form class="needs-validation">
-								<div class="row g-3">
-									<div class="col-sm-6">
-										<label for="firstName" class="form-label">Nombre(s)</label>
-										<input type="text" class="form-control" id="firstName" placeholder="" value="" #userFirstName required>
-										<div class="invalid-feedback">
-											Nombre valido es requerido.
-										</div>
-									</div>
-
-									<div class="col-sm-6">
-										<label for="lastName" class="form-label">Apellidos</label>
-										<input type="text" class="form-control" id="lastName" placeholder="" value="" #userLastName required>
-										<div class="invalid-feedback">
-											Apellidos validos son requeridos
-										</div>
-									</div>
-
-									<div class="col-12">
-										<label for="email" class="form-label">Correo</label>
-										<input type="email" class="form-control" id="email" placeholder="juan@ejemplo.com" #userEmail required>
-										<div class="invalid-feedback">
-											Favor de escribir un correo valido de contacto.
-										</div>
-									</div>
-
-									<div class="col-12">
-										<label for="password" class="form-label">Contraseña</label>
-										<input type="password" class="form-control" id="password" #userPwd required>
-										<div class="invalid-feedback">
-											Favor de escribir una Contraseña valida.
-										</div>
-									</div>
-
-									<div class="col-12">
-										<label for="address" class="form-label">Dirección</label>
-										<input type="text" class="form-control" id="address" placeholder="15630 Teresa Urrea" #userAddress required>
-										<div class="invalid-feedback">
-											Favor de introducir su Dirección.
-										</div>
-									</div>
-
-
-									<div class="col-md-8">
-										<label for="neighborhood" class="form-label">Colonia</label>
-										<select class="form-select" id="neighborhood" #userNeighborhood required>
-											<option value="">Escoger...</option>
-											<option>San Bartolo el Chico</option>
-											<option>Coyoacán</option>
-											<option>San Miguel Chapultepec</option>
-											<option>San Miguel Topilejo</option>
-											<option>San Miguel Xico</option>
-											<option>Tepepan</option>
-											<option>San Miguel Totolapan</option>
-											<option>Polanco</option>
-											<option>Acatlán</option>
-											<option>Campestre Churubusco</option>
-										</select>
-										<div class="invalid-feedback">
-											Por Favor selecciona una colonia
-										</div>
-									</div>
-
-									<div class="col-md-4">
-										<label for="zip" class="form-label">Codigo Postal</label>
-										<input type="text" class="form-control" id="zip" placeholder="" #userZipCode required >
-										<div class="invalid-feedback">
-											Codigo Postal requerido.
-										</div>
-									</div>
-								</div>
-
-								<hr class="my-4">
-								<label for="zip" class="form-label"><a>En la siguiente liga puede encontrar los terminos y condiciones para el uso de Skiliket</a></label>
-								<div class="form-check">
-									<input type="checkbox" class="form-check-input" id="same-address">
-									<label class="form-check-label" for="same-address">He leído y acepto los términos y condiciones de uso
-									</label>
-								</div>
-
-								<hr class="my-4">
-
-								<button class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;" 
-								(click)="authService.SignUp(userFirstName.value, userLastName.value, userEmail.value, userPwd.value, userAddress.value, userNeighborhood.value, userZipCode.value)">
-								Registrarme</button>
-							</form>
-						</div>
-					</div>
-				
-			</div>
-		</div>
 	</div>
-</div>
+  

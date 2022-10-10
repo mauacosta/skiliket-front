@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import * as Highcharts from 'highcharts';
 import { climaData } from 'src/app/modelos/clima.model';
-=======
-import { climaData } from 'src/app/models/clima.model';
->>>>>>> auth-mau
 import { ClimaService } from 'src/app/services/clima.service';
 
 
