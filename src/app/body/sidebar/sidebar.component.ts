@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
 
 @Component({
 	selector: 'app-sidebar',
@@ -19,12 +21,24 @@ export class SidebarComponent implements OnInit {
 	correo: string = "";
 	direccion: string = "";
 	activarModal: boolean = false;
+	user: User = JSON.parse(localStorage.getItem('user')!);
+	userData: any;
+
+
+
 
 	ngOnInit(): void {
-		this.naturaleza = this.queja.naturaleza;
-		this.descripcion = this.queja.descripcion;
-		this.correo = this.queja.correo;
-		this.direccion = this.queja.direccion;
+		var queja = {
+			naturaleza: this.naturaleza,
+			descripcion: this.descripcion,
+			correo: this.correo,
+			direccion: this.direccion
+		};
+
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
+		
 	}
 
 

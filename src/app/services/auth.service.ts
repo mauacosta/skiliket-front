@@ -42,11 +42,8 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['sidebar']);
-          }
-        });
+        this.afAuth.authState;
+        this.router.navigate(['sidebar']);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -69,13 +66,10 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        this.SendVerificationMail();
+        //this.SendVerificationMail();
         this.SetUserData(result.user, additionalData);
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            this.router.navigate(['sidebar']);
-          }
-        });
+        this.afAuth.authState.subscribe;
+        this.router.navigate(['sidebar']);
       })
       .catch((error) => {
         window.alert(error.message);
@@ -103,7 +97,8 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    return user !== null && user.emailVerified !== false ? true : false;
+    return user !== null;
+    //&& user.emailVerified !== false ? true : false
   }
 
   // Delete user by uid
@@ -122,11 +117,30 @@ export class AuthService {
       });
   }
 
+  DeleteThisAccount() {
+    return this.afAuth.currentUser
+    .then((user:any) => {
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+        `users/${user.uid}`
+      );
+      userRef.delete().catch((error) => {
+        window.alert(error);
+      });
+      user.delete().catch((err:any) => {
+        window.alert(err);
+      });
+    })
+    .then(() => {
+      localStorage.removeItem('user');
+      this.router.navigate(['header']);
+    });
+    
+  }
+
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any, moreData?: any) {
-    console.log(user);
     
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
       `users/${user.uid}`
@@ -148,8 +162,21 @@ export class AuthService {
 
     return userRef.set(userData, {
       merge: true,
-    });
+    }); 
   }
+
+
+
+  GetUserData(user: any) {
+    console.log(user);
+    
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${user.uid}`
+    );
+
+    return userRef.get()
+  }
+
   // Sign out
   SignOut() {
     return this.afAuth.signOut().then(() => {
@@ -157,4 +184,5 @@ export class AuthService {
       this.router.navigate(['header']);
     });
   }
+
 }

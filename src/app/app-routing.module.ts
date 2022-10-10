@@ -25,9 +25,9 @@ const routes: Routes = [
 	{ path: 'tablero', component: TableroComponent },
 	{ path: 'noticias', component: NoticiasComponent },
 	{ path: 'main', component: MainComponent },
-	{ path: 'sidebar', component: SidebarComponent, },
+	{ path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
 	{ path: 'header', component: HeaderComponent },
-	{ path: 'perfil', component: PerfilComponent},
+	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
 	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
 	{ path: 'reportes', component: ReportesComponent },
 

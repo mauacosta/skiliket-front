@@ -15,9 +15,9 @@
 	  <div class="checkbox mb-3">
 		
 	  </div>
-	  <a href="/sidebar" (click)="authService.SignIn(userName.value, userPassword.value)" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-primary mb-5">Iniciar Sesión</button></a>
+	  <a (click)="authService.SignIn(userName.value, userPassword.value)" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-primary mb-5">Iniciar Sesión</button></a>
 	  <p class="lead">¿Todavía no tienes una cuenta?</p>
-	  <a href="/sidebar"  data-bs-toggle="modal"data-bs-target="#exampleModal" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-secondary">Registrarse</button></a>
+	  <a data-bs-toggle="modal"data-bs-target="#exampleModal" style="color: white; text-decoration:none;"><button class="w-100 btn btn-lg btn-secondary">Registrarse</button></a>
 	  <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
 	</form>
 </div>
