@@ -14,23 +14,24 @@ import { AdministarCuentasComponent } from './body/administrarCuentas/administra
 import { SidebarComponent } from './body/sidebar/sidebar.component';
 import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
-import { RegistroComponent } from './body/registro/registro.component';
 
 
 
 const routes: Routes = [
 	{ path: '', redirectTo: 'header', pathMatch: 'full' },
+
 	{ path: 'estadisticas', component: EstadisticasComponent },
 	{ path: 'estadisticas/:Mes', component: EstadisticasComponent },
 	{ path: 'tablero', component: TableroComponent },
 	{ path: 'noticias', component: NoticiasComponent },
 	{ path: 'main', component: MainComponent },
-	{ path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
+	{ path: 'sidebar', component: SidebarComponent, },
 	{ path: 'header', component: HeaderComponent },
-	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
+	{ path: 'perfil', component: PerfilComponent},
 	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
-	{ path:'registro', component: RegistroComponent },
-	{ path: 'reportes', component: ReportesComponent }
+	{ path: 'reportes', component: ReportesComponent },
+
+	{ path: '**', redirectTo: 'header' }
 ];
 
 @NgModule({

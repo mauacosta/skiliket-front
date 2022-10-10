@@ -1,9 +1,11 @@
 import { Injectable, NgZone } from '@angular/core';
 import { User } from '../models/user';
 import * as auth from 'firebase/auth';
+import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import {AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+
 
 
 @Injectable({
@@ -31,12 +33,15 @@ export class AuthService {
       }
     });
   }
+
+  
+
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        //this.SetUserData(result.user);
+        this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
             this.router.navigate(['sidebar']);
@@ -47,16 +52,30 @@ export class AuthService {
         window.alert(error.message);
       });
   }
+
   // Sign up with email/password
-  SignUp(email: string, password: string) {
+  SignUp(firstname:string, lastname:string, email: string, password: string, address: string, neighborhood: string, zipcode:string) {
+
+    let additionalData = {
+      firstname: firstname,
+      lastname: lastname,
+      address: address,
+      neighborhood: neighborhood,
+      zipcode: zipcode
+    }
+
     return this.afAuth
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        //this.SendVerificationMail();
-        //this.SetUserData(result.user);
-        this.router.navigate(['sidebar']);
+        this.SendVerificationMail();
+        this.SetUserData(result.user, additionalData);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['sidebar']);
+          }
+        });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -87,6 +106,8 @@ export class AuthService {
     return user !== null && user.emailVerified !== false ? true : false;
   }
 
+  // Delete user by uid
+ 
 
   // Auth logic to run auth providers
   AuthLogin(provider: any) {
@@ -100,10 +121,11 @@ export class AuthService {
         window.alert(error);
       });
   }
+
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
-  SetUserData(user: any) {
+  SetUserData(user: any, moreData?: any) {
     console.log(user);
     
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
@@ -113,10 +135,17 @@ export class AuthService {
     const userData: User = {
       uid: user.uid,
       email: user.email,
-      displayName: user.displayName,
-      photoURL: user.photoURL,
       emailVerified: user.emailVerified,
     };
+
+    if (moreData) {
+      userData.firstname = moreData.firstname;
+      userData.lastname = moreData.lastname;
+      userData.address = moreData.address;
+      userData.neighborhood = moreData.neighborhood;
+      userData.zipcode = moreData.zipcode;
+    }
+
     return userRef.set(userData, {
       merge: true,
     });

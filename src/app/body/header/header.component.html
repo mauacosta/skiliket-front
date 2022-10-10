@@ -40,7 +40,7 @@
 								<div class="row g-3">
 									<div class="col-sm-6">
 										<label for="firstName" class="form-label">Nombre(s)</label>
-										<input type="text" class="form-control" id="firstName" placeholder="" value="">
+										<input type="text" class="form-control" id="firstName" placeholder="" value="" #userFirstName required>
 										<div class="invalid-feedback">
 											Nombre valido es requerido.
 										</div>
@@ -48,7 +48,7 @@
 
 									<div class="col-sm-6">
 										<label for="lastName" class="form-label">Apellidos</label>
-										<input type="text" class="form-control" id="lastName" placeholder="" value="">
+										<input type="text" class="form-control" id="lastName" placeholder="" value="" #userLastName required>
 										<div class="invalid-feedback">
 											Apellidos validos son requeridos
 										</div>
@@ -72,7 +72,7 @@
 
 									<div class="col-12">
 										<label for="address" class="form-label">Dirección</label>
-										<input type="text" class="form-control" id="address" placeholder="15630 Teresa Urrea" >
+										<input type="text" class="form-control" id="address" placeholder="15630 Teresa Urrea" #userAddress required>
 										<div class="invalid-feedback">
 											Favor de introducir su Dirección.
 										</div>
@@ -80,11 +80,19 @@
 
 
 									<div class="col-md-8">
-										<label for="country" class="form-label">Colonia</label>
-										<select class="form-select" id="country" >
+										<label for="neighborhood" class="form-label">Colonia</label>
+										<select class="form-select" id="neighborhood" #userNeighborhood required>
 											<option value="">Escoger...</option>
 											<option>San Bartolo el Chico</option>
 											<option>Coyoacán</option>
+											<option>San Miguel Chapultepec</option>
+											<option>San Miguel Topilejo</option>
+											<option>San Miguel Xico</option>
+											<option>Tepepan</option>
+											<option>San Miguel Totolapan</option>
+											<option>Polanco</option>
+											<option>Acatlán</option>
+											<option>Campestre Churubusco</option>
 										</select>
 										<div class="invalid-feedback">
 											Por Favor selecciona una colonia
@@ -93,7 +101,7 @@
 
 									<div class="col-md-4">
 										<label for="zip" class="form-label">Codigo Postal</label>
-										<input type="text" class="form-control" id="zip" placeholder="" >
+										<input type="text" class="form-control" id="zip" placeholder="" #userZipCode required >
 										<div class="invalid-feedback">
 											Codigo Postal requerido.
 										</div>
@@ -110,7 +118,9 @@
 
 								<hr class="my-4">
 
-								<button class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;" (click)="authService.SignUp(userEmail.value, userPwd.value)">Registrarme</button>
+								<button class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;" 
+								(click)="authService.SignUp(userFirstName.value, userLastName.value, userEmail.value, userPwd.value, userAddress.value, userNeighborhood.value, userZipCode.value)">
+								Registrarme</button>
 							</form>
 						</div>
 					</div>
