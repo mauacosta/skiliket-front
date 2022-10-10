@@ -7,12 +7,18 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
-
+  editComponents = false
   constructor(
     public authService: AuthService
   ) { }
 
   ngOnInit(): void {
+  }
+  editComponentsProfile(): void{
+    this.editComponents=!this.editComponents
+  }
+  editProfile():void{
+    console.log("editando")
   }
 
 }
