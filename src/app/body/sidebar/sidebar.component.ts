@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
 
 @Component({
 	selector: 'app-sidebar',
@@ -7,7 +10,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-	constructor() { }
+	constructor(
+		public authService: AuthService
+	) { }
+	
 	quejasList: any = [];
 	noticiasList: any = [];
 	@Input() queja: any;
@@ -17,6 +23,11 @@ export class SidebarComponent implements OnInit {
 	direccion: string = "";
 	tipoUsuario: string = "";
 	activarModal: boolean = false;
+	user: User = JSON.parse(localStorage.getItem('user')!);
+	userData: any;
+
+
+
 
 	@Input() noticia: any;
 	nombre: string = "";
@@ -42,6 +53,17 @@ export class SidebarComponent implements OnInit {
 		this.coloniaNoticia = this.noticia.colonia;
 		this.codigoPostal = this.noticia.codigoPostal;
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		var queja = {
+			naturaleza: this.naturaleza,
+			descripcion: this.descripcion,
+			correo: this.correo,
+			direccion: this.direccion
+		};
+
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
+		
 	}
 
 
