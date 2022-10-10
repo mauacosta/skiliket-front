@@ -12,7 +12,8 @@
 			  <p class="text-muted mb-1">Usuario</p>
 			  <p class="text-muted mb-4">{{this.userData.neighborhood}}, Ciudad de México</p>
 			  <div class="d-flex justify-content-center mb-2">
-				<button type="button" class="btn btn-outline-primary ms-1" (click)="authService.DeleteThisAccount()">Cerrar Sesión</button>
+				<button type="button" class="btn btn-outline-primary ms-1" (click)="authService.SignOut()">Cerrar Sesión</button>
+				<button type="button" class="btn btn-outline-danger ms-1" (click)="authService.DeleteThisAccount()">Eliminar cuenta</button>
 			  </div>
 			</div>
 		  </div>
