@@ -10,5 +10,6 @@ namespace netCoreSkilliketV2._0.Models
     public string? Direccion { get; set; }
     public string? Colonia { get; set; }
     public string? CodigoPostal{ get; set; }
+    public string? TipoUsuario { get; set; }
   }
 }

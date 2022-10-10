@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import {SharedService} from 'src/app/shared.service';
 @Component({
   selector: 'app-noticias',
   templateUrl: './noticias.component.html',
@@ -7,9 +7,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NoticiasComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: SharedService) { }
+
+  NoticiaList: any = [];
+  QuejaList: any = [];
 
   ngOnInit(): void {
+	this.refreshNoticiaList();
+	this.refreshQuejaList();
   }
+
+  refreshNoticiaList()	{
+  	this.service.getNoticiasList().subscribe(data => {
+  		this.NoticiaList = data;
+		console.log(this.NoticiaList);
+  	});
+  }
+  refreshQuejaList()	{
+  	this.service.getQuejasList().subscribe(data => {
+  		this.QuejaList = data;
+		  console.log(this.QuejaList);
+  	});
+  }
+
 
 }

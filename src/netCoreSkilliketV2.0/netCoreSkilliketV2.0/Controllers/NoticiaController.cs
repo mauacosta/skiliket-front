@@ -21,7 +21,7 @@ namespace netCoreSkilliketV2._0.Controllers
     {
 
       string query = @"
-                   SELECT nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal FROM dbo.Noticia";
+                   SELECT nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal, tipoUsuario FROM dbo.Noticia";
       DataTable table = new DataTable();
       string sqlDataSource = _configuration.GetConnectionString("SkilliketAppCon");
       SqlDataReader myReader;
@@ -46,7 +46,7 @@ namespace netCoreSkilliketV2._0.Controllers
     {
 
       string query = @"
-                   insert into dbo.Noticia (nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal) values 
+                   insert into dbo.Noticia (nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal, tipoUsuario) values 
                      (
                         '" + noticia.Nombre + @"'
                         ,'" + noticia.Apellido+ @"'
@@ -55,6 +55,7 @@ namespace netCoreSkilliketV2._0.Controllers
                         ,'" + noticia.Direccion + @"'
                         ,'" + noticia.Colonia + @"'
                         ,'" + noticia.CodigoPostal + @"'
+                        ,'" + noticia.TipoUsuario + @"'
                        )
                     ";
 
@@ -89,6 +90,7 @@ namespace netCoreSkilliketV2._0.Controllers
                     ,direccion =  '" + noticia.Direccion + @"'
                     ,colonia =  '" + noticia.Colonia + @"'
                     ,codigoPostal =  '" + noticia.CodigoPostal + @"'
+                    ,tipoUsuario =  '" + noticia.TipoUsuario + @"'
                     where Id = " + noticia.Id + @"
                     ";
 
