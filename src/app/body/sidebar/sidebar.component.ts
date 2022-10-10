@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
 
 @Component({
 	selector: 'app-sidebar',
@@ -7,7 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-	constructor() { }
+	constructor(private service: SharedService, private httpClient: HttpClient) { }
 	quejasList: any = [];
 	noticiasList: any = [];
 	@Input() queja: any;

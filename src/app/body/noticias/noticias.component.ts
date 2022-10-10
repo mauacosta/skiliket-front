@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import {SharedService} from 'src/app/shared.service';
 @Component({
   selector: 'app-noticias',
@@ -11,8 +11,8 @@ export class NoticiasComponent implements OnInit {
 
   NoticiaList: any = [];
   QuejaList: any = [];
-  queja:any;
-  noticia:any;
+  @Input() queja: any;
+  @Input() noticia: any;
 
   ngOnInit(): void {
 	this.refreshNoticiaList();
@@ -35,5 +35,13 @@ export class NoticiasComponent implements OnInit {
   editClick(item: any) {
 		this.noticia = item;
 	}
-
+ 
+	eliminarQueja(item: any) {
+		if(confirm('¿Está seguro de que desea eliminar esta queja?')) {
+			this.service.borrarQueja(item).subscribe(data => {
+				alert(data.toString());
+				this.refreshQuejaList();
+			});
+		}
+	}
 }
