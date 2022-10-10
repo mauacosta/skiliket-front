@@ -8,6 +8,7 @@ import { User } from '../../models/user';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+  editComponents = false
 
   user: User = JSON.parse(localStorage.getItem('user')!);
 	userData: any;
@@ -22,6 +23,12 @@ export class PerfilComponent implements OnInit {
 			this.userData = data.data();
 		})
 
+  }
+  editComponentsProfile(): void{
+    this.editComponents=!this.editComponents
+  }
+  editProfile():void{
+    console.log("editando")
   }
 
 }
