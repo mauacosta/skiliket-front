@@ -46,38 +46,24 @@ namespace netCoreSkilliketV2._0.Controllers
       return new JsonResult(table);
 
     }
-    /*
+    
     [HttpPost]
-    public JsonResult Post(Riesgo riesgo)
+    public JsonResult Post(Queja queja)
     {
 
       string query = @"
-                   insert into dbo.Riesgo (idRiesgo, macroProceso, proceso
-                    ,subProceso, descripcion, consecuencia, tipoEvento, tipoRiesgo,
-                    iff, ic, ios, riesgoFraude, probabilidad, impacto, nivelRiesgo, gravedadRiesgoResidual, estadoActivo ) values 
+                   insert into dbo.Queja (naturaleza, descripcion, correo, direccion, fecha ) values 
                      (
-                        '" + riesgo.IdRiesgo + @"'
-                        ,'" + riesgo.MacroProceso + @"'
-                        ,'" + riesgo.Proceso + @"'
-                        ,'" + riesgo.SubProceso + @"'
-                        ,'" + riesgo.Descripcion + @"'
-                        ,'" + riesgo.Consecuencia + @"'
-                        ,'" + riesgo.TipoEvento + @"'
-                        ,'" + riesgo.TipoRiesgo + @"'
-                        ,'" + riesgo.Iff + @"'
-                        ,'" + riesgo.Ic + @"'
-                        ,'" + riesgo.Ios + @"'
-                        ,'" + riesgo.RiesgoFraude + @"'
-                        ,'" + riesgo.Probabilidad + @"'
-                        ,'" + riesgo.Impacto + @"'
-                        ,'" + riesgo.NivelRiesgo + @"'
-                        ,'" + riesgo.GravedadRiesgoResidual + @"'
-                        ,'" + riesgo.EstadoActivo + @"'
+                        '" + queja.Naturaleza + @"'
+                        ,'" + queja.Descripcion + @"'
+                        ,'" + queja.Correo + @"'
+                        ,'" + queja.Direccion + @"'
+                        ,'" + queja.Fecha + @"'
                        )
                     ";
 
       DataTable table = new DataTable();
-      string sqlDataSource = _configuration.GetConnectionString("MRCAppCon");
+      string sqlDataSource = _configuration.GetConnectionString("SkilliketAppCon");
       SqlDataReader myReader;
       using (SqlConnection myCon = new SqlConnection(sqlDataSource))
       {
@@ -95,33 +81,21 @@ namespace netCoreSkilliketV2._0.Controllers
       return new JsonResult("Riesgo añadido exitosamente");
     }
     [HttpPut]
-    public JsonResult Put(Riesgo riesgo)
+    public JsonResult Put(Queja queja)
     {
 
       string query = @"
-                    update  dbo.Riesgo set
-                    idRiesgo = '" + riesgo.IdRiesgo + @"'
-                    ,macroProceso = '" + riesgo.MacroProceso + @"'
-                    ,proceso = '" + riesgo.Proceso + @"'
-                    ,subProceso = '" + riesgo.SubProceso + @"'
-                    ,descripcion =  '" + riesgo.Descripcion + @"'
-                    ,consecuencia = '" + riesgo.Consecuencia + @"'
-                    ,tipoEvento = '" + riesgo.TipoEvento + @"'
-                    ,tipoRiesgo = '" + riesgo.TipoRiesgo + @"'
-                    ,iff = '" + riesgo.Iff + @"'
-                    ,ic = '" + riesgo.Ic + @"'
-                    ,ios = '" + riesgo.Ios + @"'
-                    ,riesgoFraude = '" + riesgo.RiesgoFraude + @"'
-                    ,probabilidad = '" + riesgo.Probabilidad + @"'
-                    ,impacto = '" + riesgo.Impacto + @"'
-                    ,nivelRiesgo = '" + riesgo.NivelRiesgo + @"'
-                    ,gravedadRiesgoResidual = '" + riesgo.GravedadRiesgoResidual + @"'
-                    ,estadoActivo = '" + riesgo.EstadoActivo + @"'
-                    where Id = " + riesgo.Id + @"
+                    update  dbo.Queja set
+                    naturaleza = '" + queja.Naturaleza + @"'
+                    ,descripcion = '" + queja.Descripcion + @"'
+                    ,correo = '" + queja.Correo + @"'
+                    ,direccion = '" + queja.Direccion + @"'
+                    ,fecha =  '" + queja.Fecha + @"'
+                    where Id = " + queja.Id + @"
                     ";
 
       DataTable table = new DataTable();
-      string sqlDataSource = _configuration.GetConnectionString("MRCAppCon");
+      string sqlDataSource = _configuration.GetConnectionString("SkilliketAppCon");
       SqlDataReader myReader;
       using (SqlConnection myCon = new SqlConnection(sqlDataSource))
       {
@@ -136,7 +110,7 @@ namespace netCoreSkilliketV2._0.Controllers
         }
       }
 
-      return new JsonResult("Riesgo editado exitosamente");
+      return new JsonResult("Queja editada exitosamente");
     }
     [HttpDelete("{Id}")]
 
@@ -144,12 +118,12 @@ namespace netCoreSkilliketV2._0.Controllers
     {
 
       string query = @"
-                    delete from  dbo.Riesgo
+                    delete from  dbo.Queja
                     where Id = " + Id + @"
                     ";
 
       DataTable table = new DataTable();
-      string sqlDataSource = _configuration.GetConnectionString("MRCAppCon");
+      string sqlDataSource = _configuration.GetConnectionString("SkilliketAppCon");
       SqlDataReader myReader;
       using (SqlConnection myCon = new SqlConnection(sqlDataSource))
       {
@@ -164,7 +138,7 @@ namespace netCoreSkilliketV2._0.Controllers
         }
       }
 
-      return new JsonResult("Riesgo eliminado exitosamente");
-    }*/
+      return new JsonResult("Queja eliminada exitosamente");
+    }
   }
 }

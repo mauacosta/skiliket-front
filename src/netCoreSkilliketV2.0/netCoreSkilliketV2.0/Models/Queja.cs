@@ -7,5 +7,6 @@ namespace netCoreSkilliketV2._0.Models
     public string? Descripcion { get; set; }
     public string? Correo{ get; set; }
     public string? Direccion { get; set; }
+    public string?  Fecha { get; set; }
   }
 }
