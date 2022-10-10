@@ -79,7 +79,7 @@ namespace netCoreSkilliketV2._0.Controllers
         }
       }
 
-      return new JsonResult("Riesgo añadido exitosamente");
+      return new JsonResult("Queja añadido exitosamente");
     }
     [HttpPut]
     public JsonResult Put(Queja queja)

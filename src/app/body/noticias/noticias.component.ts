@@ -11,6 +11,8 @@ export class NoticiasComponent implements OnInit {
 
   NoticiaList: any = [];
   QuejaList: any = [];
+  queja:any;
+  noticia:any;
 
   ngOnInit(): void {
 	this.refreshNoticiaList();
@@ -30,5 +32,8 @@ export class NoticiasComponent implements OnInit {
   	});
   }
 
+  editClick(item: any) {
+		this.noticia = item;
+	}
 
 }

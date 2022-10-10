@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
 	selector: 'app-form-quejas',
@@ -7,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class FormQuejasComponent implements OnInit {
 
-	constructor() { }
+	constructor(private service: SharedService) { }
 	quejasList: any = [];
 	@Input() queja: any;
 	naturaleza: string = "";
@@ -28,10 +29,27 @@ export class FormQuejasComponent implements OnInit {
 			correo: this.correo,
 			direccion: this.direccion
 		};
+		this.service.anadirQueja(queja).subscribe((res) => {
+			alert(res.toString());
+		});
+		console.log("Queja objeto");
 		console.log(queja);
 		this.quejasList.push(queja);
 		console.log("Queja añadida");
 		console.log(this.quejasList);
+	}
+	editarQueja() {
+		var queja = {
+			naturaleza: this.naturaleza,
+			descripcion: this.descripcion,
+			correo: this.correo,
+			direccion: this.direccion
+		};
+		this.service.editarQueja(queja).subscribe((res) => {
+			alert(res.toString());
+		});
+		console.log("Queja objeto");
+		console.log(queja);
 	}
 
 }
