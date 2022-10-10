@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "config": "ts-node set-env.ts",
-    "start": "npm run config && node server",
-    "build": "npm run config && ng build",
-    "test": "npm run config && ng test",
+    "start": "node server",
+    "build": "ng build",
+    "test": "ng test",
     "lint": "ng lint",
     "watch": "ng build --watch --configuration development",
     "postinstall": "npm run build"
@@ -25,6 +25,7 @@
     "bootstrap": "^5.2.0",
     "bootstrap-icons": "^1.9.1",
     "firebase": "^9.11.0",
+    "firebase-admin": "^11.1.0",
     "fs": "^0.0.1-security",
     "highcharts": "^10.2.1",
     "rxjs": "~6.6.0",

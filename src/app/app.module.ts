@@ -8,7 +8,6 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { environment, firebaseConfig } from '../environments/environment';
 import { AuthService } from './services/auth.service';
 
 import { AppComponent } from './app.component';
@@ -25,7 +24,7 @@ import { PerfilComponent } from './body/perfil/perfil.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
 import { AdministarCuentasComponent } from './body/administrarCuentas/administrarCuentas.component';
-import { RegistroComponent } from './body/registro/registro.component';
+import { firebaseConfig } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -42,14 +41,14 @@ import { RegistroComponent } from './body/registro/registro.component';
     ReportesComponent,
     FormQuejasComponent,
     AdministarCuentasComponent,
-    RegistroComponent
+    FormQuejasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 	  HttpClientModule,
 	  FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig, 'smooth-league-364220'),
     AngularFireAuthModule,
     AngularFireStorageModule,
     AngularFirestoreModule,
