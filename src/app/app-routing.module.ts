@@ -27,7 +27,7 @@ const routes: Routes = [
 	{ path: 'main', component: MainComponent },
 	{ path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
 	{ path: 'header', component: HeaderComponent },
-	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
+	{ path: 'perfil', component: PerfilComponent },
 	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
 	{ path:'registro', component: RegistroComponent },
 	{ path: 'reportes', component: ReportesComponent }
