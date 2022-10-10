@@ -15,19 +15,22 @@ export class FormQuejasComponent implements OnInit {
 	descripcion: string = "";
 	correo: string = "";
 	direccion: string = "";
+	fecha: string = "";
 
 	ngOnInit(): void {
 		this.naturaleza = this.queja.naturaleza;
 		this.descripcion = this.queja.descripcion;
 		this.correo = this.queja.correo;
 		this.direccion = this.queja.direccion;
+		this.fecha = this.queja.fecha;
 	}
 	anadirQueja() {
 		var queja = {
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
-			direccion: this.direccion
+			direccion: this.direccion,
+			fecha: this.fecha
 		};
 		this.service.anadirQueja(queja).subscribe((res) => {
 			alert(res.toString());
@@ -43,7 +46,8 @@ export class FormQuejasComponent implements OnInit {
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
-			direccion: this.direccion
+			direccion: this.direccion,
+			fecha: this.fecha
 		};
 		this.service.editarQueja(queja).subscribe((res) => {
 			alert(res.toString());
