@@ -42,8 +42,11 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.SetUserData(result.user);
-        this.afAuth.authState;
-        this.router.navigate(['sidebar']);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['sidebar']);
+          };
+        });
       })
       .catch((error) => {
         window.alert(error.message);
@@ -68,8 +71,11 @@ export class AuthService {
         up and returns promise */
         //this.SendVerificationMail();
         this.SetUserData(result.user, additionalData);
-        this.afAuth.authState.subscribe;
-        this.router.navigate(['sidebar']);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['sidebar']);
+          };
+        });
       })
       .catch((error) => {
         window.alert(error.message);
