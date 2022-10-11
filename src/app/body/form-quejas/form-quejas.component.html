@@ -1,77 +1,85 @@
-
-			<div class="container">
-				<div class="py-5 text-center">
-					<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
-					<p class="lead">Llene los campos adyacentes para dar de alta está queja en su localidad
-					</p>
+<div class="container">
+	<div class="py-5 text-center">
+		<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
+		<p class="lead">Llene los campos adyacentes para dar de alta está queja en su localidad
+		</p>
+	</div>
+	<div class="row">
+		<div class="col">
+			<h4 class="mb-3">Información</h4>
+			<div class="row g-3">
+				<div class="col-md-12">
+					<label class="form-label">Naturaleza de la queja</label>
+					<select class="form-select" name="naturaleza" name="naturaleza" value="{{queja.naturaleza}}" [(ngModel)]="naturaleza">
+						<option value="Servicios públicos (Gas, electricidad, agua)">Servicios públicos (Gas,
+							electricidad, agua)</option>
+						<option value="Robos">Robos</option>
+						<option value="Inundaciones">Inundaciones</option>
+						<option value="Incendios">Incendios</option>
+						<option value="Contaminación">Contaminación</option>
+						<option value="Mucho ruido">Mucho ruido</option>
+						<option value="Otros">Otros</option>
+					</select>
+					<div class="invalid-feedback">
+						Fabor de seleccionar una colonia
+					</div>
 				</div>
-				<div class="row">
-					<div class="col">
-						<h4 class="mb-3">Información</h4>
-							<div class="row g-3">
-								<div class="col-md-12">
-									<label  class="form-label">Naturaleza de la queja</label>
-									<select class="form-select" name="naturaleza" [(ngModel)]="naturaleza">
-										<option value="Servicios públicos (Gas, electricidad, agua)">Servicios públicos (Gas, electricidad, agua)</option>
-										<option value="Robos">Robos</option>
-										<option value="Inundaciones">Inundaciones</option>
-										<option value="Incendios">Incendios</option>
-										<option value="Contaminación">Contaminación</option>
-										<option value="Mucho ruido">Mucho ruido</option>
-										<option value="Otros">Otros</option>
-									</select>
-									<div class="invalid-feedback">
-										Fabor de seleccionar una colonia
-									</div>
-								</div>
-								<div class="col-12">
-									<div class="form-floating">
-										<textarea class="form-control"
-											id="floatingTextarea" style="height: 100px" name="descripcion" [(ngModel)]="descripcion"></textarea>
-										<label for="floatingTextarea">Describa su queja</label>
-									</div>
-								</div>
-
-								<div class="col-12">
-									<label for="email" class="form-label">Correo</label>
-									<input type="email" class="form-control" name="correo" placeholder="juan@ejemplo.com" [(ngModel)]="correo">
-									<div class="invalid-feedback">
-										Favor de escribir un correo valido de contacto.
-									</div>
-								</div>
-								<div class="col-12">
-									<label for="address" class="form-label">Dirección del incidente</label>
-									<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion"
-										placeholder="15630 Teresa Urrea" required>
-									<div class="invalid-feedback">
-										Favor de introducir la dirección de lo sucedido.
-									</div>
-								</div>
-							</div><br>
-							<div class="col-12">
-								<label for="fecha">Fecha: &nbsp;&nbsp;&nbsp;</label>
-								<input type="date" value="2022-10-2" />
-							</div>
-							<hr class="my-4">
-							<div class="form-check">
-								<input type="checkbox" class="form-check-input" id="same-address">
-								<label class="form-check-label" for="same-address">Acepto que se publique mi información
-									en la seccion de noticas
-								</label>
-							</div>
-
-							<div class="form-check">
-								<input type="checkbox" class="form-check-input" id="save-info">
-								<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
-									colonia</label>
-							</div>
-							<hr class="my-4">
-							<a href="/noticias">
-								<button class="w-100 btn btn-primary btn-lg" type="submit" (click)="anadirQueja()" style="margin-bottom: 2vh;">
-								Dar de alta la queja</button></a>
-								<!--<button class="w-100 btn btn-primary btn-lg" type="submit" *ngIf="alta != 0"  (submit)="anadirQueja()" style="margin-bottom: 2vh;">Editar
-									la queja</button>-->
+				<div class="col-12">
+					<div class="form-floating">
+						<textarea class="form-control" id="floatingTextarea" style="height: 100px" name="descripcion"
+							[(ngModel)]="descripcion"  name="descripcion" value="{{queja.descripcion}}"></textarea>
+						<label for="floatingTextarea">Describa su queja</label>
 					</div>
 				</div>
 
+				<div class="col-12">
+					<label for="email" class="form-label">Correo</label>
+					<input type="email" class="form-control" name="correo" placeholder="juan@ejemplo.com"
+						[(ngModel)]="correo"  name="correo" value="{{queja.correo}}">
+					<div class="invalid-feedback">
+						Favor de escribir un correo valido de contacto.
+					</div>
+				</div>
+				<div class="col-12">
+					<label for="address" class="form-label">Dirección del incidente</label>
+					<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion"
+					name="direccion" value="{{queja.direccion}}"
+						placeholder="15630 Teresa Urrea" required>
+					<div class="invalid-feedback">
+						Favor de introducir la dirección de lo sucedido.
+					</div>
+				</div>
+			</div><br>
+			<div class="col-12">
+				<label for="fecha">Fecha: &nbsp;&nbsp;&nbsp;</label>
+				<input type="date" value="2022-10-2" [(ngModel)]="fecha"  name="fecha" value="{{queja.fecha}}" />
 			</div>
+			<hr class="my-4">
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" id="same-address">
+				<label class="form-check-label" for="same-address">Acepto que se publique mi información
+					en la seccion de noticas
+				</label>
+			</div>
+
+			<div class="form-check">
+				<input type="checkbox" class="form-check-input" id="save-info">
+				<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
+					colonia</label>
+			</div>
+			<hr class="my-4">
+			<a>
+				<button class="w-100 btn btn-primary btn-lg" type="submit" (click)="anadirQueja()"
+					style="margin-bottom: 2vh;">
+					Dar de alta la queja</button></a>
+			<a>
+				<button (click)="editarQueja()" class="w-100 btn btn-primary btn-lg" type="submit"
+					style="margin-bottom: 2vh;">
+					Editar la queja</button>
+			</a>
+			<!--<button class="w-100 btn btn-primary btn-lg" type="submit" *ngIf="alta != 0"  (submit)="anadirQueja()" style="margin-bottom: 2vh;">Editar
+									la queja</button>-->
+		</div>
+	</div>
+
+</div>
