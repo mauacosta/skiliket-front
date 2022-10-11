@@ -66,7 +66,8 @@ export class NoticiasComponent implements OnInit {
 
 	deleteClickQueja(item: any) {
 		if (confirm('¿Está seguro de eliminar esta queja?')) {
-			this.service.borrarQueja(item.quejaId).subscribe(data => {
+			console.log("Id a borrar: " + item.Id);
+			this.service.borrarQueja(item.Id).subscribe(data => {
 				alert(data.toString());
 				this.refreshQuejaList();
 			})
@@ -80,7 +81,8 @@ export class NoticiasComponent implements OnInit {
 
 	deleteClickNoticia(item: any) {
 		if (confirm('¿Está seguro de eliminar esta noticia?')) {
-			this.service.borrarNoticia(item.noticiaId).subscribe(data => {
+			console.log("Id a borrar: " + item.Id);
+			this.service.borrarNoticia(item.Id).subscribe(data => {
 				alert(data.toString());
 				this.refreshNoticiaList();
 			})
