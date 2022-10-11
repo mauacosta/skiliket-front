@@ -22,7 +22,7 @@ export class NoticiasComponent implements OnInit {
 	coloniaNoticia: string | undefined;
 	codigoPostal: string | undefined;
 	tipoUsuarioNoticia: string | undefined;
-	activarModalNoticia: boolean = false;
+	activarEdicionNoticia: boolean = false;
 
 	queja: any;
 	agregarQueja: number = 0;
@@ -33,11 +33,12 @@ export class NoticiasComponent implements OnInit {
 	direccion: string | undefined;
 	fecha: string | undefined;
 	tipoUsuario: string | undefined;
-	activarModalQueja: boolean = false;
+	activarEdicionQueja: boolean = false;
 
 	ngOnInit(): void {
 		this.refreshNoticiaList();
 		this.refreshQuejaList();
+		//Ver si descomentar esto
 		this.noticiaId = this.noticia.noticiaId;
 		this.nombre = this.noticia.nombre;
 		this.apellido = this.noticia.apellido;
@@ -58,47 +59,15 @@ export class NoticiasComponent implements OnInit {
 	}
 
 
-	anadirQuejaModal() {
-		this.activarModalQueja = true;
-		this.queja = {
-			agregarQueja: 0,
-			quejaId: 0,
-			naturaleza: "",
-			descripcion: "",
-			correo: "",
-			direccion: "",
-			fecha: "",
-			tipoUsuario: ""
-		}
-		console.log("Agregar queja: " + this.queja.agregarQueja);
-	}
-
-	anadirNoticiaModal() {
-		this.activarModalNoticia = true;
-		this.noticia = {
-			agregarNoticia: 0,
-			noticiaId: 0,
-			nombre: "",
-			apellido: "",
-			descripcion: "",
-			correo: "",
-			direccion: "",
-			colonia: "",
-			codigoPostal: "",
-			tipoUsuario: ""
-		}
-		console.log("Agregar noticia: " + this.noticia.agregarNoticia);
-	}
-
-
 	editClickQueja(item: any) {
 		this.queja = item;
-		this.activarModalQueja = true;
+		this.activarEdicionQueja = true;
 	}
 
 	deleteClickQueja(item: any) {
 		if (confirm('¿Está seguro de eliminar esta queja?')) {
-			this.service.borrarQueja(item.quejaId).subscribe(data => {
+			console.log("Id a borrar: " + item.Id);
+			this.service.borrarQueja(item.Id).subscribe(data => {
 				alert(data.toString());
 				this.refreshQuejaList();
 			})
@@ -107,12 +76,13 @@ export class NoticiasComponent implements OnInit {
 
 	editClickNoticia(item: any) {
 		this.noticia = item;
-		this.activarModalNoticia = true;
+		this.activarEdicionNoticia = true;
 	}
 
 	deleteClickNoticia(item: any) {
 		if (confirm('¿Está seguro de eliminar esta noticia?')) {
-			this.service.borrarNoticia(item.noticiaId).subscribe(data => {
+			console.log("Id a borrar: " + item.Id);
+			this.service.borrarNoticia(item.Id).subscribe(data => {
 				alert(data.toString());
 				this.refreshNoticiaList();
 			})

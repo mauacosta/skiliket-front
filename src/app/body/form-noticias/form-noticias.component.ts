@@ -12,7 +12,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	noticiasList: any = [];
 	@Input() noticia: any;
-	noticiaId: string = "";
+	Id: number = 0;
 	agregarNoticia: number = 0;
 	nombre: string = "";
 	apellido: string = "";
@@ -24,7 +24,17 @@ export class FormNoticiasComponent implements OnInit {
 	tipoUsuarioNoticia: string = "";
 
 	ngOnInit(): void {
-		this.loadNoticiasList();
+		//this.loadNoticiasList();
+		this.refeshNoticiasList();
+		this.Id = this.noticia.Id;
+		this.nombre = this.noticia.nombre;
+		this.apellido = this.noticia.apellido;
+		this.descripcionNoticia = this.noticia.descripcion;
+		this.correoNoticia = this.noticia.correo;
+		this.direccionNoticia = this.noticia.direccion;
+		this.coloniaNoticia = this.noticia.colonia;
+		this.codigoPostal = this.noticia.codigoPostal;
+		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
 	}
 
 	loadNoticiasList() {
@@ -44,7 +54,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	anadirNoticia() {
 		var noticia = {
-			noticiaId: this.noticiaId,
+			Id: this.Id,
 			nombre: this.nombre,
 			apellido: this.apellido,
 			descripcion: this.descripcionNoticia,
@@ -55,7 +65,7 @@ export class FormNoticiasComponent implements OnInit {
 			tipoUsuario: this.tipoUsuarioNoticia
 		};
 		this.service.anadirNoticia(noticia).subscribe((res) => {
-			alert(res.toString());
+			//alert(res.toString());
 		});
 		console.log("Noticia objeto");
 		console.log(noticia);
@@ -63,7 +73,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	editarNoticia() {
 		var noticia = {
-			noticiaId: this.noticiaId,
+			Id: this.Id,
 			nombre: this.nombre,
 			apellido: this.apellido,
 			descripcion: this.descripcionNoticia,
@@ -73,11 +83,18 @@ export class FormNoticiasComponent implements OnInit {
 			codigoPostal: this.codigoPostal,
 			tipoUsuario: this.tipoUsuarioNoticia
 		};
+		console.log("Id a cambiar" + this.Id);
+		console.log(noticia);
 		this.service.editarNoticia(noticia).subscribe((res) => {
 			alert(res.toString());
 		});
 	}
 
+	refeshNoticiasList() {
+		this.service.getNoticiasList().subscribe((data: any) => {
+			this.noticiasList = data;
+		});
+	}
 
 
 }

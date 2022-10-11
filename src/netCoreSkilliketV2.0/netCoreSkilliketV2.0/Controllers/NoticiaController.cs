@@ -21,7 +21,7 @@ namespace netCoreSkilliketV2._0.Controllers
     {
 
       string query = @"
-                   SELECT nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal, tipoUsuario FROM dbo.Noticia";
+                   SELECT Id, nombre, apellido, descripcion, correo, direccion, colonia, codigoPostal, tipoUsuario FROM dbo.Noticia";
       DataTable table = new DataTable();
       string sqlDataSource = _configuration.GetConnectionString("SkilliketAppCon");
       SqlDataReader myReader;
