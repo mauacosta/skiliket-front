@@ -3,13 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
-import { AuthService } from './services/auth.service';
-
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './body/sidebar/sidebar.component';
 import { MainComponent } from './body/main/main.component';
@@ -24,8 +17,6 @@ import { PerfilComponent } from './body/perfil/perfil.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
 import { FormNoticiasComponent } from './body/form-noticias/form-noticias.component';
-import { AdministarCuentasComponent } from './body/administrarCuentas/administrarCuentas.component';
-import { firebaseConfig } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -41,22 +32,15 @@ import { firebaseConfig } from '../environments/environment';
     PerfilComponent,
     ReportesComponent,
     FormQuejasComponent,
-    FormNoticiasComponent,
-    AdministarCuentasComponent,
-    FormQuejasComponent
+    FormNoticiasComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-	  HttpClientModule,
-	  FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig, 'smooth-league-364220'),
-    AngularFireAuthModule,
-    AngularFireStorageModule,
-    AngularFirestoreModule,
-    AngularFireDatabaseModule
+	HttpClientModule,
+	FormsModule
   ],
-  providers: [AuthService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

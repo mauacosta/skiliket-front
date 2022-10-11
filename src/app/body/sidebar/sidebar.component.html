@@ -33,11 +33,11 @@
 		<div class="dropdown">
 			<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
 				data-bs-toggle="dropdown" aria-expanded="false">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="" width="32" height="32" class="rounded-circle me-2">
-				<strong>{{this.userData.firstname}} {{this.userData.lastname}}</strong>
+				<img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+				<strong>Eric Chao</strong>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
-				<li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#noticiaModal">
+				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirNoticiaModal()" data-bs-target="#noticiaModal">
 						Nueva noticia...</a></li>
 				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()"
 						data-bs-target="#quejaModal">
@@ -46,7 +46,7 @@
 				<li>
 					<hr class="dropdown-divider">
 				</li>
-				<li><a class="dropdown-item" (click)="authService.SignOut()">Cerrar Sesion</a></li>
+				<li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
 			</ul>
 		</div>
 	</div>
@@ -64,6 +64,68 @@
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<app-form-quejas [queja]="queja"></app-form-quejas>
+		</div>
+	</div>
+</div>
+
+<!--Modal de estatus correcto para la alta de las noticias-->
+<div class="modal" id="noticiaAlta">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/noticias">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Noticia, dada de alta exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/noticias">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Modal de estatus correcto para la alta de las quejas-->
+<div class="modal" id="quejaAlta">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/noticias">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Queja, data de alta exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/noticias">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
