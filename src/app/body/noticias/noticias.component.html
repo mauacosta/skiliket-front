@@ -13,7 +13,7 @@
 			<h6 class="border-bottom pb-2 mb-0">Últimas noticias</h6>
 			<ng-container *ngFor="let noticiaItem of NoticiaList; let i=index;">
 				<!--Modal para editar las noticias-->
-				<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.nombre" tabindex="-1"
+				<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.Id" tabindex="-1"
 					aria-labelledby="modalRiesgoLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -60,7 +60,7 @@
 					</div>
 					<div class="col-2" style="margin-left: 3vw;">
 						<button type="button" class="btn btn-success" (click)="editClickNoticia(noticiaItem)"
-							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.nombre"
+							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.Id"
 							data-backdrop="static" data-keyboard="false">Editar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-pencil-square" viewBox="0 0 16 16">
