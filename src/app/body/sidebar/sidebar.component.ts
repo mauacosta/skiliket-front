@@ -41,6 +41,11 @@ export class SidebarComponent implements OnInit {
 	tipoUsuarioNoticia: string = "";
 
 	ngOnInit(): void {
+
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
+		
 		this.naturaleza = this.queja.naturaleza;
 		this.descripcion = this.queja.descripcion;
 		this.correo = this.queja.correo;
@@ -60,10 +65,9 @@ export class SidebarComponent implements OnInit {
 			correo: this.correo,
 			direccion: this.direccion
 		};
-		console.log("hola")
-		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
-			this.userData = data.data();
-		})
+		
+
+		
 		
 	}
 
