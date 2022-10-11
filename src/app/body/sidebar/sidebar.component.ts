@@ -16,6 +16,7 @@ export class SidebarComponent implements OnInit {
 	
 	quejasList: any = [];
 	noticiasList: any = [];
+	
 	@Input() queja: any;
 	naturaleza: string = "";
 	descripcion: string = "";
@@ -24,7 +25,7 @@ export class SidebarComponent implements OnInit {
 	tipoUsuario: string = "";
 	activarModal: boolean = false;
 	user: User = JSON.parse(localStorage.getItem('user')!);
-	userData: any;
+	userData:any;
 
 
 
@@ -59,7 +60,7 @@ export class SidebarComponent implements OnInit {
 			correo: this.correo,
 			direccion: this.direccion
 		};
-
+		console.log("hola")
 		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
 			this.userData = data.data();
 		})
