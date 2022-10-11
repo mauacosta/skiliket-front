@@ -3,6 +3,7 @@ import * as Highcharts from 'highcharts';
 import { ActivatedRoute } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
 import {Mes} from './mes';
+import { SharedService } from 'src/app/shared.service';
 
 
 
@@ -27,8 +28,17 @@ accessibility(Highcharts);
 })
 export class EstadisticasComponent implements OnInit {
 	mes: Mes[] | undefined;
-	constructor(public _Activatedroute: ActivatedRoute) { }
-	QuejasList: any = [];
+
+	constructor(public _Activatedroute: ActivatedRoute,  private service: SharedService) { }
+	QuejaList: any = [];
+	contadorServiciosPublicos: number = 0;
+	contadorRobos: number = 0;
+	contadorInundaciones: number = 0;
+	contadorIncendios: number = 0;
+	contadorContaminacion: number = 0;
+	contadorMuchoRuido: number = 0;
+	contadorOtros: number = 0;
+
 	public options: any = {
 		chart: {
 			renderTo: 'container',
@@ -46,9 +56,7 @@ export class EstadisticasComponent implements OnInit {
 				'Robos',
 				'Inundaciones',
 				'Incendios',
-				'Tráfico',
 				'Contaminación',
-				'Suciedad',
 				'Mucho ruido',
 				'Otros'
 			],
@@ -93,7 +101,8 @@ export class EstadisticasComponent implements OnInit {
 
 
 	ngOnInit(): void {
-		this.poblarQuejas();
+		//this.poblarQuejas();
+		this.llenarPareto();
 		this.mes = [
 			{ Mes: "Enero" },
 			{ Mes: "Febrero" },
@@ -108,8 +117,74 @@ export class EstadisticasComponent implements OnInit {
 			{ Mes: "Noviembre" },
 			{ Mes: "Diciembre" }
 		];
-		Highcharts.chart('container', this.options);
 	}
+
+	llenarPareto() {
+		this.service.getQuejasList().subscribe(data => {
+			this.QuejaList = data;
+			console.log(this.QuejaList);
+			//for in QuejasList
+			for (let i = 0; i < this.QuejaList.length; i++) {
+				//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+				if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+					this.contadorServiciosPublicos++;
+				} else
+					//if naturaleza == 'Robos'
+					if (this.QuejaList[i].naturaleza === 'Robos') {
+						this.contadorRobos++;
+					} else
+						//if naturaleza == 'Inundaciones'
+						if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+							this.contadorInundaciones++;
+						} else
+							//if naturaleza == 'Incendios'
+							if (this.QuejaList[i].naturaleza === 'Incendios') {
+								this.contadorIncendios++;
+							} else
+							//if naturaleza == 'Contaminación'
+							if (this.QuejaList[i].naturaleza === 'Contaminación') {
+								this.contadorContaminacion++;
+							} else
+								//if naturaleza == 'Mucho ruido'
+								if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+									this.contadorMuchoRuido++;
+								} else
+									//if naturaleza == 'Otros'
+									if (this.QuejaList[i].naturaleza === 'Otros') {
+										this.contadorOtros++;
+									}
+			}
+			if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+				this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+				this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+				this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+				this.options.series[1]['data'].push(this.contadorRobos);
+				this.options.series[1]['data'].push(this.contadorInundaciones);
+				this.options.series[1]['data'].push(this.contadorIncendios);
+				this.options.series[1]['data'].push(this.contadorContaminacion);
+				this.options.series[1]['data'].push(this.contadorMuchoRuido);
+				this.options.series[1]['data'].push(this.contadorOtros);
+				console.log("Contaminacion: " + this.contadorContaminacion);
+				console.log("Inundaciones: " + this.contadorInundaciones);
+				console.log("Incendios: " + this.contadorIncendios);
+				console.log("Mucho ruido: " + this.contadorMuchoRuido);
+				console.log("Otros: " + this.contadorOtros);
+				console.log("Robos: " + this.contadorRobos);
+				console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+			}
+				else {
+					this.options.series[0]['data'][0] = {
+						name: 'No existen quejas sobre ningun tema',
+						y: 10
+					};
+				}
+				Highcharts.chart('container', this.options);
+		});
+	}
+		
+
+/*
 	poblarQuejas(){
 		this.QuejasList = [
 			{ Queja: "Servicios públicos (Gas, electricidad, agua)", Cantidad: 755 },
@@ -129,5 +204,6 @@ export class EstadisticasComponent implements OnInit {
 			this.options.series[1].data.push(this.QuejasList[i].Cantidad);
 		}
 	}
+	*/
 
 }

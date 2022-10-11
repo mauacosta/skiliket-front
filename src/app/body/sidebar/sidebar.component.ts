@@ -1,4 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
+import { HttpClient } from '@angular/common/http';
+import { Subject } from 'rxjs';
+
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
 
 @Component({
 	selector: 'app-sidebar',
@@ -7,7 +12,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-	constructor() { }
+	constructor(private service: SharedService, private httpClient: HttpClient) { }
 	quejasList: any = [];
 	noticiasList: any = [];
 	@Input() queja: any;
@@ -17,6 +22,10 @@ export class SidebarComponent implements OnInit {
 	direccion: string = "";
 	tipoUsuario: string = "";
 	activarModal: boolean = false;
+	userData: any;
+
+
+
 
 	@Input() noticia: any;
 	nombre: string = "";
@@ -42,6 +51,14 @@ export class SidebarComponent implements OnInit {
 		this.coloniaNoticia = this.noticia.colonia;
 		this.codigoPostal = this.noticia.codigoPostal;
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		var queja = {
+			naturaleza: this.naturaleza,
+			descripcion: this.descripcion,
+			correo: this.correo,
+			direccion: this.direccion
+		};
+
+		
 	}
 
 

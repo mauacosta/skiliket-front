@@ -10,7 +10,7 @@
 			<div class="row g-3">
 				<div class="col-md-12">
 					<label class="form-label">Naturaleza de la queja</label>
-					<select class="form-select" name="naturaleza" name="naturaleza" value="{{queja.naturaleza}}" [(ngModel)]="naturaleza">
+					<select class="form-select" name="naturaleza" name="naturaleza" [(ngModel)]="naturaleza">
 						<option value="Servicios públicos (Gas, electricidad, agua)">Servicios públicos (Gas,
 							electricidad, agua)</option>
 						<option value="Robos">Robos</option>
@@ -27,7 +27,7 @@
 				<div class="col-12">
 					<div class="form-floating">
 						<textarea class="form-control" id="floatingTextarea" style="height: 100px" name="descripcion"
-							[(ngModel)]="descripcion"  name="descripcion" value="{{queja.descripcion}}"></textarea>
+							[(ngModel)]="descripcion"  name="descripcion" ></textarea>
 						<label for="floatingTextarea">Describa su queja</label>
 					</div>
 				</div>
@@ -35,7 +35,7 @@
 				<div class="col-12">
 					<label for="email" class="form-label">Correo</label>
 					<input type="email" class="form-control" name="correo" placeholder="juan@ejemplo.com"
-						[(ngModel)]="correo"  name="correo" value="{{queja.correo}}">
+						[(ngModel)]="correo"  name="correo">
 					<div class="invalid-feedback">
 						Favor de escribir un correo valido de contacto.
 					</div>
@@ -43,7 +43,7 @@
 				<div class="col-12">
 					<label for="address" class="form-label">Dirección del incidente</label>
 					<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion"
-					name="direccion" value="{{queja.direccion}}"
+					name="direccion"
 						placeholder="15630 Teresa Urrea" required>
 					<div class="invalid-feedback">
 						Favor de introducir la dirección de lo sucedido.
@@ -52,7 +52,7 @@
 			</div><br>
 			<div class="col-12">
 				<label for="fecha">Fecha: &nbsp;&nbsp;&nbsp;</label>
-				<input type="date" value="2022-10-2" [(ngModel)]="fecha"  name="fecha" value="{{queja.fecha}}" />
+				<input type="date" value="2022-10-2" [(ngModel)]="fecha"  name="fecha"  />
 			</div>
 			<hr class="my-4">
 			<div class="form-check">
