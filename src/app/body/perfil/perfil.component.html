@@ -39,12 +39,22 @@
 		<div class="col-lg-8" *ngIf="editComponents; else readComponent">
 		  <div class="card mb-4">
 			<div class="card-body">
+				<form class="needs-validation">
 				<div class="row">
 					<div class="col-sm-3">
-					<p class="mb-0">Nombre completo</p>
+					<p class="mb-0">Nombre(s)</p>
 					</div>
 					<div class="col-sm-9">
-					<input class="form-control" placeholder="Erickkk Jardon Chao"/>
+					<input class="form-control" value="{{this.userData.firstname}}" #userFirstName required/>
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-sm-3">
+					<p class="mb-0">Apellido(s)</p>
+					</div>
+					<div class="col-sm-9">
+					<input class="form-control" value="{{this.userData.lastname}}" #userLastName required/>
 					</div>
 				</div>
 				<hr>
@@ -53,25 +63,37 @@
 					<p class="mb-0">Correo</p>
 					</div>
 					<div class="col-sm-9">
-					<input class="form-control"  placeholder="latam-npc@microsoft.com"/>
+						<input class="form-control"  value="{{this.userData.email}}" #userEmail required/>
 					</div>
 				</div>
 				<hr>
 				<div class="row">
 					<div class="col-sm-3">
-					<p class="mb-0">Telfono</p>
+					<p class="mb-0">Colonia</p>
 					</div>
 					<div class="col-sm-9">
-					<input class="form-control"  placeholder="(+52) 55-64-50-58-68"/>
+						<select class="form-select" id="neighborhood" value="{{this.userData.neighborhood}}" #userNeighborhood required >
+							<option value="">Escoger...</option>
+							<option>San Bartolo el Chico</option>
+							<option>Coyoacán</option>
+							<option>San Miguel Chapultepec</option>
+							<option>San Miguel Topilejo</option>
+							<option>San Miguel Xico</option>
+							<option>Tepepan</option>
+							<option>San Miguel Totolapan</option>
+							<option>Polanco</option>
+							<option>Acatlán</option>
+							<option>Campestre Churubusco</option>
+						</select>
 					</div>
 				</div>
 				<hr>
 				<div class="row">
 					<div class="col-sm-3">
-					<p class="mb-0">Celular</p>
+					<p class="mb-0">Codigo Postal</p>
 					</div>
 					<div class="col-sm-9">
-					<input class="form-control"  placeholder="(+52) 55-64-50-58-68"/>
+					<input class="form-control"  value="{{this.userData.zipcode}}" #userZipCode required/>
 					</div>
 				</div>
 				<hr>
@@ -80,13 +102,14 @@
 					<p class="mb-0">Dirección</p>
 					</div>
 					<div class="col-sm-9">
-					<input class="form-control"  placeholder="Bay Area, San Francisco, CA"/>
+					<input class="form-control"  value="{{this.userData.address}}" #userAddress required />
 					</div>
 				</div>
-			  <div class="d-flex justify-content-center mb-2">
-				<button type="button"  class="btn btn-outline-primary ms-1" (click)="editProfile()">Guardar</button>
-				<button type="button"  class="btn btn-outline-secondary ms-1" (click)="editComponentsProfile()">Cancelar</button>
+			  	<div class="d-flex justify-content-center mb-2">
+					<button type="button" class="btn btn-outline-primary ms-1" (click)="authService.UpdateUserData(userFirstName.value, userLastName.value, userEmail.value, userAddress.value, userNeighborhood.value, userZipCode.value)">Guardar</button>
+					<button type="button" class="btn btn-outline-secondary ms-1" (click)="editComponentsProfile()">Cancelar</button>
 				</div>
+				</form>
 			</div>
 		  </div>
 		  <div class="row">
@@ -124,7 +147,7 @@
 							<p class="mb-0">Nombre completo</p>
 						</div>
 						<div class="col-sm-9">
-							<p class="text-muted mb-0">Erickkk Jardon Chao</p>
+							<p class="text-muted mb-0">{{this.userData.firstname}} {{this.userData.lastname}}</p>
 						</div>
 					</div>
 					<hr>
@@ -133,25 +156,25 @@
 							<p class="mb-0">Correo</p>
 						</div>
 						<div class="col-sm-9">
-							<p class="text-muted mb-0">latam-npc@microsoft.com</p>
+							<p class="text-muted mb-0">{{this.userData.email}}</p>
 						</div>
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-sm-3">
-							<p class="mb-0">Telfono</p>
+							<p class="mb-0">Colonia</p>
 						</div>
 						<div class="col-sm-9">
-							<p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
+							<p class="text-muted mb-0">{{this.userData.neighborhood}}</p>
 						</div>
 					</div>
 					<hr>
 					<div class="row">
 						<div class="col-sm-3">
-							<p class="mb-0">Celular</p>
+							<p class="mb-0">Codigo Postal</p>
 						</div>
 						<div class="col-sm-9">
-							<p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
+							<p class="text-muted mb-0">{{this.userData.zipcode}}</p>
 						</div>
 					</div>
 					<hr>
@@ -160,11 +183,11 @@
 							<p class="mb-0">Dirección</p>
 						</div>
 						<div class="col-sm-9">
-							<p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+							<p class="text-muted mb-0">{{this.userData.address}}</p>
 						</div>
 					</div>
-					<div class="d-flex justify-content-center mb-2">
-						<button type="button" class="btn btn-outline-primary ms-1" (click)="editComponentsProfile()">Editar datos de contacto</button>
+					<div class="d-flex justify-content-center mb-2 mt-3">
+						<button type="button" class="btn btn-outline-primary mt-2" (click)="editComponentsProfile()">Editar datos de contacto</button>
 					</div>
 				</div>
 				</div>

@@ -129,18 +129,72 @@ export class AuthService {
       const userRef: AngularFirestoreDocument<any> = this.afs.doc(
         `users/${user.uid}`
       );
-      userRef.delete().catch((error) => {
-        window.alert(error);
+      user.delete().then(() => {
+        userRef.delete();
+      }).catch((err:any) => {
+        window.alert("Error al borrar cuenta. Porfavor ingresa nuevamente");
+        this.SignOut();
       });
-      user.delete().catch((err:any) => {
-        window.alert(err);
-      });
+      
+    
+      
     })
     .then(() => {
       localStorage.removeItem('user');
       this.router.navigate(['header']);
     });
     
+  }
+
+  UpdateUserData( firstname:string, lastname:string, email: string, address: string, neighborhood: string, zipcode:string) {
+
+    let additionalData = {
+      firstname: firstname,
+      lastname: lastname,
+      address: address,
+      neighborhood: neighborhood,
+      zipcode: zipcode
+    }
+    
+    this.afAuth.currentUser.then((user:any) => {
+
+      const userData: User = {
+        uid: user.uid,
+        email: email,
+        emailVerified: user.emailVerified,
+      };
+  
+  
+      if (additionalData) {
+        userData.firstname = additionalData.firstname;
+        userData.lastname = additionalData.lastname;
+        userData.address = additionalData.address;
+        userData.neighborhood = additionalData.neighborhood;
+        userData.zipcode = additionalData.zipcode;
+      }
+  
+      const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+        `users/${user.uid}`
+      );
+
+      userRef.update(userData).catch((error) => {
+        window.alert(error);
+      }).then(() => {
+        if(user.email !== email) {
+          user.updateEmail(email).then(() => {
+            window.alert("Tu nuevo email es " + email);
+            this.SignOut();
+          })
+        }
+      }).then(() => {
+        window.alert('Datos de usuario actualizados');
+        window.location.reload();
+      });
+    
+    })
+    
+
+
   }
 
   /* Setting up user data when sign in with username/password, 
