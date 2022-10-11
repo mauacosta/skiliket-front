@@ -83,12 +83,11 @@
 			</div>
 			<hr class="my-4">
 			<a >
-				<!--*ngIf="noticia.Anadir === 0" -->
-				<button (click)="anadirNoticia()" class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="anadirNoticia()" *ngIf="agregarNoticia === 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Dar de alta la noticia</button>
 			</a>
 			<a >
-				<button (click)="editarNoticia()"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="editarNoticia()" *ngIf="agregarNoticia !== 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Editar la noticia</button>
 			</a>
 		</div>

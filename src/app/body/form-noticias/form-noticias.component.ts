@@ -12,7 +12,8 @@ export class FormNoticiasComponent implements OnInit {
 
 	noticiasList: any = [];
 	@Input() noticia: any;
-	
+	noticiaId: string = "";
+	agregarNoticia: number = 0;
 	nombre: string = "";
 	apellido: string = "";
 	descripcionNoticia: string = "";
@@ -21,19 +22,29 @@ export class FormNoticiasComponent implements OnInit {
 	coloniaNoticia: string = "";
 	codigoPostal: string = "";
 	tipoUsuarioNoticia: string = "";
+
 	ngOnInit(): void {
-		this.nombre = this.noticia.nombre;
-		this.apellido = this.noticia.apellido;
-		this.descripcionNoticia = this.noticia.descripcion;
-		this.correoNoticia = this.noticia.correo;
-		this.direccionNoticia = this.noticia.direccion;
-		this.coloniaNoticia = this.noticia.colonia;
-		this.codigoPostal = this.noticia.codigoPostal;
-		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		this.loadNoticiasList();
+	}
+
+	loadNoticiasList() {
+		this.service.getNoticiasList().subscribe((data: any) => {
+			this.noticiasList = data;
+			this.nombre = this.noticia.nombre;
+			this.apellido = this.noticia.apellido;
+			this.descripcionNoticia = this.noticia.descripcion;
+			this.correoNoticia = this.noticia.correo;
+			this.direccionNoticia = this.noticia.direccion;
+			this.coloniaNoticia = this.noticia.colonia;
+			this.codigoPostal = this.noticia.codigoPostal;
+			this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		});
+		console.log("agregar noticia: " + this.agregarNoticia);
 	}
 
 	anadirNoticia() {
 		var noticia = {
+			noticiaId: this.noticiaId,
 			nombre: this.nombre,
 			apellido: this.apellido,
 			descripcion: this.descripcionNoticia,
@@ -52,6 +63,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	editarNoticia() {
 		var noticia = {
+			noticiaId: this.noticiaId,
 			nombre: this.nombre,
 			apellido: this.apellido,
 			descripcion: this.descripcionNoticia,
@@ -65,6 +77,7 @@ export class FormNoticiasComponent implements OnInit {
 			alert(res.toString());
 		});
 	}
+
 
 
 }
