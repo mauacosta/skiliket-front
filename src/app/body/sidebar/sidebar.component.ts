@@ -17,7 +17,7 @@ export class SidebarComponent implements OnInit {
 
 	noticiasList: any = [];
 	noticia: any;
-	agregarNoticia: number = 0;
+	//agregarNoticia: number = 0;
 	noticiaId: number | undefined;
 	nombre: string | undefined;
 	apellido: string | undefined;
@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
 
 	quejasList: any = [];
 	queja: any;
-	agregarQueja: number = 0;
+	//agregarQueja: number = 0;
 	quejaId: number | undefined;
 	naturaleza: string | undefined;
 	descripcion: string  | undefined;
@@ -65,7 +65,6 @@ export class SidebarComponent implements OnInit {
 
 
 	anadirQuejaModal() {
-		this.agregarQueja = 0;
 		this.activarModalQueja = true;
 		this.queja = {
 			agregarQueja: 0,
@@ -82,8 +81,8 @@ export class SidebarComponent implements OnInit {
 
 	anadirNoticiaModal() {
 		this.activarModalNoticia = true;
-		this.agregarNoticia = 0;
 		this.noticia = {
+			agregarNoticia: 0,
 			noticiaId: 0,
 			nombre: "",
 			apellido: "",

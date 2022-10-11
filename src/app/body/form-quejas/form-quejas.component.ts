@@ -12,7 +12,7 @@ export class FormQuejasComponent implements OnInit {
 
 	quejasList: any = [];
 	@Input() queja: any;
-	quejaId: number = 0;
+	Id: number = 0;
 	agregarQueja: number = 0;
 	naturaleza: string = "";
 	descripcion: string = "";
@@ -22,7 +22,15 @@ export class FormQuejasComponent implements OnInit {
 	tipoUsuario: string = "";
 
 	ngOnInit(): void {
-		this.loadQuejasList();
+		//this.loadQuejasList();
+		this.refreshQuejaList();
+		this.Id = this.queja.Id;
+		this.naturaleza = this.queja.naturaleza;
+		this.descripcion = this.queja.descripcion;
+		this.correo = this.queja.correo;
+		this.direccion = this.queja.direccion;
+		this.fecha = this.queja.fecha;
+		this.tipoUsuario = this.queja.tipoUsuario;
 	}
 
 	loadQuejasList() {
@@ -40,7 +48,7 @@ export class FormQuejasComponent implements OnInit {
 
 	anadirQueja() {
 		var queja = {
-			quejaId: this.quejaId,
+			Id: this.Id,
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
@@ -49,14 +57,15 @@ export class FormQuejasComponent implements OnInit {
 			tipoUsuario: this.tipoUsuario
 		};
 		this.service.anadirQueja(queja).subscribe((res) => {
-			alert(res.toString());
+			//alert(res.toString());
 		});
 		console.log("Queja objeto");
 		console.log(queja);
+		this.refreshQuejaList();
 	}
 	editarQueja() {
 		var queja = {
-			quejaId: this.quejaId,
+			Id: this.Id,
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
@@ -64,10 +73,17 @@ export class FormQuejasComponent implements OnInit {
 			fecha: this.fecha,
 			tipoUsuario: this.tipoUsuario
 		};
+		console.log("Id a cambiar" + this.Id);
+		console.log(queja);
 		this.service.editarQueja(queja).subscribe((res) => {
 			alert(res.toString());
 		});
-		
+		this.refreshQuejaList();	
+	}
+	refreshQuejaList() {
+		this.service.getQuejasList().subscribe(data => {
+			this.quejasList = data;
+		});
 	}
 
 }
