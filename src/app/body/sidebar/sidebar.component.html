@@ -37,7 +37,7 @@
 				<strong>Eric Chao</strong>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
-				<li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#noticiaModal">
+				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirNoticiaModal()" data-bs-target="#noticiaModal">
 						Nueva noticia...</a></li>
 				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()"
 						data-bs-target="#quejaModal">
@@ -51,105 +51,11 @@
 		</div>
 	</div>
 </div>
+<!--Modal para las noticias-->
 <div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="container">
-
-				<div class="py-5 text-center">
-					<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
-					<h2>Formulario de noticia</h2>
-					<p class="lead">Llene los campos adyacentes para dar de alta está noticia/reporte en su localidad
-					</p>
-				</div>
-
-				<div class="row">
-					<div class="col">
-						<h4 class="mb-3">Información personal</h4>
-							<div class="row g-3">
-								<div class="col-sm-6">
-									<label for="firstName" class="form-label">Nombre(s)</label>
-									<input type="text" class="form-control" id="firstName" placeholder="" value=""
-										required>
-									<div class="invalid-feedback">
-										Nombre valido es requerido.
-									</div>
-								</div>
-
-								<div class="col-sm-6">
-									<label for="lastName" class="form-label">Apellidos</label>
-									<input type="text" class="form-control" id="lastName" placeholder="" value=""
-										required>
-									<div class="invalid-feedback">
-										Apellidos validos son requeridos
-									</div>
-								</div>
-
-								<div class="col-12">
-									<div class="form-floating">
-										<textarea class="form-control" placeholder="Leave a comment here"
-											id="floatingTextarea" style="height: 100px"></textarea>
-										<label for="floatingTextarea">Describa el reporte</label>
-									</div>
-								</div>
-
-								<div class="col-12">
-									<label for="email" class="form-label">Correo</label>
-									<input type="email" class="form-control" id="email" placeholder="juan@ejemplo.com">
-									<div class="invalid-feedback">
-										Favor de escribir un correo valido de contacto.
-									</div>
-								</div>
-
-								<div class="col-12">
-									<label for="address" class="form-label">Dirección del incidente</label>
-									<input type="text" class="form-control" id="address"
-										placeholder="15630 Teresa Urrea" required>
-									<div class="invalid-feedback">
-										Favor de introducir la dirección de lo sucedido.
-									</div>
-								</div>
-								<div class="col-md-8">
-									<label for="country" class="form-label">Colonia</label>
-									<select class="form-select" id="country" required>
-										<option value="">Escoger...</option>
-										<option>San Bartolo el Chico</option>
-										<option>San Bartolo el Chico</option>
-									</select>
-									<div class="invalid-feedback">
-										Fabor de seleccionar una colonia
-									</div>
-								</div>
-
-								<div class="col-md-4">
-									<label for="zip" class="form-label">Codigo Postal</label>
-									<input type="text" class="form-control" id="zip" placeholder="" required>
-									<div class="invalid-feedback">
-										Codigo Postal requerido.
-									</div>
-								</div>
-							</div>
-							<hr class="my-4">
-							<div class="form-check">
-								<input type="checkbox" class="form-check-input" id="same-address">
-								<label class="form-check-label" for="same-address">Acepto que se publique mi información
-									en la seccion de noticas
-								</label>
-							</div>
-							<div class="form-check">
-								<input type="checkbox" class="form-check-input" id="save-info">
-								<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
-									colonia</label>
-							</div>
-							<hr class="my-4">
-							<a href="/noticias">
-							<button class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
-								Dar de alta la noticia</button>
-							</a>
-					</div>
-				</div>
-
-			</div>
+			<app-form-noticias [noticia]="noticia"></app-form-noticias>
 		</div>
 	</div>
 </div>
@@ -157,7 +63,7 @@
 <div class="modal fade" id="quejaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<app-form-quejas [queja]="queja" *ngIf="activarModal"></app-form-quejas>
+			<app-form-quejas [queja]="queja"></app-form-quejas>
 		</div>
 	</div>
 </div>

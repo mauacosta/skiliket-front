@@ -16,6 +16,7 @@ import { NoticiasComponent } from './body/noticias/noticias.component';
 import { PerfilComponent } from './body/perfil/perfil.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
+import { FormNoticiasComponent } from './body/form-noticias/form-noticias.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
     NoticiasComponent,
     PerfilComponent,
     ReportesComponent,
-    FormQuejasComponent
+    FormQuejasComponent,
+    FormNoticiasComponent
   ],
   imports: [
     BrowserModule,
