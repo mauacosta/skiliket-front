@@ -25,7 +25,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadNoticiasList();
-		this.refeshNoticiasList();
+		//this.refeshNoticiasList();
 		this.Id = this.noticia.Id;
 		this.nombre = this.noticia.nombre;
 		this.apellido = this.noticia.apellido;
@@ -35,6 +35,7 @@ export class FormNoticiasComponent implements OnInit {
 		this.coloniaNoticia = this.noticia.colonia;
 		this.codigoPostal = this.noticia.codigoPostal;
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		this.agregarNoticia = this.noticia.agregarNoticia;
 	}
 
 	loadNoticiasList() {
@@ -54,7 +55,6 @@ export class FormNoticiasComponent implements OnInit {
 
 	anadirNoticia() {
 		var noticia = {
-			//agregarNoticia: 0,
 			Id: this.Id,
 			nombre: this.nombre,
 			apellido: this.apellido,

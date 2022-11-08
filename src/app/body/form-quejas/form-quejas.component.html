@@ -69,10 +69,6 @@
 			</div>
 			<hr class="my-4">
 			<a >
-				<button (click)="anadirQueja()"  data-bs-toggle="modal" data-bs-target="#quejaAlta"  *ngIf="queja.agregarQueja === 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
-					Dar de alta la queja</button>
-			</a>
-			<a >
 				<button (click)="editarQueja()" *ngIf="queja.agregarQueja !== 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Editar la queja</button>
 			</a>
@@ -80,3 +76,4 @@
 	</div>
 
 </div>
+

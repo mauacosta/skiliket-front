@@ -1,3 +1,251 @@
+<!--Modal para las noticias-->
+<div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="container">
+				<div class="py-5 text-center">
+					<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
+					<h2>Formulario de noticia</h2>
+					<p class="lead">Llene los campos adyacentes para dar de alta está noticia/reporte en su localidad
+					</p>
+				</div>
+			
+				<div class="row">
+					<div class="col">
+						<h4 class="mb-3">Información personal</h4>
+						<div class="row g-3">
+							<div class="col-sm-6">
+								<label for="firstName" class="form-label">Nombre(s)</label>
+								<input type="text"  [(ngModel)]="nombre" value="{{noticia.nombre}}" name="nombre"  class="form-control" id="firstName" placeholder="" required>
+								<div class="invalid-feedback">
+									Nombre valido es requerido.
+								</div>
+							</div>
+			
+							<div class="col-sm-6">
+								<label for="lastName" class="form-label">Apellidos</label>
+								<input type="text"  [(ngModel)]="apellido" value="{{noticia.apellido}}" name="apellido"  class="form-control" id="lastName" placeholder="" value="" required>
+								<div class="invalid-feedback">
+									Apellidos validos son requeridos
+								</div>
+							</div>
+			
+							<div class="col-12">
+								<div class="form-floating">
+									<textarea class="form-control"  [(ngModel)]="descripcionNoticia" value="{{noticia.descripcionNoticia}}" name="descripcionNoticia"  placeholder="Leave a comment here" id="floatingTextarea"
+										style="height: 100px"></textarea>
+									<label for="floatingTextarea">Describa el reporte</label>
+								</div>
+							</div>
+			
+							<div class="col-12">
+								<label for="email" class="form-label">Correo</label>
+								<input type="email"  [(ngModel)]="correoNoticia" value="{{noticia.correoNoticia}}" name="correoNoticia"  class="form-control" id="email" placeholder="juan@ejemplo.com">
+								<div class="invalid-feedback">
+									Favor de escribir un correo valido de contacto.
+								</div>
+							</div>
+			
+							<div class="col-12">
+								<label for="address" class="form-label">Dirección del incidente</label>
+								<input type="text"  [(ngModel)]="direccionNoticia" value="{{noticia.direccionNoticia}}" name="direccionNoticia"  class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
+								<div class="invalid-feedback">
+									Favor de introducir la dirección de lo sucedido.
+								</div>
+							</div>
+							<div class="col-md-8">
+								<label for="country" class="form-label">Colonia</label>
+								<select class="form-select"  [(ngModel)]="coloniaNoticia" value="{{noticia.coloniaNoticia}}" name="coloniaNoticia"  id="country" required>
+									<option value="">Escoger...</option>
+									<option value="San Bartolo el Chico">San Bartolo el Chico</option>
+									<option value="Teresa Urrea">Teresa Urrea</option>
+								</select>
+								<div class="invalid-feedback">
+									Fabor de seleccionar una colonia
+								</div>
+							</div>
+			
+							<div class="col-md-4">
+								<label for="zip" class="form-label">Codigo Postal</label>
+								<input type="text" class="form-control"  [(ngModel)]="codigoPostal" value="{{noticia.codigoPostal}}" name="codigoPostal"   id="zip" placeholder="" required>
+								<div class="invalid-feedback">
+									Codigo Postal requerido.
+								</div>
+							</div>
+						</div>
+						<hr class="my-4">
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="same-address">
+							<label class="form-check-label" for="same-address">Acepto que se publique mi información
+								en la seccion de noticas
+							</label>
+						</div>
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="save-info">
+							<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
+								colonia</label>
+						</div>
+						<hr class="my-4">
+						<a >
+							<button (click)="anadirNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaAlta"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+								Dar de alta la noticia</button>
+						</a>
+					</div>
+				</div>
+			
+			</div>
+		</div>
+	</div>
+</div>
+<!--Modal para las quejas-->
+<div class="modal fade" id="quejaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="container">
+				<div class="py-5 text-center">
+					<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
+					<p class="lead">Llene los campos adyacentes para dar de alta está queja en su localidad
+					</p>
+				</div>
+				<div class="row">
+					<div class="col">
+						<h4 class="mb-3">Información</h4>
+						<div class="row g-3">
+							<div class="col-md-12">
+								<label class="form-label">Naturaleza de la queja</label>
+								<select class="form-select" name="naturaleza" name="naturaleza" [(ngModel)]="naturaleza" value="{{queja.naturaleza}}" name="naturaleza" >
+									<option value="Servicios públicos (Gas, electricidad, agua)">Servicios públicos (Gas,
+										electricidad, agua)</option>
+									<option value="Robos">Robos</option>
+									<option value="Inundaciones">Inundaciones</option>
+									<option value="Incendios">Incendios</option>
+									<option value="Contaminación">Contaminación</option>
+									<option value="Mucho ruido">Mucho ruido</option>
+									<option value="Otros">Otros</option>
+								</select>
+								<div class="invalid-feedback">
+									Fabor de seleccionar una colonia
+								</div>
+							</div>
+							<div class="col-12">
+								<div class="form-floating">
+									<textarea class="form-control" id="floatingTextarea" style="height: 100px" name="descripcion"
+										[(ngModel)]="descripcion" value="{{queja.descripcion}}"   name="descripcion" ></textarea>
+									<label for="floatingTextarea">Describa su queja</label>
+								</div>
+							</div>
+			
+							<div class="col-12">
+								<label for="email" class="form-label">Correo</label>
+								<input type="email" class="form-control" name="correo" placeholder="juan@ejemplo.com"
+									[(ngModel)]="correo" value="{{queja.correo}}"  name="correo">
+								<div class="invalid-feedback">
+									Favor de escribir un correo valido de contacto.
+								</div>
+							</div>
+							<div class="col-12">
+								<label for="address" class="form-label">Dirección del incidente</label>
+								<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion" value="{{queja.direccion}}" 
+								name="direccion"
+									placeholder="15630 Teresa Urrea" required>
+								<div class="invalid-feedback">
+									Favor de introducir la dirección de lo sucedido.
+								</div>
+							</div>
+						</div><br>
+						<div class="col-12">
+							<label for="fecha">Fecha: &nbsp;&nbsp;&nbsp;</label>
+							<input type="date"  [(ngModel)]="fecha" value="{{queja.fecha}}" name="fecha"  />
+						</div>
+						<hr class="my-4">
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="same-address">
+							<label class="form-check-label" for="same-address">Acepto que se publique mi información
+								en la seccion de noticas
+							</label>
+						</div>
+			
+						<div class="form-check">
+							<input type="checkbox" class="form-check-input" id="save-info">
+							<label class="form-check-label" for="save-info">Unicamente mandar noticia al jefe de
+								colonia</label>
+						</div>
+						<hr class="my-4">
+						<a >
+							<button (click)="anadirQueja()"  data-bs-toggle="modal" data-bs-target="#quejaAlta" class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+								Dar de alta la queja</button>
+						</a>
+					</div>
+				</div>
+			
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+
+<!--Modal de estatus correcto para la alta de las noticias-->
+<div class="modal" id="noticiaAlta">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/listaNoticias">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Noticia, dada de alta exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/listaNoticias">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!--Modal de estatus correcto para la alta de las quejas-->
+<div class="modal" id="quejaAlta">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title">Estatus de solicitud</h5>
+				<a href="/listaQuejas">
+					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
+						aria-label="Close"></button>
+				</a>
+			</div>
+			<div class="modal-body">
+				<div class="col-12 alert alert-success  align-items-center" role="alert">
+					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
+						style="float: left;">
+						<use xlink:href="#check-circle-fill" />
+					</svg>
+					<div>
+						Queja, data de alta exitosamente
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<a href="/listaQuejas">
+					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
 <div class="row" style="display: inline-flex;" id="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
 		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -18,7 +266,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="/estadisticas" class="nav-link link-dark">
+				<a href="/estadisticas/Enero" class="nav-link link-dark">
 					<i class="bi bi-bar-chart"></i>
 					Estadisticas
 				</a>
@@ -33,98 +281,21 @@
 		<div class="dropdown">
 			<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
 				data-bs-toggle="dropdown" aria-expanded="false">
-				<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="" width="32" height="32" class="rounded-circle me-2">
-				<strong>{{this.userData.firstname}} {{this.userData.lastname}}</strong>
+				<img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+				<strong>Eric Chao</strong>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
 				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirNoticiaModal()" data-bs-target="#noticiaModal">
 						Nueva noticia...</a></li>
-				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()" data-bs-target="#quejaModal">
+				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()"
+						data-bs-target="#quejaModal">
 						Nueva queja...</a></li>
 				<li><a class="dropdown-item" href="/perfil">Perfil</a></li>
 				<li>
 					<hr class="dropdown-divider">
 				</li>
-				<li><a class="dropdown-item" (click)="authService.SignOut()">Cerrar Sesion</a></li>
+				<li><a class="dropdown-item" href="#">Cerrar Sesion</a></li>
 			</ul>
-		</div>
-	</div>
-</div>
-<!--Modal para las noticias-->
-<div class="modal fade" id="noticiaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<app-form-noticias [noticia]="noticia"></app-form-noticias>
-		</div>
-	</div>
-</div>
-<!--Modal para las quejas-->
-<div class="modal fade" id="quejaModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<app-form-quejas [queja]="queja"></app-form-quejas>
-		</div>
-	</div>
-</div>
-
-<!--Modal de estatus correcto para la alta de las noticias-->
-<div class="modal" id="noticiaAlta">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Estatus de solicitud</h5>
-				<a href="/noticias">
-					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</a>
-			</div>
-			<div class="modal-body">
-				<div class="col-12 alert alert-success  align-items-center" role="alert">
-					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
-						style="float: left;">
-						<use xlink:href="#check-circle-fill" />
-					</svg>
-					<div>
-						Noticia, dada de alta exitosamente
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<a href="/noticias">
-					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
-				</a>
-			</div>
-		</div>
-	</div>
-</div>
-
-<!--Modal de estatus correcto para la alta de las quejas-->
-<div class="modal" id="quejaAlta">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title">Estatus de solicitud</h5>
-				<a href="/noticias">
-					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</a>
-			</div>
-			<div class="modal-body">
-				<div class="col-12 alert alert-success  align-items-center" role="alert">
-					<svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"
-						style="float: left;">
-						<use xlink:href="#check-circle-fill" />
-					</svg>
-					<div>
-						Queja, data de alta exitosamente
-					</div>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<a href="/noticias">
-					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
-				</a>
-			</div>
 		</div>
 	</div>
 </div>
