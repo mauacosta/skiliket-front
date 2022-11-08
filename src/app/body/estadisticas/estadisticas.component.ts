@@ -466,7 +466,7 @@ export class EstadisticasComponent implements OnInit {
 				for (let i = 0; i < this.QuejaList.length; i++) {
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
-					if (this.mesEstadistica[0] == "62") {
+					if (this.mesEstadistica[0] == "06") {
 						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
 						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
 							this.contadorServiciosPublicos++;
