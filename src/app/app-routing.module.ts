@@ -14,6 +14,8 @@ import { AdministarCuentasComponent } from './body/administrarCuentas/administra
 import { SidebarComponent } from './body/sidebar/sidebar.component';
 import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
+import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
+import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
 
 
 
@@ -30,8 +32,9 @@ const routes: Routes = [
 	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
 	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
 	{ path: 'reportes', component: ReportesComponent },
-
-	{ path: '**', redirectTo: 'header' }
+	{ path: 'listadoNoticias', component: ListadoNoticiasComponent },
+	{ path: 'listadoQuejas', component: ListadoQuejasComponent }
+	//{ path: '**', redirectTo: 'header' }
 ];
 
 @NgModule({

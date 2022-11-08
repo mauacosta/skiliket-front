@@ -2,6 +2,10 @@ import { Component, OnInit, Input } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../models/user';
 import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
+import { Router } from '@angular/router';
+import { SharedService } from 'src/app/shared.service';
+import { HttpClient } from '@angular/common/http';
+
 
 @Component({
 	selector: 'app-sidebar',
@@ -11,26 +15,16 @@ import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
 export class SidebarComponent implements OnInit {
 
 	constructor(
-		public authService: AuthService
+		public authService: AuthService,private service: SharedService, private httpClient: HttpClient
 	) { }
 	
-	quejasList: any = [];
-	noticiasList: any = [];
-	
-	@Input() queja: any;
-	naturaleza: string = "";
-	descripcion: string = "";
-	correo: string = "";
-	direccion: string = "";
-	tipoUsuario: string = "";
-	activarModal: boolean = false;
+
 	user: User = JSON.parse(localStorage.getItem('user')!);
 	userData:any;
-
-
-
-
-	@Input() noticia: any;
+	noticiasList: any = [];
+	noticia: any;
+	Id: number = 0;
+	agregarNoticia: number = 0;
 	nombre: string = "";
 	apellido: string = "";
 	descripcionNoticia: string = "";
@@ -39,6 +33,19 @@ export class SidebarComponent implements OnInit {
 	coloniaNoticia: string = "";
 	codigoPostal: string = "";
 	tipoUsuarioNoticia: string = "";
+
+	quejasList: any = [];
+	queja: any;
+	//agregarQueja: number = 0;
+	quejaId: number = 0;
+	agregarQueja: number = 0;
+	naturaleza: string = "";
+	descripcion: string = "";
+	correo: string = "";
+	direccion: string = "";
+	fecha: string = "";
+	tipoUsuario: string = "";
+	//activarModalQueja: boolean = false;
 
 	ngOnInit(): void {
 
@@ -71,39 +78,40 @@ export class SidebarComponent implements OnInit {
 		
 	}
 
+	anadirQuejaModal() {
+		//this.activarModalQueja = true;
+		this.queja = {
+			agregarQueja: 0,
+			quejaId: 0,
+			naturaleza: "",
+			descripcion: "",
+			correo: "",
+			direccion: "",
+			fecha: "",
+			tipoUsuario: ""
+		}
+		console.log("Agregar queja: " + this.queja.agregarQueja);
+	}
 
-	anadirQuejaModal(){
-		this.naturaleza = "";
-		this.descripcion = "";
-		this.correo = "";
-		this.direccion = "";
-		this.activarModal = true;
+	anadirNoticiaModal() {
+		//this.activarModalNoticia = true;
+		this.noticia = {
+			agregarNoticia: 0,
+			noticiaId: 0,
+			nombre: "",
+			apellido: "",
+			descripcion: "",
+			correo: "",
+			direccion: "",
+			colonia: "",
+			codigoPostal: "",
+			tipoUsuario: ""
+		}
+		console.log("Agregar noticia: " + this.noticia.agregarNoticia);
 	}
-	anadirQueja() {
-		var queja = {
-			naturaleza: this.naturaleza,
-			descripcion: this.descripcion,
-			correo: this.correo,
-			direccion: this.direccion
-		};
-		console.log(this.naturaleza);
-		console.log(queja);
-		this.quejasList.push(queja);
-		console.log("anadir queja");
-	}
-	anadirNoticiaModal(){
-		this.nombre = "";
-		this.apellido = "";
-		this.descripcionNoticia = "";
-		this.correoNoticia = "";
-		this.direccionNoticia = "";
-		this.coloniaNoticia = "";
-		this.codigoPostal = "";
-		this.tipoUsuarioNoticia = "";
-		this.activarModal = true;
-	}
-	añadirNoticia() {
+	anadirNoticia() {
 		var noticia = {
+			Id: this.Id,
 			nombre: this.nombre,
 			apellido: this.apellido,
 			descripcion: this.descripcionNoticia,
@@ -113,10 +121,22 @@ export class SidebarComponent implements OnInit {
 			codigoPostal: this.codigoPostal,
 			tipoUsuario: this.tipoUsuarioNoticia
 		};
-		console.log(this.nombre);
+		this.service.anadirNoticia(noticia).subscribe((res) => {
+			//alert(res.toString());
+		});
+		console.log("Noticia objeto");
 		console.log(noticia);
-		this.noticiasList.push(noticia);
-		console.log("anadir noticia");
+	}
+
+	refreshQuejaList() {
+		this.service.getQuejasList().subscribe(data => {
+			this.quejasList = data;
+		});
+	}
+	refreshNoticiaList() {
+		this.service.getNoticiasList().subscribe(data => {
+			this.noticiasList = data;
+		});
 	}
 	
 
