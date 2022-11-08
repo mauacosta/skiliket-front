@@ -1,116 +1,194 @@
 <app-sidebar></app-sidebar>
 <div class="col" id="infoSeccion">
-<section style="background-color: #eee;">
-	<div class="container py-5">
-	  <div class="row">
-		<div class="col-lg-4">
-		  <div class="card mb-4">
-			<div class="card-body text-center">
-			  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
-				class="rounded-circle img-fluid" style="width: 150px;">
-			  <h5 class="my-3">Eric Chao</h5>
-			  <p class="text-muted mb-1">Microsoft npc</p>
-			  <p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
-			  <div class="d-flex justify-content-center mb-2">
-				<button type="button" class="btn btn-outline-primary ms-1">Cerrar Sesión</button>
-			  </div>
+	<section style="background-color: #eee;">
+		<div class="container py-5">
+			<div class="row">
+				<div class="col-lg-4">
+					<div class="card mb-4">
+						<div class="card-body text-center">
+							<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
+								alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+							<h5 class="my-3">Eric Chao</h5>
+							<p class="text-muted mb-1">Microsoft npc</p>
+							<p class="text-muted mb-4">Bay Area, San Francisco, CA</p>
+							<div class="d-flex justify-content-center mb-2">
+								<button type="button" class="btn btn-outline-primary ms-1">Cerrar Sesión</button>
+							</div>
+						</div>
+					</div>
+					<div class="card mb-4 mb-lg-0">
+						<div class="card-body p-0">
+							<ul class="list-group list-group-flush rounded-3">
+								<li class="list-group-item d-flex justify-content-between align-items-center p-3">
+									<i class="fas fa-globe fa-lg text-warning"></i>
+									<p class="mb-0">https://www.linkedin.com/</p>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center p-3">
+									<i class="fab fa-github fa-lg" style="color: #333333;"></i>
+									<p class="mb-0">linkedin</p>
+								</li>
+								<li class="list-group-item d-flex justify-content-between align-items-center p-3">
+									<i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
+									<p class="mb-0">@linkedin</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-8">
+					<div class="card mb-4">
+						<div class="card-body">
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Nombre completo</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Erickkk Jardon Chao</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Correo</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">latam-npc@microsoft.com</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Telfono</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Celular</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
+								</div>
+							</div>
+							<hr>
+							<div class="row">
+								<div class="col-sm-3">
+									<p class="mb-0">Dirección</p>
+								</div>
+								<div class="col-sm-9">
+									<p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<div class="card mb-4 mb-md-0">
+								<div class="card-body">
+									<p class="mb-4"><span class="text-primary font-italic me-1">Historial de
+											usuario</span>
+									</p>
+									<p class="mb-1" style="font-size: .77rem;">Número de noticias registradas:
+										{{contadorNoticias}}</p>
+									<div class="progress rounded" style="height: 5px;">
+										<div class="progress-bar" *ngIf="contadorNoticias == 1" role="progressbar"
+											style="width: 10%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-success"
+											*ngIf="contadorNoticias > 1 && contadorNoticias <= 2" role="progressbar"
+											style="width: 20%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-info"
+											*ngIf="contadorNoticias > 2 && contadorNoticias <= 3" role="progressbar"
+											style="width: 30%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-warning"
+											*ngIf="contadorNoticias > 3 && contadorNoticias <= 4" role="progressbar"
+											style="width: 40%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 5"
+											role="progressbar" style="width: 50%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 6"
+											role="progressbar" style="width: 60%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 7"
+											role="progressbar" style="width: 70%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 8"
+											role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 9"
+											role="progressbar" style="width: 90%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorNoticias == 10"
+											role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<p class="mt-4 mb-1" style="font-size: .77rem;">Número de quejas reportadas:
+										{{contadorQuejas}}</p>
+									<div class="progress rounded" style="height: 5px;">
+										<div class="progress-bar" *ngIf="contadorQuejas == 1" role="progressbar"
+											style="width: 10%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-success"
+											*ngIf="contadorQuejas > 1 && contadorQuejas <= 2" role="progressbar"
+											style="width: 20%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-info"
+											*ngIf="contadorQuejas > 2 && contadorQuejas <= 3" role="progressbar"
+											style="width: 30%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-warning"
+											*ngIf="contadorQuejas > 3 && contadorQuejas <= 4" role="progressbar"
+											style="width: 40%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+										</div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 5"
+											role="progressbar" style="width: 50%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 6"
+											role="progressbar" style="width: 60%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 7"
+											role="progressbar" style="width: 70%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 8"
+											role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 9"
+											role="progressbar" style="width: 90%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+										<div class="progress-bar bg-danger" *ngIf="contadorQuejas == 10"
+											role="progressbar" style="width: 100%" aria-valuenow="80" aria-valuemin="0"
+											aria-valuemax="100"></div>
+									</div>
+									<div class="col-12" *ngIf="contadorTotal <=3">
+										<p class="mt-4 mb-1" style="font-size: .77rem;">Nivel de insignea: Participador
+											básico</p>
+										<img src="../../assets/img/nivel1.jpg" style="margin-left: 40%;  border-radius: 50%;" alt=""
+											width="70" height="auto">
+									</div>
+									<div class="col-12" *ngIf="contadorTotal >=3 && contadorTotal <=7">
+										<p class="mt-4 mb-1" style="font-size: .77rem;">Nivel de insignea: Participador
+											intermedio</p>
+										<img src="../../assets/img/nivel2.jpg" style="margin-left: 40%;  border-radius: 50%;" alt=""
+											width="70" height="auto">
+									</div>
+									<div class="col-12" *ngIf="contadorTotal >=8">
+										<p class="mt-4 mb-1" style="font-size: .77rem;">Nivel de insignea: Participador
+											experto</p>
+										<img src="../../assets/img/nivel23.jpg" style="margin-left: 40%;  border-radius: 50%;" alt=""
+											width="70" height="auto">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-		  </div>
-		  <div class="card mb-4 mb-lg-0">
-			<div class="card-body p-0">
-			  <ul class="list-group list-group-flush rounded-3">
-				<li class="list-group-item d-flex justify-content-between align-items-center p-3">
-				  <i class="fas fa-globe fa-lg text-warning"></i>
-				  <p class="mb-0">https://www.linkedin.com/</p>
-				</li>
-				<li class="list-group-item d-flex justify-content-between align-items-center p-3">
-				  <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-				  <p class="mb-0">linkedin</p>
-				</li>
-				<li class="list-group-item d-flex justify-content-between align-items-center p-3">
-				  <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-				  <p class="mb-0">@linkedin</p>
-				</li>
-			  </ul>
-			</div>
-		  </div>
 		</div>
-		<div class="col-lg-8">
-		  <div class="card mb-4">
-			<div class="card-body">
-			  <div class="row">
-				<div class="col-sm-3">
-				  <p class="mb-0">Nombre completo</p>
-				</div>
-				<div class="col-sm-9">
-				  <p class="text-muted mb-0">Erickkk Jardon Chao</p>
-				</div>
-			  </div>
-			  <hr>
-			  <div class="row">
-				<div class="col-sm-3">
-				  <p class="mb-0">Correo</p>
-				</div>
-				<div class="col-sm-9">
-				  <p class="text-muted mb-0">latam-npc@microsoft.com</p>
-				</div>
-			  </div>
-			  <hr>
-			  <div class="row">
-				<div class="col-sm-3">
-				  <p class="mb-0">Telfono</p>
-				</div>
-				<div class="col-sm-9">
-				  <p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
-				</div>
-			  </div>
-			  <hr>
-			  <div class="row">
-				<div class="col-sm-3">
-				  <p class="mb-0">Celular</p>
-				</div>
-				<div class="col-sm-9">
-				  <p class="text-muted mb-0">(+52) 55-64-50-58-68</p>
-				</div>
-			  </div>
-			  <hr>
-			  <div class="row">
-				<div class="col-sm-3">
-				  <p class="mb-0">Dirección</p>
-				</div>
-				<div class="col-sm-9">
-				  <p class="text-muted mb-0">Bay Area, San Francisco, CA</p>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		  <div class="row">
-			<div class="col">
-			  <div class="card mb-4 mb-md-0">
-				<div class="card-body">
-				  <p class="mb-4"><span class="text-primary font-italic me-1">Insigneas</span> obtenidas
-				  </p>
-				  <p class="mb-1" style="font-size: .77rem;">Número de noticias subidas</p>
-				  <div class="progress rounded" style="height: 5px;">
-					<div class="progress-bar" role="progressbar" style="width: 80%" aria-valuenow="80"
-					  aria-valuemin="0" aria-valuemax="100"></div>
-				  </div>
-				  <p class="mt-4 mb-1" style="font-size: .77rem;">Número de quejas reportadas</p>
-				  <div class="progress rounded" style="height: 5px;">
-					<div class="progress-bar" role="progressbar" style="width: 72%" aria-valuenow="72"
-					  aria-valuemin="0" aria-valuemax="100"></div>
-				  </div>
-				  <p class="mt-4 mb-1" style="font-size: .77rem;">Comentarios escritos</p>
-				  <div class="progress rounded" style="height: 5px;">
-					<div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
-					  aria-valuemin="0" aria-valuemax="100"></div>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </div>
-		</div>
-	  </div>
-	</div>
-  </section>
+	</section>
 </div>
