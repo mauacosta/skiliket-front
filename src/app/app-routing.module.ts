@@ -12,6 +12,10 @@ import { PerfilComponent } from './body/perfil/perfil.component';
 import { SidebarComponent } from './body/sidebar/sidebar.component';
 import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
+import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
+import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
+
+
 
 const routes: Routes = [
 	{ path: 'estadisticas', component: EstadisticasComponent },
@@ -22,9 +26,10 @@ const routes: Routes = [
 	{ path: 'sidebar', component: SidebarComponent },
 	{ path: 'header', component: HeaderComponent },
 	{ path: 'perfil', component: PerfilComponent },
-	{ path: 'reportes', component: ReportesComponent }
-
-
+	{ path: 'reportes', component: ReportesComponent },
+	{ path: 'listadoQuejas', component: ListadoQuejasComponent },
+	{ path: 'listadoNoticias', component: ListadoNoticiasComponent }
+	
 ];
 
 @NgModule({

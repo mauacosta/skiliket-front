@@ -17,6 +17,8 @@ import { PerfilComponent } from './body/perfil/perfil.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
 import { FormNoticiasComponent } from './body/form-noticias/form-noticias.component';
+import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
+import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { FormNoticiasComponent } from './body/form-noticias/form-noticias.compon
     PerfilComponent,
     ReportesComponent,
     FormQuejasComponent,
-    FormNoticiasComponent
+    FormNoticiasComponent,
+    ListadoNoticiasComponent,
+    ListadoQuejasComponent
   ],
   imports: [
     BrowserModule,

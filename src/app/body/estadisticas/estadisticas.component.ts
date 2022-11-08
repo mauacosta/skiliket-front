@@ -126,6 +126,610 @@ export class EstadisticasComponent implements OnInit {
 			this.QuejaList = data;
 			console.log(this.QuejaList);
 			//for in QuejasList
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Enero") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "01") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+					
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Febrero") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "02") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Marzo") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "03") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Abril") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "04") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Mayo") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "05") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Junio") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "62") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Julio") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "07") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Agosto") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "08") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Septiembre") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "09") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Octubre") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
@@ -161,34 +765,173 @@ export class EstadisticasComponent implements OnInit {
 												}
 					}
 				}
-					if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
-						this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
-						this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
-						this.options.series[1]['data'].push(this.contadorServiciosPublicos);
-						this.options.series[1]['data'].push(this.contadorRobos);
-						this.options.series[1]['data'].push(this.contadorInundaciones);
-						this.options.series[1]['data'].push(this.contadorIncendios);
-						this.options.series[1]['data'].push(this.contadorContaminacion);
-						this.options.series[1]['data'].push(this.contadorMuchoRuido);
-						this.options.series[1]['data'].push(this.contadorOtros);
-						console.log("Contaminacion: " + this.contadorContaminacion);
-						console.log("Inundaciones: " + this.contadorInundaciones);
-						console.log("Incendios: " + this.contadorIncendios);
-						console.log("Mucho ruido: " + this.contadorMuchoRuido);
-						console.log("Otros: " + this.contadorOtros);
-						console.log("Robos: " + this.contadorRobos);
-						console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
 
-					}
-					else {
-						this.options.series[0]['data'][0] = {
-							name: 'No existen quejas sobre ningun tema',
-							y: 10
-						};
-					}
-					Highcharts.chart('container', this.options);
 				}
-			});
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Noviembre") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "11") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Diciembre") {
+				for (let i = 0; i < this.QuejaList.length; i++) {
+					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
+					this.mesEstadistica = this.fechaArreglo[1].split(',');
+					if (this.mesEstadistica[0] == "12") {
+						//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
+						if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
+							this.contadorServiciosPublicos++;
+						} else
+							//if naturaleza == 'Robos'
+							if (this.QuejaList[i].naturaleza === 'Robos') {
+								this.contadorRobos++;
+							} else
+								//if naturaleza == 'Inundaciones'
+								if (this.QuejaList[i].naturaleza === 'Inundaciones') {
+									this.contadorInundaciones++;
+								} else
+									//if naturaleza == 'Incendios'
+									if (this.QuejaList[i].naturaleza === 'Incendios') {
+										this.contadorIncendios++;
+									} else
+										//if naturaleza == 'Contaminación'
+										if (this.QuejaList[i].naturaleza === 'Contaminación') {
+											this.contadorContaminacion++;
+										} else
+											//if naturaleza == 'Mucho ruido'
+											if (this.QuejaList[i].naturaleza === 'Mucho ruido') {
+												this.contadorMuchoRuido++;
+											} else
+												//if naturaleza == 'Otros'
+												if (this.QuejaList[i].naturaleza === 'Otros') {
+													this.contadorOtros++;
+												}
+					}
+				}
+				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
+					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
+					this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					console.log("Contaminacion: " + this.contadorContaminacion);
+					console.log("Inundaciones: " + this.contadorInundaciones);
+					console.log("Incendios: " + this.contadorIncendios);
+					console.log("Mucho ruido: " + this.contadorMuchoRuido);
+					console.log("Otros: " + this.contadorOtros);
+					console.log("Robos: " + this.contadorRobos);
+					console.log("Servicios publicos: " + this.contadorServiciosPublicos);
+
+				}
+				else {
+					this.options.series[1]['data'].push(this.contadorServiciosPublicos);
+					this.options.series[1]['data'].push(this.contadorRobos);
+					this.options.series[1]['data'].push(this.contadorInundaciones);
+					this.options.series[1]['data'].push(this.contadorIncendios);
+					this.options.series[1]['data'].push(this.contadorContaminacion);
+					this.options.series[1]['data'].push(this.contadorMuchoRuido);
+					this.options.series[1]['data'].push(this.contadorOtros);
+					//Set title to "No se encontraron quejas en este mes"
+					this.options.title.text = "<strong>No se encontraron quejas en este mes</strong>";
+				}
+				Highcharts.chart('container', this.options);
+			}
+		});
 	}
 
 
