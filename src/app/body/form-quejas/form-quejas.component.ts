@@ -31,6 +31,7 @@ export class FormQuejasComponent implements OnInit {
 		this.direccion = this.queja.direccion;
 		this.fecha = this.queja.fecha;
 		this.tipoUsuario = this.queja.tipoUsuario;
+		this.agregarQueja = this.queja.agregarQueja;
 	}
 
 	loadQuejasList() {

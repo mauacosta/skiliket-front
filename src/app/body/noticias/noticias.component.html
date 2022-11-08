@@ -13,7 +13,7 @@
 			<h6 class="border-bottom pb-2 mb-0">Últimas noticias</h6>
 			<ng-container *ngFor="let noticiaItem of NoticiaList; let i=index;">
 				<!--Modal para editar las noticias-->
-				<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.Id" tabindex="-1"
+				<div class="modal fade" [attr.id]="'editarNoticia' + i" tabindex="-1"
 					aria-labelledby="modalRiesgoLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">

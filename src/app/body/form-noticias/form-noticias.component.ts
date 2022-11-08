@@ -35,6 +35,7 @@ export class FormNoticiasComponent implements OnInit {
 		this.coloniaNoticia = this.noticia.colonia;
 		this.codigoPostal = this.noticia.codigoPostal;
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
+		this.agregarNoticia = this.noticia.agregarNoticia;
 	}
 
 	loadNoticiasList() {
