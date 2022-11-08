@@ -36,6 +36,7 @@ export class NoticiasComponent implements OnInit {
 	activarEdicionQueja: boolean = false;
 
 	ngOnInit(): void {
+		
 		this.refreshNoticiaList();
 		this.refreshQuejaList();
 		//Ver si descomentar esto

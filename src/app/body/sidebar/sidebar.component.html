@@ -37,10 +37,9 @@
 				<strong>{{this.userData.firstname}} {{this.userData.lastname}}</strong>
 			</a>
 			<ul class="dropdown-menu text-small shadow">
-				<li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#noticiaModal">
+				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirNoticiaModal()" data-bs-target="#noticiaModal">
 						Nueva noticia...</a></li>
-				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()"
-						data-bs-target="#quejaModal">
+				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()" data-bs-target="#quejaModal">
 						Nueva queja...</a></li>
 				<li><a class="dropdown-item" href="/perfil">Perfil</a></li>
 				<li>

@@ -12,7 +12,7 @@
 			<div class="row g-3">
 				<div class="col-sm-6">
 					<label for="firstName" class="form-label">Nombre(s)</label>
-					<input type="text"  [(ngModel)]="nombre"  class="form-control" id="firstName" placeholder="" required>
+					<input type="text"  [(ngModel)]="nombre" value="{{noticia.nombre}}" name="nombre"  class="form-control" id="firstName" placeholder="" required>
 					<div class="invalid-feedback">
 						Nombre valido es requerido.
 					</div>
@@ -20,7 +20,7 @@
 
 				<div class="col-sm-6">
 					<label for="lastName" class="form-label">Apellidos</label>
-					<input type="text"  [(ngModel)]="apellido" class="form-control" id="lastName" placeholder="" value="" required>
+					<input type="text"  [(ngModel)]="apellido" value="{{noticia.apellido}}" name="apellido"  class="form-control" id="lastName" placeholder="" value="" required>
 					<div class="invalid-feedback">
 						Apellidos validos son requeridos
 					</div>
@@ -28,7 +28,7 @@
 
 				<div class="col-12">
 					<div class="form-floating">
-						<textarea class="form-control"  [(ngModel)]="descripcionNoticia" placeholder="Leave a comment here" id="floatingTextarea"
+						<textarea class="form-control"  [(ngModel)]="descripcionNoticia" value="{{noticia.descripcionNoticia}}" name="descripcionNoticia"  placeholder="Leave a comment here" id="floatingTextarea"
 							style="height: 100px"></textarea>
 						<label for="floatingTextarea">Describa el reporte</label>
 					</div>
@@ -36,7 +36,7 @@
 
 				<div class="col-12">
 					<label for="email" class="form-label">Correo</label>
-					<input type="email"  [(ngModel)]="correoNoticia" class="form-control" id="email" placeholder="juan@ejemplo.com">
+					<input type="email"  [(ngModel)]="correoNoticia" value="{{noticia.correoNoticia}}" name="correoNoticia"  class="form-control" id="email" placeholder="juan@ejemplo.com">
 					<div class="invalid-feedback">
 						Favor de escribir un correo valido de contacto.
 					</div>
@@ -44,14 +44,14 @@
 
 				<div class="col-12">
 					<label for="address" class="form-label">Dirección del incidente</label>
-					<input type="text"  [(ngModel)]="direccionNoticia" class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
+					<input type="text"  [(ngModel)]="direccionNoticia" value="{{noticia.direccionNoticia}}" name="direccionNoticia"  class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
 					<div class="invalid-feedback">
 						Favor de introducir la dirección de lo sucedido.
 					</div>
 				</div>
 				<div class="col-md-8">
 					<label for="country" class="form-label">Colonia</label>
-					<select class="form-select"  [(ngModel)]="coloniaNoticia" id="country" required>
+					<select class="form-select"  [(ngModel)]="coloniaNoticia" value="{{noticia.coloniaNoticia}}" name="coloniaNoticia"  id="country" required>
 						<option value="">Escoger...</option>
 						<option value="San Bartolo el Chico">San Bartolo el Chico</option>
 						<option value="Teresa Urrea">Teresa Urrea</option>
@@ -63,7 +63,7 @@
 
 				<div class="col-md-4">
 					<label for="zip" class="form-label">Codigo Postal</label>
-					<input type="text" class="form-control"  [(ngModel)]="codigoPostal"  id="zip" placeholder="" required>
+					<input type="text" class="form-control"  [(ngModel)]="codigoPostal" value="{{noticia.codigoPostal}}" name="codigoPostal"   id="zip" placeholder="" required>
 					<div class="invalid-feedback">
 						Codigo Postal requerido.
 					</div>
@@ -83,12 +83,11 @@
 			</div>
 			<hr class="my-4">
 			<a >
-				<!--*ngIf="noticia.Anadir === 0" -->
-				<button (click)="anadirNoticia()" class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="anadirNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaAlta" *ngIf="noticia.agregarNoticia === 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Dar de alta la noticia</button>
 			</a>
 			<a >
-				<button (click)="editarNoticia()"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="editarNoticia()" *ngIf="noticia.agregarNoticia !== 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Editar la noticia</button>
 			</a>
 		</div>
