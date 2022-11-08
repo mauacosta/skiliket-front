@@ -12,6 +12,23 @@
 		<div class="my-3 p-3 bg-body rounded shadow-sm">
 			<h6 class="border-bottom pb-2 mb-0">Últimas noticias</h6>
 			<ng-container *ngFor="let noticiaItem of NoticiaList; let i=index;">
+				<!--Modal para editar las noticias-->
+				<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.Id" tabindex="-1"
+					aria-labelledby="modalRiesgoLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title fs-5 fw-bold">Llene los campos para
+									editar la noticia {{noticiaItem.descripcion}}</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal"
+									aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<app-form-noticias [noticia]="noticia" *ngIf="activarEdicionNoticia"></app-form-noticias>
+							</div>
+						</div>
+					</div>
+				</div>
 				<div class="d-flex text-muted pt-3" *ngIf="i<3">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i == 0" width="32" height="32"
 						xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
@@ -41,26 +58,9 @@
 							<strong>Por: {{noticiaItem.correo}}</strong>
 						</p>
 					</div>
-					<!--Modal para editar las noticias-->
-					<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.correo" tabindex="-1"
-						aria-labelledby="modalRiesgoLabel" aria-hidden="true">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h5 class="modal-title fs-5 fw-bold">Llene los campos para
-										editar la noticia {{noticiaItem.descripcion}}</h5>
-									<button type="button" class="btn-close" data-bs-dismiss="modal"
-										aria-label="Close"></button>
-								</div>
-								<div class="modal-body">
-									<app-form-noticias [noticia]="noticia"></app-form-noticias>
-								</div>
-							</div>
-						</div>
-					</div>
 					<div class="col-2" style="margin-left: 3vw;">
-						<button type="button" class="btn btn-success" (click)="editClick(noticiaItem)"
-							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.correo"
+						<button type="button" class="btn btn-success" (click)="editClickNoticia(noticiaItem)"
+							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.Id"
 							data-backdrop="static" data-keyboard="false">Editar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -70,7 +70,7 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button" class="btn btn-danger">Eliminar
+						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" (click)="deleteClickNoticia(noticiaItem)">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">
 								<path
@@ -81,7 +81,7 @@
 				</div>
 			</ng-container>
 			<small class="d-block text-end mt-3">
-				<a href="#">Todas las noticias</a>
+				<a href="/listadoNoticias">Todas las noticias</a>
 			</small>
 		</div>
 		<div class="my-3 p-3 bg-body rounded shadow-sm">
@@ -89,18 +89,18 @@
 			<h6 class="border-bottom pb-2 mb-0">Quejas más recientes</h6>
 			<ng-container *ngFor="let quejaItem of QuejaList; let i=index;">
 				<!--Modal para editar las noticias-->
-				<div class="modal fade" [attr.id]="'editarQueja' + quejaItem.correo" tabindex="-1"
+				<div class="modal fade" [attr.id]="'editarQueja' + quejaItem.fecha" tabindex="-1"
 					aria-labelledby="modalRiesgoLabel" aria-hidden="true">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
 								<h5 class="modal-title fs-5 fw-bold">Llene los campos para
-									editar la queja:  {{quejaItem.descripcion}}</h5>
+									editar la queja: {{quejaItem.descripcion}}</h5>
 								<button type="button" class="btn-close" data-bs-dismiss="modal"
 									aria-label="Close"></button>
 							</div>
 							<div class="modal-body">
-								<app-form-quejas [queja]="queja"></app-form-quejas>
+								<app-form-quejas [queja]="queja" *ngIf="activarEdicionQueja"></app-form-quejas>
 							</div>
 						</div>
 					</div>
@@ -137,8 +137,8 @@
 						<span class="d-block">Por: <a href="/perfil">{{quejaItem.correo}}</a></span>
 					</div>
 					<div class="col-2">
-						<button type="button" class="btn btn-success" (click)="editClick(quejaItem)"
-							data-bs-toggle="modal" [attr.data-bs-target]="'#editarQueja' + quejaItem.correo"
+						<button type="button" class="btn btn-success" (click)="editClickQueja(quejaItem)"
+							data-bs-toggle="modal" [attr.data-bs-target]="'#editarQueja' +  quejaItem.fecha"
 							data-backdrop="static" data-keyboard="false">Editar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -148,8 +148,8 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button" class="btn btn-danger" data-bs-toggle="modal"
-							[attr.data-bs-target]="'#eliminar' ">Eliminar
+						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
+							(click)="deleteClickQueja(quejaItem)">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">
 								<path
@@ -160,19 +160,19 @@
 				</div>
 			</ng-container>
 			<small class="d-block text-end mt-3">
-				<a href="#">Todas las quejas</a>
+				<a href="/listadoQuejas">Todas las quejas</a>
 			</small>
 		</div>
 	</main>
 </div>
 
 <!--Modal de estatus correcto para la edición de las quejas-->
-<div class="modal" id="editarRiesgo">
+<div class="modal" id="editarQueja">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title">Estatus de solicitud</h5>
-				<a href="/listaRiesgos">
+				<a href="/noticias">
 					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</a>
@@ -189,7 +189,7 @@
 				</div>
 			</div>
 			<div class="modal-footer">
-				<a href="/listaRiesgos">
+				<a href="/noticias">
 					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
 				</a>
 			</div>
@@ -203,7 +203,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
 				<h5 class="modal-title">Estatus de solicitud</h5>
-				<a href="/listaRiesgos">
+				<a href="/noticias">
 					<button type="button" class="btn-close" href="/" data-bs-dismiss="modal"
 						aria-label="Close"></button>
 				</a>
@@ -215,12 +215,12 @@
 						<use xlink:href="#check-circle-fill" />
 					</svg>
 					<div>
-						Queja, editado exitosamente
+						Noticia, editada exitosamente
 					</div>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<a href="/listaRiesgos">
+				<a href="/noticias">
 					<button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Ok</button>
 				</a>
 			</div>
