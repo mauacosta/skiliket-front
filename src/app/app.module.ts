@@ -26,6 +26,8 @@ import { FormQuejasComponent } from './body/form-quejas/form-quejas.component';
 import { FormNoticiasComponent } from './body/form-noticias/form-noticias.component';
 import { AdministarCuentasComponent } from './body/administrarCuentas/administrarCuentas.component';
 import { firebaseConfig } from '../environments/environment';
+import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
+import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { firebaseConfig } from '../environments/environment';
     FormQuejasComponent,
     FormNoticiasComponent,
     AdministarCuentasComponent,
-    FormQuejasComponent
+    FormQuejasComponent,
+    ListadoNoticiasComponent,
+    ListadoQuejasComponent
   ],
   imports: [
     BrowserModule,
