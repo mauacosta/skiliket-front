@@ -33,10 +33,10 @@ export class SidebarComponent implements OnInit {
 	coloniaNoticia: string = "";
 	codigoPostal: string = "";
 	tipoUsuarioNoticia: string = "";
+	ActivarAltaNoticia: boolean = false;
 
 	quejasList: any = [];
 	queja: any;
-	//agregarQueja: number = 0;
 	quejaId: number = 0;
 	agregarQueja: number = 0;
 	naturaleza: string = "";
@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit {
 	direccion: string = "";
 	fecha: string = "";
 	tipoUsuario: string = "";
-	//activarModalQueja: boolean = false;
+	ActivarAltaQueja: boolean = false;
 
 	ngOnInit(): void {
 
@@ -66,12 +66,12 @@ export class SidebarComponent implements OnInit {
 		this.coloniaNoticia = this.noticia.colonia;
 		this.codigoPostal = this.noticia.codigoPostal;
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
-		var queja = {
+		/*var queja = {
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
 			direccion: this.direccion
-		};
+		};*/
 		
 
 		
@@ -79,7 +79,7 @@ export class SidebarComponent implements OnInit {
 	}
 
 	anadirQuejaModal() {
-		//this.activarModalQueja = true;
+		this.ActivarAltaQueja = true;
 		this.queja = {
 			agregarQueja: 0,
 			quejaId: 0,
@@ -90,11 +90,11 @@ export class SidebarComponent implements OnInit {
 			fecha: "",
 			tipoUsuario: ""
 		}
-		console.log("Agregar queja: " + this.queja.agregarQueja);
+		console.log("Agregar queja del click: " + this.queja.agregarQueja);
 	}
 
 	anadirNoticiaModal() {
-		//this.activarModalNoticia = true;
+		this.ActivarAltaNoticia = true;
 		this.noticia = {
 			agregarNoticia: 0,
 			noticiaId: 0,

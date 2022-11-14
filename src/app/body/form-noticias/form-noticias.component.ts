@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
 
 @Component({
@@ -25,6 +25,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadNoticiasList();
+		console.log("agregar noticia form inicializado: " + this.noticia.agregarNoticia);
 		this.refeshNoticiasList();
 		this.Id = this.noticia.Id;
 		this.nombre = this.noticia.nombre;
@@ -37,6 +38,7 @@ export class FormNoticiasComponent implements OnInit {
 		this.tipoUsuarioNoticia = this.noticia.tipoUsuario;
 		this.agregarNoticia = this.noticia.agregarNoticia;
 	}
+
 
 	loadNoticiasList() {
 		this.service.getNoticiasList().subscribe((data: any) => {

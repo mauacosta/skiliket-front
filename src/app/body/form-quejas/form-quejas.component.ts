@@ -23,6 +23,7 @@ export class FormQuejasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadQuejasList();
+		console.log("agregar queja form inicializado: " + this.queja.agregarQueja);
 		this.refreshQuejaList();
 		this.Id = this.queja.Id;
 		this.naturaleza = this.queja.naturaleza;
