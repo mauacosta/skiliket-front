@@ -25,7 +25,7 @@ export class FormNoticiasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadNoticiasList();
-		console.log("agregar noticia form inicializado: " + this.noticia.agregarNoticia);
+		
 		this.refeshNoticiasList();
 		this.Id = this.noticia.Id;
 		this.nombre = this.noticia.nombre;

@@ -23,7 +23,7 @@ export class FormQuejasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadQuejasList();
-		console.log("agregar queja form inicializado: " + this.queja.agregarQueja);
+		
 		this.refreshQuejaList();
 		this.Id = this.queja.Id;
 		this.naturaleza = this.queja.naturaleza;
@@ -50,7 +50,6 @@ export class FormQuejasComponent implements OnInit {
 
 	anadirQueja() {
 		var queja = {
-			Id: this.Id,
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,

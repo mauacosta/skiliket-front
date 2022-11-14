@@ -66,6 +66,8 @@ export class NoticiasComponent implements OnInit {
 
 	deleteClickQueja(item: any) {
 		if (confirm('¿Está seguro de eliminar esta queja?')) {
+			//Print JSON  item
+			console.log(item);
 			console.log("Id a borrar: " + item.Id);
 			this.service.borrarQueja(item.Id).subscribe(data => {
 				alert(data.toString());
