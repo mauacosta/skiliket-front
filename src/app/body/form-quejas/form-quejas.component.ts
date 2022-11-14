@@ -13,13 +13,13 @@ export class FormQuejasComponent implements OnInit {
 	quejasList: any = [];
 	@Input() queja: any;
 	Id: number = 0;
-	agregarQueja: number = 0;
-	naturaleza: string = "";
-	descripcion: string = "";
-	correo: string = "";
-	direccion: string = "";
-	fecha: string = "";
-	tipoUsuario: string = "";
+	agregarQueja: number | undefined;
+	naturaleza: string | undefined;
+	descripcion: string | undefined;
+	correo: string | undefined;
+	direccion: string | undefined;
+	fecha: string | undefined;
+	tipoUsuario: string | undefined;
 
 	ngOnInit(): void {
 		//this.loadQuejasList();
@@ -50,6 +50,7 @@ export class FormQuejasComponent implements OnInit {
 
 	anadirQueja() {
 		var queja = {
+			Id: this.Id,
 			naturaleza: this.naturaleza,
 			descripcion: this.descripcion,
 			correo: this.correo,
