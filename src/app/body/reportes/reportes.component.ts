@@ -82,6 +82,7 @@ export class ReportesComponent implements OnInit {
 			console.log(this.QuejaList);
 			//for in QuejasList
 			for (let i = 0; i < this.QuejaList.length; i++) {
+				if(this.QuejaList[i].tipoUsuario === ""){
 				//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
 				if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
 					this.contadorServiciosPublicos++;
@@ -111,6 +112,7 @@ export class ReportesComponent implements OnInit {
 										this.contadorOtros++;
 									}
 			}
+		}
 			if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 				this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
 				this.contadorOtros > 0 || this.contadorRobos > 0 || this.contadorIncendios > 0) {

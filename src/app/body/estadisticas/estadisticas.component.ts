@@ -128,6 +128,7 @@ export class EstadisticasComponent implements OnInit {
 			//for in QuejasList
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Enero") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "01") {
@@ -160,6 +161,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -196,6 +198,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Febrero") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "02") {
@@ -228,6 +231,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -263,6 +267,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Marzo") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "03") {
@@ -295,6 +300,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -330,6 +336,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Abril") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "04") {
@@ -362,6 +369,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -397,6 +405,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Mayo") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "05") {
@@ -429,6 +438,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -464,6 +474,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Junio") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "06") {
@@ -496,6 +507,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -531,6 +543,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Julio") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "07") {
@@ -563,6 +576,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -598,6 +612,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Agosto") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "08") {
@@ -630,6 +645,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -665,6 +681,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Septiembre") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "09") {
@@ -697,6 +714,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -732,6 +750,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Octubre") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "10") {
@@ -764,6 +783,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -799,6 +819,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Noviembre") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "11") {
@@ -831,6 +852,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
@@ -866,6 +888,7 @@ export class EstadisticasComponent implements OnInit {
 			}
 			if (this._Activatedroute.snapshot.paramMap.get('Mes') == "Diciembre") {
 				for (let i = 0; i < this.QuejaList.length; i++) {
+					if(this.QuejaList[i].tipoUsuario === ""){
 					this.fechaArreglo = this.QuejaList[i].fecha.split("-");
 					this.mesEstadistica = this.fechaArreglo[1].split(',');
 					if (this.mesEstadistica[0] == "12") {
@@ -898,6 +921,7 @@ export class EstadisticasComponent implements OnInit {
 													this.contadorOtros++;
 												}
 					}
+				}
 				}
 				if (this.contadorServiciosPublicos > 0 || this.contadorContaminacion > 0 ||
 					this.contadorInundaciones > 0 || this.contadorMuchoRuido > 0 ||
