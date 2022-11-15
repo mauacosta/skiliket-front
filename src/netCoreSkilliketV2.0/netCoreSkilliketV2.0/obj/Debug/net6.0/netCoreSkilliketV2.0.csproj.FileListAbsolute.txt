@@ -69,3 +69,4 @@ C:\Users\Demian.Godinez\OneDrive - Solera Holdings, Inc\Documents\GitHub\skilike
 C:\Users\Demian.Godinez\OneDrive - Solera Holdings, Inc\Documents\GitHub\skiliket-front\src\netCoreSkilliketV2.0\netCoreSkilliketV2.0\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\Demian.Godinez\OneDrive - Solera Holdings, Inc\Documents\GitHub\skiliket-front\src\netCoreSkilliketV2.0\netCoreSkilliketV2.0\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\Demian.Godinez\OneDrive - Solera Holdings, Inc\Documents\GitHub\skiliket-front\src\netCoreSkilliketV2.0\netCoreSkilliketV2.0\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\Demian.Godinez\OneDrive - Solera Holdings, Inc\Documents\GitHub\skiliket-front\src\netCoreSkilliketV2.0\netCoreSkilliketV2.0\bin\Debug\net6.0\System.Web.Cors.dll

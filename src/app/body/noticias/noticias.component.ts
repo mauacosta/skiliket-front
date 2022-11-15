@@ -65,15 +65,30 @@ export class NoticiasComponent implements OnInit {
 	}
 
 	deleteClickQueja(item: any) {
-		if (confirm('¿Está seguro de eliminar esta queja?')) {
-			//Print JSON  item
-			console.log(item);
-			console.log("Id a borrar: " + item.Id);
-			this.service.borrarQueja(item.Id).subscribe(data => {
-				alert(data.toString());
-				this.refreshQuejaList();
-			})
-		}
+		//Print JSON  item
+		console.log(item);
+		console.log("Id a borrar: " + item.Id);
+		this.service.borrarQueja(item.Id).subscribe(data => {
+			//alert(data.toString());
+			this.refreshQuejaList();
+		});
+	}
+	eliminarQueja(item:any) {
+		var queja = {
+			Id: item.Id,
+			naturaleza: item.naturaleza,
+			descripcion: item.descripcion,
+			correo: item.correo,
+			direccion: item.direccion,
+			fecha: item.fecha,
+			tipoUsuario: "Inactivo"
+		};
+		console.log("Id a cambiar" + item.Id);
+		console.log(queja);
+		this.service.editarQueja(queja).subscribe((res) => {
+			//alert(res.toString());
+		});
+		this.refreshQuejaList();	
 	}
 
 	editClickNoticia(item: any) {
@@ -82,13 +97,31 @@ export class NoticiasComponent implements OnInit {
 	}
 
 	deleteClickNoticia(item: any) {
-		if (confirm('¿Está seguro de eliminar esta noticia?')) {
-			console.log("Id a borrar: " + item.Id);
-			this.service.borrarNoticia(item.Id).subscribe(data => {
-				alert(data.toString());
-				this.refreshNoticiaList();
-			})
-		}
+			//Print JSON  item
+		console.log(item);
+		console.log("Id a borrar: " + item.Id);
+		this.service.borrarNoticia(item.Id).subscribe(data => {
+			//alert(data.toString());
+			this.refreshQuejaList();
+		});
+	}
+	eliminarNoticia(item: any) {
+		var noticia = {
+			Id: item.Id,
+			nombre: item.nombre,
+			apellido: item.apellido,
+			descripcion: item.descripcionNoticia,
+			correo: item.correoNoticia,
+			direccion: item.direccionNoticia,
+			colonia: item.coloniaNoticia,
+			codigoPostal: item.codigoPostal,
+			tipoUsuario: "Inactivo"
+		};
+		console.log("Id a cambiar" + item.Id);
+		console.log(noticia);
+		this.service.editarNoticia(noticia).subscribe((res) => {
+			//alert(res.toString());
+		});
 	}
 
 	refreshNoticiaList() {

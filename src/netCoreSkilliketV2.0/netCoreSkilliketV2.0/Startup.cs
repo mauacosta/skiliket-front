@@ -45,10 +45,19 @@ namespace netCoreSkilliketV2._0
       services.AddControllers();
     }
 
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+          webBuilder.UseStartup<Startup>();
+          webBuilder.UseUrls("http://localhost:5000", "https://localhost:4200");
+        });
+
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
       app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+      
 
       if (env.IsDevelopment())
       {

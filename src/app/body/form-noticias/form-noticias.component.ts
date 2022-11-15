@@ -93,6 +93,7 @@ export class FormNoticiasComponent implements OnInit {
 		});
 	}
 
+
 	refeshNoticiasList() {
 		this.service.getNoticiasList().subscribe((data: any) => {
 			this.noticiasList = data;

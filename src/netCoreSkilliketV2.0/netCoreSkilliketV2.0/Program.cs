@@ -6,8 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 //Enable CORS
 builder.Services.AddCors(c =>
 {
-  c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod()
-   .AllowAnyHeader());
+  c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyHeader());
 });
 
 //JSON Serializer
@@ -22,18 +21,16 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+/*var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 builder.Services.AddCors(options =>
 {
   options.AddPolicy(MyAllowSpecificOrigins,
                         policy =>
                         {
-                          policy.WithOrigins("http://localhost:4200",
-                                                "http://localhost:5000")
-                                                .AllowAnyHeader()
-                                                .AllowAnyMethod();
+                          policy.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
                         });
-});
+  //public Microsoft.AspNetCore.Cors.Infrastructure.CorsPolicyBuilder AllowAnyOrigin();
+});*/
 
 var app = builder.Build();
 
@@ -48,5 +45,5 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseCors(MyAllowSpecificOrigins);
+app.UseCors(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 app.Run();
