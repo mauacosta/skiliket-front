@@ -89,7 +89,7 @@ export class FormNoticiasComponent implements OnInit {
 		console.log("Id a cambiar" + this.Id);
 		console.log(noticia);
 		this.service.editarNoticia(noticia).subscribe((res) => {
-			alert(res.toString());
+			//alert(res.toString());
 		});
 	}
 

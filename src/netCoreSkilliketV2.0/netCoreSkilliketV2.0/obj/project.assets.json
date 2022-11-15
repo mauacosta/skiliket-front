@@ -3168,7 +3168,8 @@
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "C:\\Program Files\\dotnet\\library-packs": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://feeds.axadmin.net/nuget/nuget/": {}
       },
       "frameworks": {
         "net6.0": {

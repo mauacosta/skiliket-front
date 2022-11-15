@@ -78,7 +78,7 @@ export class FormQuejasComponent implements OnInit {
 		console.log("Id a cambiar" + this.Id);
 		console.log(queja);
 		this.service.editarQueja(queja).subscribe((res) => {
-			alert(res.toString());
+			//alert(res.toString());
 		});
 		this.refreshQuejaList();	
 	}
