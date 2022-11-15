@@ -37,9 +37,11 @@ export class PerfilComponent implements OnInit {
 			this.NoticiaList = data;
 			console.log(this.NoticiaList);
 			for (let i = 0; i < this.NoticiaList.length; i++) {
+				if(this.NoticiaList[i].tipoUsuario === ""){
 				this.contadorNoticias++;
 				console.log("Numero de eventos: " +this.contadorNoticias);
 		}
+	}
 		});
 	}
 	refreshQuejaList() {
@@ -47,8 +49,10 @@ export class PerfilComponent implements OnInit {
 			this.QuejaList = data;
 			console.log(this.QuejaList);
 			for (let j = 0; j < this.QuejaList.length; j++) {
+				if(this.QuejaList[j].tipoUsuario === ""){
 				this.contadorQuejas++;
 				console.log("Numero de eventos: " +this.contadorQuejas);
+				}
 		}
 		this.contadorTotal = this.contadorNoticias + this.contadorQuejas;
 		});
