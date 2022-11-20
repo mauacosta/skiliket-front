@@ -7,4 +7,5 @@ export interface User {
     neighborhood?: string;
     zipcode?: string;
     emailVerified: boolean;
+    userType?: string;
 }

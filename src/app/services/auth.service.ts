@@ -61,7 +61,8 @@ export class AuthService {
       lastname: lastname,
       address: address,
       neighborhood: neighborhood,
-      zipcode: zipcode
+      zipcode: zipcode,
+      userType: "Neighbor"
     }
 
     return this.afAuth
@@ -121,6 +122,13 @@ export class AuthService {
       .catch((error) => {
         window.alert(error);
       });
+  }
+
+  DeleteUserAccount(uid: string) {
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${uid}`
+    );
+    userRef.delete();
   }
 
   DeleteThisAccount() {
@@ -218,12 +226,27 @@ export class AuthService {
       userData.address = moreData.address;
       userData.neighborhood = moreData.neighborhood;
       userData.zipcode = moreData.zipcode;
+      userData.userType = moreData.userType;
     }
 
     return userRef.set(userData, {
       merge: true,
     }); 
   }
+
+  serUserType(uid: string, userType: string) {
+
+    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+      `users/${uid}`
+    );
+
+    userRef.update({userType: userType}).then(() => {
+      //window.location.reload();
+    })
+
+  }
+
+
 
 
 
@@ -235,6 +258,12 @@ export class AuthService {
     );
 
     return userRef.get()
+  }
+
+  GetAllUsers() {
+
+    return this.afs.collection('users').get();
+
   }
 
   // Sign out

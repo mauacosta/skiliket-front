@@ -50,7 +50,9 @@ export class SidebarComponent implements OnInit {
 	ngOnInit(): void {
 
 		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			
 			this.userData = data.data();
+			console.log(this.userData);
 		})
 		
 		this.naturaleza = this.queja.naturaleza;
@@ -72,9 +74,6 @@ export class SidebarComponent implements OnInit {
 			correo: this.correo,
 			direccion: this.direccion
 		};*/
-		
-
-		
 		
 	}
 

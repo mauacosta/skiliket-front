@@ -1,4 +1,6 @@
 import { Component,  OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
 interface user {
   name: String,
   email: String,
@@ -18,12 +20,51 @@ interface user {
 
 export class AdministarCuentasComponent implements OnInit {
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
+
+  user: User = JSON.parse(localStorage.getItem('user')!);
+	userData: any;
+
+  usersArr: any[] = [];
+  
   public admins: user[] = []
   public toConfirm: user[] = []
-  public neightboors: user[] = []
+  public neighbors: user[] = []
 
   ngOnInit(): void {
+
+    //Con este se regresa si no eres admin
+    /*
+    this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			if(this.userData.userType !== "Admin"){
+				window.location.href = "/";
+			}
+		})
+    */
+
+    //Con este obtienes todos los usuarios
+    const allUsers = this.authService.GetAllUsers().subscribe((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+        this.usersArr.push(doc.data());
+
+        //Con este editas un usuario especifico
+        
+
+      });
+    });
+
+
+    //Este lo puedes meter en una función y actualizas tipo de usuario
+    /*
+    console.log(this.usersArr)
+    this.authService.serUserType(this.usersArr[0].uid, "Admin")
+    */
+
+    
+
+        
+
+
     this.admins = [
       {name: 'Georgina  Gamez', email: 'gina101131@hotmail.com', address: 'calle chida', username:'gijidoasfip', perfil:'administrador'},
       {name: 'Georgina  Gamez 2', email: 'gina10121@hotmail.com', address: 'calle chida2', username:'gijidoasfip', perfil:'administrador'},
@@ -34,7 +75,7 @@ export class AdministarCuentasComponent implements OnInit {
       {name: 'Georgina  Sospechoso 2', email: 'gina10121@hotmail.com', address: 'calle chida2', username:'gijidoasfip', perfil:'Sin Confirmar'},
       {name: 'Georgina Sospechoso 3', email: 'gina10101@hotmail.com', address: 'calle chida3', username:'gijidoasfip', perfil:'Sin Confirmar'},
     ];
-    this.neightboors = [
+    this.neighbors = [
     {name: 'Georgina Vecina', email: 'gina101131@hotmail.com', address: 'calle chida', username:'gijidoasfip', perfil:'Vecino'},
     {name: 'Georgina Vecina 2', email: 'gina10121@hotmail.com', address: 'calle chida2', username:'gijidoasfip', perfil:'Vecino'},
     {name: 'Georgina  Vecina 3', email: 'gina10101@hotmail.com', address: 'calle chida3', username:'gijidoasfip', perfil:'Vecino'},

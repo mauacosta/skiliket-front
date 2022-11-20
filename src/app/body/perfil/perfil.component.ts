@@ -30,8 +30,8 @@ export class PerfilComponent implements OnInit {
 			this.refreshNoticiaList();
 			this.refreshQuejaList();
 		})
-
 	}
+
 	refreshNoticiaList() {
 		this.service.getNoticiasList().subscribe(data => {
 			this.NoticiaList = data;
