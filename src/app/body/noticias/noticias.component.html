@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex text-muted pt-3" *ngIf="i<3 && noticiaItem.tipoUsuario !== 'Inactivo' ">
+				<div class="d-flex text-muted pt-3" *ngIf="i<3 && noticiaItem.tipoUsuario == 'Aprobada' ">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i % 2 == 0" width="32"
 						height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -113,7 +113,7 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
+						<button type="button"  *ngIf="this.userData.userType == 'Admin'" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
 						[attr.data-bs-target]="'#eliminarNoticia' + noticiaItem.Id">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">
@@ -186,7 +186,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex text-muted pt-3" *ngIf="i<=3 &&  quejaItem.tipoUsuario !== 'Inactivo'">
+				<div class="d-flex text-muted pt-3" *ngIf="i<=3 &&  quejaItem.tipoUsuario == 'Aprobada'">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i % 2 == 0" width="32"
 						height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -222,7 +222,7 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
+						<button type="button" *ngIf="this.userData.userType == 'Admin'" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
 						[attr.data-bs-target]="'#eliminarQueja' + quejaItem.Id">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">

@@ -24,7 +24,7 @@
 						<use xlink:href="#check-circle-fill" />
 					</svg>
 					<div>
-						Noticia, dada de alta exitosamente
+						Noticia, en espera de aprobación.
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 						<use xlink:href="#check-circle-fill" />
 					</svg>
 					<div>
-						Queja, data de alta exitosamente
+						Queja, en espera de aprobación.
 					</div>
 				</div>
 			</div>
@@ -149,10 +149,10 @@
 					Eventos
 				</a>
 			</li>
-			<li *ngIf="this.userData.zipcode == 15630">
+			<li *ngIf="this.userData.userType == 'Admin' && (this.contadorTotal > 0)">
 				<a href="/confirmarEventos" class="nav-link link-dark">
 					<i class="bi bi-calendar2-check"></i>
-					Confirmar eventos
+					Confirmar eventos {{this.contadorTotal}}
 				</a>
 			</li>
 			<li>

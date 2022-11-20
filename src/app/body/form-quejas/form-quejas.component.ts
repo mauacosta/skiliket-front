@@ -1,5 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-form-quejas',
@@ -8,7 +13,12 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class FormQuejasComponent implements OnInit {
 
-	constructor(private service: SharedService) { }
+	user: User = JSON.parse(localStorage.getItem('user')!);
+	userData: any;
+
+	constructor(
+		public authService: AuthService, private service: SharedService
+	) { }
 
 	quejasList: any = [];
 	@Input() queja: any;
@@ -23,7 +33,9 @@ export class FormQuejasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadQuejasList();
-		
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
 		this.refreshQuejaList();
 		this.Id = this.queja.Id;
 		this.naturaleza = this.queja.naturaleza;
@@ -56,7 +68,7 @@ export class FormQuejasComponent implements OnInit {
 			correo: this.correo,
 			direccion: this.direccion,
 			fecha: this.fecha,
-			tipoUsuario: this.tipoUsuario
+			tipoUsuario: "Pendiente"
 		};
 		this.service.anadirQueja(queja).subscribe((res) => {
 			//alert(res.toString());
@@ -78,7 +90,23 @@ export class FormQuejasComponent implements OnInit {
 		console.log("Id a cambiar" + this.Id);
 		console.log(queja);
 		this.service.editarQueja(queja).subscribe((res) => {
-			//alert(res.toString());
+		});
+		this.refreshQuejaList();	
+	}
+	
+	editarQuejaAdmin() {
+		var queja = {
+			Id: this.Id,
+			naturaleza: this.naturaleza,
+			descripcion: this.descripcion,
+			correo: this.correo,
+			direccion: this.direccion,
+			fecha: this.fecha,
+			tipoUsuario: "Aprobada"
+		};
+		console.log("Id a cambiar" + this.Id);
+		console.log(queja);
+		this.service.editarQueja(queja).subscribe((res) => {
 		});
 		this.refreshQuejaList();	
 	}

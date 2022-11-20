@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
 	selector: 'app-noticias',
 	templateUrl: './noticias.component.html',
@@ -7,8 +13,12 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class NoticiasComponent implements OnInit {
 
-	constructor(private service: SharedService) { }
+	constructor(
+		public authService: AuthService,private service: SharedService, private httpClient: HttpClient
+	) { }
 
+	user: User = JSON.parse(localStorage.getItem('user')!);
+	userData:any;
 	NoticiaList: any = [];
 	QuejaList: any = [];
 	noticia: any;
@@ -36,6 +46,9 @@ export class NoticiasComponent implements OnInit {
 	activarEdicionQueja: boolean = false;
 
 	ngOnInit(): void {
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
 		this.refreshNoticiaList();
 		this.refreshQuejaList();
 		//Ver si descomentar esto

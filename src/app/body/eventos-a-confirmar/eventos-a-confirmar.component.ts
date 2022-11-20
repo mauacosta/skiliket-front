@@ -63,8 +63,10 @@ export class EventosAConfirmarComponent implements OnInit {
 	editClickQueja(item: any) {
 		this.queja = item;
 		this.activarEdicionQueja = true;
+		this.agregarQueja = 2;
+		console.log(this.agregarQueja);
 	}
-
+	
 	deleteClickQueja(item: any) {
 		//Print JSON  item
 		console.log(item);
@@ -93,11 +95,11 @@ export class EventosAConfirmarComponent implements OnInit {
 	}
 
 	editClickNoticia(item: any) {
-		this.noticia = item;
-		console.log("Item")
-		console.log(item);
-		console.log(this.noticia.agregarNoticia);
 		this.activarEdicionNoticia = true;
+		this.noticia = item;
+		console.log("Noticia agregar noticias");
+		this.agregarNoticia = 2;
+		console.log(this.agregarNoticia);
 	}
 
 	deleteClickNoticia(item: any) {

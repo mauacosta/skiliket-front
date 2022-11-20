@@ -37,7 +37,7 @@ export class PerfilComponent implements OnInit {
 			this.NoticiaList = data;
 			console.log(this.NoticiaList);
 			for (let i = 0; i < this.NoticiaList.length; i++) {
-				if(this.NoticiaList[i].tipoUsuario === ""){
+				if(this.NoticiaList[i].tipoUsuario === "Aprobada"){
 				this.contadorNoticias++;
 				console.log("Numero de eventos: " +this.contadorNoticias);
 		}
@@ -49,7 +49,7 @@ export class PerfilComponent implements OnInit {
 			this.QuejaList = data;
 			console.log(this.QuejaList);
 			for (let j = 0; j < this.QuejaList.length; j++) {
-				if(this.QuejaList[j].tipoUsuario === ""){
+				if(this.QuejaList[j].tipoUsuario === "Aprobada"){
 				this.contadorQuejas++;
 				console.log("Numero de eventos: " +this.contadorQuejas);
 				}

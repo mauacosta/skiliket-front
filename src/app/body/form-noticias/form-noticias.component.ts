@@ -1,5 +1,10 @@
 import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
+import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
+import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-form-noticias',
@@ -8,7 +13,12 @@ import { SharedService } from 'src/app/shared.service';
 })
 export class FormNoticiasComponent implements OnInit {
 
-	constructor(private service: SharedService) { }
+	user: User = JSON.parse(localStorage.getItem('user')!);
+	userData: any;
+
+	constructor(
+		public authService: AuthService, private service: SharedService
+	) { }
 
 	noticiasList: any = [];
 	@Input() noticia: any;
@@ -25,6 +35,9 @@ export class FormNoticiasComponent implements OnInit {
 
 	ngOnInit(): void {
 		//this.loadNoticiasList();
+		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
+			this.userData = data.data();
+		})
 		
 		this.refeshNoticiasList();
 		this.Id = this.noticia.Id;
@@ -65,7 +78,7 @@ export class FormNoticiasComponent implements OnInit {
 			direccion: this.direccionNoticia,
 			colonia: this.coloniaNoticia,
 			codigoPostal: this.codigoPostal,
-			tipoUsuario: this.tipoUsuarioNoticia
+			tipoUsuario: "Pendiente"
 		};
 		this.service.anadirNoticia(noticia).subscribe((res) => {
 			//alert(res.toString());
@@ -85,6 +98,25 @@ export class FormNoticiasComponent implements OnInit {
 			colonia: this.coloniaNoticia,
 			codigoPostal: this.codigoPostal,
 			tipoUsuario: this.tipoUsuarioNoticia
+		};
+		console.log("Id a cambiar" + this.Id);
+		console.log(noticia);
+		this.service.editarNoticia(noticia).subscribe((res) => {
+			//alert(res.toString());
+		});
+	}
+
+	editarNoticiaAdmin() {
+		var noticia = {
+			Id: this.Id,
+			nombre: this.nombre,
+			apellido: this.apellido,
+			descripcion: this.descripcionNoticia,
+			correo: this.correoNoticia,
+			direccion: this.direccionNoticia,
+			colonia: this.coloniaNoticia,
+			codigoPostal: this.codigoPostal,
+			tipoUsuario: "Aprobada"
 		};
 		console.log("Id a cambiar" + this.Id);
 		console.log(noticia);

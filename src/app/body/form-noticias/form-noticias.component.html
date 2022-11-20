@@ -87,11 +87,11 @@
 					Dar de alta la noticia</button>
 			</a>
 			<a >
-				<button (click)="editarNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="noticia.agregarNoticia !== 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="editarNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="noticia.agregarNoticia !== 0  &&  (this.userData.userType == 'Neighbor')"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Editar la noticia</button>
 			</a>
 			<a >
-				<button (click)="editarNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="noticia.agregarNoticia == 2"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="editarNoticiaAdmin()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="this.agregarNoticia !== 0 && (this.userData.userType == 'Admin')"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Confirmar alta de la noticia</button>
 			</a>
 		</div>

@@ -73,10 +73,13 @@
 					Añadir queja</button>
 			</a>
 			<a >
-				<button (click)="editarQueja()"  data-bs-toggle="modal" data-bs-target="#quejaEditada"  *ngIf="queja.agregarQueja !== 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+				<button (click)="editarQueja()"  data-bs-toggle="modal" data-bs-target="#quejaEditada"  *ngIf="queja.agregarQueja !== 0 &&  (this.userData.userType == 'Neighbor')" class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
 					Editar la queja</button>
 			</a>
-
+			<a >
+				<button (click)="editarQuejaAdmin()"  data-bs-toggle="modal" data-bs-target="#quejaEditada" *ngIf="this.agregarQueja !== 0 &&  (this.userData.userType== 'Admin')"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
+					Confirmar alta de la noticia</button>
+			</a>
 		</div>
 	</div>
 
