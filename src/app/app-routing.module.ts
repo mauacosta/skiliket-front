@@ -16,6 +16,7 @@ import { HeaderComponent } from './body/header/header.component';
 import { ReportesComponent } from './body/reportes/reportes.component';
 import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
 import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
+import { EventosAConfirmarComponent} from './body/eventos-a-confirmar/eventos-a-confirmar.component';
 
 
 
@@ -33,7 +34,9 @@ const routes: Routes = [
 	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
 	{ path: 'reportes', component: ReportesComponent },
 	{ path: 'listadoNoticias', component: ListadoNoticiasComponent },
-	{ path: 'listadoQuejas', component: ListadoQuejasComponent }
+	{ path: 'listadoQuejas', component: ListadoQuejasComponent },
+	{ path: 'confirmarEventos', component: EventosAConfirmarComponent },
+
 	//{ path: '**', redirectTo: 'header' }
 ];
 
