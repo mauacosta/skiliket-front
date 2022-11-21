@@ -149,7 +149,7 @@
 					Eventos
 				</a>
 			</li>
-			<li *ngIf="this.userData.userType == 'Admin' && (this.contadorTotal > 0)">
+			<li *ngIf="(this.userData.userType == 'Administrador' || this.userData.userType == 'Superadministrador') && (this.contadorTotal > 0)">
 				<a href="/confirmarEventos" class="nav-link link-dark">
 					<i class="bi bi-calendar2-check"></i>
 					Confirmar eventos {{this.contadorTotal}}
