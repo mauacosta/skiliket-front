@@ -62,7 +62,7 @@ export class AuthService {
       address: address,
       neighborhood: neighborhood,
       zipcode: zipcode,
-      userType: "Neighbor"
+      userType: "Vecino"
     }
 
     return this.afAuth

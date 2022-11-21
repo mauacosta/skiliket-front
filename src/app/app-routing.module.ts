@@ -30,7 +30,7 @@ const routes: Routes = [
 	{ path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
 	{ path: 'header', component: HeaderComponent },
 	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
-	{ path: 'admin/cuentas', component: AdministarCuentasComponent},
+	{ path: 'admin/cuentas', component: AdministarCuentasComponent, canActivate: [AuthGuard] },
 	{ path: 'reportes', component: ReportesComponent },
 	{ path: 'listadoNoticias', component: ListadoNoticiasComponent },
 	{ path: 'listadoQuejas', component: ListadoQuejasComponent }
