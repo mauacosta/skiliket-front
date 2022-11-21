@@ -1,25 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedService } from 'src/app/shared.service';
-import { AuthService } from '../../services/auth.service';
-import { User } from '../../models/user';
-import { UserImportBuilder } from 'firebase-admin/lib/auth/user-import-builder';
-import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
-	selector: 'app-noticias',
-	templateUrl: './noticias.component.html',
-	styleUrls: ['./noticias.component.css']
+  selector: 'app-eventos-a-confirmar',
+  templateUrl: './eventos-a-confirmar.component.html',
+  styleUrls: ['./eventos-a-confirmar.component.css']
 })
-export class NoticiasComponent implements OnInit {
+export class EventosAConfirmarComponent implements OnInit {
 
-	constructor(
-		public authService: AuthService,private service: SharedService, private httpClient: HttpClient
-	) { }
+  constructor(private service: SharedService) { }
 
-	user: User = JSON.parse(localStorage.getItem('user')!);
-	userData:any;
-	NoticiaList: any = [];
+  NoticiaList: any = [];
 	QuejaList: any = [];
 	noticia: any;
 	agregarNoticia: number = 0;
@@ -46,9 +37,6 @@ export class NoticiasComponent implements OnInit {
 	activarEdicionQueja: boolean = false;
 
 	ngOnInit(): void {
-		this.userData = this.authService.GetUserData(this.user).subscribe((data) => {
-			this.userData = data.data();
-		})
 		this.refreshNoticiaList();
 		this.refreshQuejaList();
 		//Ver si descomentar esto
@@ -75,8 +63,10 @@ export class NoticiasComponent implements OnInit {
 	editClickQueja(item: any) {
 		this.queja = item;
 		this.activarEdicionQueja = true;
+		this.agregarQueja = 2;
+		console.log(this.agregarQueja);
 	}
-
+	
 	deleteClickQueja(item: any) {
 		//Print JSON  item
 		console.log(item);
@@ -105,8 +95,11 @@ export class NoticiasComponent implements OnInit {
 	}
 
 	editClickNoticia(item: any) {
-		this.noticia = item;
 		this.activarEdicionNoticia = true;
+		this.noticia = item;
+		console.log("Noticia agregar noticias");
+		this.agregarNoticia = 2;
+		console.log(this.agregarNoticia);
 	}
 
 	deleteClickNoticia(item: any) {

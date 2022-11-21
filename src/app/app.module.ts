@@ -29,6 +29,7 @@ import { AdministarCuentasComponent } from './body/administrarCuentas/administra
 import { firebaseConfig } from '../environments/environment';
 import { ListadoNoticiasComponent } from './body/listado-noticias/listado-noticias.component';
 import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.component';
+import { EventosAConfirmarComponent } from './body/eventos-a-confirmar/eventos-a-confirmar.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ListadoQuejasComponent } from './body/listado-quejas/listado-quejas.com
     AdministarCuentasComponent,
     FormQuejasComponent,
     ListadoNoticiasComponent,
-    ListadoQuejasComponent
+    ListadoQuejasComponent,
+    EventosAConfirmarComponent
   ],
   imports: [
     BrowserModule,

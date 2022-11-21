@@ -34,6 +34,9 @@ export class SidebarComponent implements OnInit {
 	codigoPostal: string = "";
 	tipoUsuarioNoticia: string = "";
 	ActivarAltaNoticia: boolean = false;
+	contadorNoticiasPendientes: number = 0;
+	contadorQuejasPendientes: number = 0;
+	contadorTotal: number = 0;
 
 	quejasList: any = [];
 	queja: any;
@@ -54,6 +57,8 @@ export class SidebarComponent implements OnInit {
 			this.userData = data.data();
 			console.log(this.userData);
 		})
+		this.refreshNoticiaList();
+		this.refreshQuejaList();
 		
 		this.naturaleza = this.queja.naturaleza;
 		this.descripcion = this.queja.descripcion;
@@ -89,7 +94,7 @@ export class SidebarComponent implements OnInit {
 			fecha: "",
 			tipoUsuario: ""
 		}
-		console.log("Agregar queja del click: " + this.queja.agregarQueja);
+		console.log("Agregar queja click: " + this.queja.agregarQueja);
 	}
 
 	anadirNoticiaModal() {
@@ -106,7 +111,7 @@ export class SidebarComponent implements OnInit {
 			codigoPostal: "",
 			tipoUsuario: ""
 		}
-		console.log("Agregar noticia: " + this.noticia.agregarNoticia);
+		console.log("Agregar noticia click: " + this.noticia.agregarNoticia);
 	}
 	anadirNoticia() {
 		var noticia = {
@@ -130,11 +135,24 @@ export class SidebarComponent implements OnInit {
 	refreshQuejaList() {
 		this.service.getQuejasList().subscribe(data => {
 			this.quejasList = data;
+			for (let j = 0; j < this.quejasList.length; j++) {
+				if(this.quejasList[j].tipoUsuario === "Pendiente"){
+				this.contadorQuejasPendientes++;
+				console.log("Numero de quejas pendientes: " +this.contadorQuejasPendientes);
+				}
+		}
+		this.contadorTotal = this.contadorNoticiasPendientes + this.contadorQuejasPendientes;
 		});
 	}
 	refreshNoticiaList() {
 		this.service.getNoticiasList().subscribe(data => {
 			this.noticiasList = data;
+			for (let i = 0; i < this.noticiasList.length; i++) {
+				if(this.noticiasList[i].tipoUsuario === "Pendiente"){
+				this.contadorNoticiasPendientes++;
+				console.log("Numero de noticias pendientes: " +this.contadorNoticiasPendientes);
+		}
+	}
 		});
 	}
 	

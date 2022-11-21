@@ -24,7 +24,7 @@
 						<use xlink:href="#check-circle-fill" />
 					</svg>
 					<div>
-						Noticia, dada de alta exitosamente
+						Noticia, en espera de aprobación.
 					</div>
 				</div>
 			</div>
@@ -55,7 +55,7 @@
 						<use xlink:href="#check-circle-fill" />
 					</svg>
 					<div>
-						Queja, data de alta exitosamente
+						Queja, en espera de aprobación.
 					</div>
 				</div>
 			</div>
@@ -129,6 +129,7 @@
 		</div>
 	</div>
 </div>
+<!--Inicia sidebar-->
 <div class="row" style="display: inline-flex;" id="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
 		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -145,7 +146,13 @@
 			<li>
 				<a href="/noticias" class="nav-link link-dark">
 					<i class="bi bi-newspaper"></i>
-					Noticias
+					Eventos
+				</a>
+			</li>
+			<li *ngIf="(this.userData.userType == 'Administrador' || this.userData.userType == 'Superadministrador') && (this.contadorTotal > 0)">
+				<a href="/confirmarEventos" class="nav-link link-dark">
+					<i class="bi bi-calendar2-check"></i>
+					Confirmar eventos {{this.contadorTotal}}
 				</a>
 			</li>
 			<li>

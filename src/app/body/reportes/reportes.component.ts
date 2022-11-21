@@ -82,7 +82,7 @@ export class ReportesComponent implements OnInit {
 			console.log(this.QuejaList);
 			//for in QuejasList
 			for (let i = 0; i < this.QuejaList.length; i++) {
-				if(this.QuejaList[i].tipoUsuario === ""){
+				if(this.QuejaList[i].tipoUsuario === "Aprobada"){
 				//if naturaleza == 'Servicios públicos (Gas, electricidad, agua)'
 				if (this.QuejaList[i].naturaleza === 'Servicios públicos (Gas, electricidad, agua)') {
 					this.contadorServiciosPublicos++;

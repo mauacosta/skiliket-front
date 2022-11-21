@@ -22,7 +22,7 @@
 		</div>
 
 		<div class="my-3 p-3 bg-body rounded shadow-sm">
-			<h6 class="border-bottom pb-2 mb-0">Últimas noticias</h6>
+			<h6 class="border-bottom pb-2 mb-0">Noticias más recientes confirmar</h6>
 			<ng-container *ngFor="let noticiaItem of NoticiaList.reverse(); let i=index;">
 				<!--Modal para editar las noticias-->
 				<div class="modal fade" [attr.id]="'editarNoticia' + noticiaItem.Id" tabindex="-1"
@@ -79,7 +79,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex text-muted pt-3" *ngIf="i<3 && noticiaItem.tipoUsuario == 'Aprobada' ">
+				<div class="d-flex text-muted pt-3" *ngIf="i<3 && noticiaItem.tipoUsuario == 'Pendiente' ">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i % 2 == 0" width="32"
 						height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -104,7 +104,7 @@
 					<div class="col-2" style="margin-left: 3vw;">
 						<button type="button" class="btn btn-success" (click)="editClickNoticia(noticiaItem)"
 							data-bs-toggle="modal" [attr.data-bs-target]="'#editarNoticia' + noticiaItem.Id"
-							data-backdrop="static" data-keyboard="false">Editar
+							data-backdrop="static" data-keyboard="false">Ver detalles
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-pencil-square" viewBox="0 0 16 16">
 								<path
@@ -113,7 +113,7 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button"  *ngIf="this.userData.userType == 'Administrador' || this.userData.userType == 'Superadministrador'" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
+						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
 						[attr.data-bs-target]="'#eliminarNoticia' + noticiaItem.Id">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">
@@ -130,7 +130,7 @@
 		</div>
 		<div class="my-3 p-3 bg-body rounded shadow-sm">
 			<!--<h6 class="border-bottom pb-2 mb-0">Vecinos destacados en la última semana</h6>-->
-			<h6 class="border-bottom pb-2 mb-0">Quejas más recientes</h6>
+			<h6 class="border-bottom pb-2 mb-0">Quejas más recientes por confirmar</h6>
 			<ng-container *ngFor="let quejaItem of QuejaList.reverse(); let i=index;">
 				<!--Modal para editar las quejas-->
 				<div class="modal fade" [attr.id]="'editarQueja' + quejaItem.Id" tabindex="-1"
@@ -186,7 +186,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="d-flex text-muted pt-3" *ngIf="i<=3 &&  quejaItem.tipoUsuario == 'Aprobada'">
+				<div class="d-flex text-muted pt-3" *ngIf="i<=3 &&  quejaItem.tipoUsuario == 'Pendiente'">
 					<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" *ngIf=" i % 2 == 0" width="32"
 						height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32"
 						preserveAspectRatio="xMidYMid slice" focusable="false">
@@ -213,7 +213,7 @@
 					<div class="col-2">
 						<button type="button" class="btn btn-success" (click)="editClickQueja(quejaItem)"
 							data-bs-toggle="modal" [attr.data-bs-target]="'#editarQueja' +  quejaItem.Id"
-							data-backdrop="static" data-keyboard="false">Editar
+							data-backdrop="static" data-keyboard="false">Ver detalles
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-pencil-square" viewBox="0 0 16 16">
 								<path
@@ -222,7 +222,7 @@
 									d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
 							</svg>
 						</button>
-						<button type="button" *ngIf="this.userData.userType == 'Administrador'  || this.userData.userType == 'Superadministrador'" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
+						<button type="button" class="btn btn-danger" style="margin-top: 2.5%;" data-bs-toggle="modal"
 						[attr.data-bs-target]="'#eliminarQueja' + quejaItem.Id">Eliminar
 							<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 								class="bi bi-trash3" viewBox="0 0 16 16">
