@@ -6,7 +6,31 @@
 		<small>Desde 2022</small>
 	  </div>
 	</div>
-  
+
+	<div class="my-3 p-3 bg-body rounded shadow-sm">
+		<h6 class="border-bottom pb-2 mb-0">Superadministrador</h6>
+		<ng-container *ngFor="let persona of superAdmin">
+			<div class="d-flex text-muted pt-3">
+				<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
+				<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
+				  <div class="d-flex justify-content-between">
+					<strong class="text-gray-dark">{{persona.firstname + " "+persona.lastname}}</strong>
+				  </div>
+				  <span class="d-block"><a href="/perfil">{{persona.email}}</a></span>
+				</div>
+				<div class="col-md-8" >
+				  <select class="form-select" id="roles" required (change)="onChangeSelect(persona.firstname, persona.uid, $event)">
+					<option>Superadministrador</option>
+					<option >Administrador</option>
+					<option>Vecino</option>
+					  
+				  </select>
+			  </div >
+			  		
+				  <i class="material-icons" (click)="onClickDelete(persona.firstname, persona.uid)">clear</i>
+			  </div>
+		</ng-container >
+	</div>
 	<div class="my-3 p-3 bg-body rounded shadow-sm">
 		<h6 class="border-bottom pb-2 mb-0">Administradores</h6>
 		<ng-container *ngFor="let admin of admins">
@@ -14,45 +38,23 @@
 				<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 				<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 				  <div class="d-flex justify-content-between">
-					<strong class="text-gray-dark">{{admin.name}}</strong>
+					<strong class="text-gray-dark">{{admin.firstname + " "+admin.lastname}}</strong>
 				  </div>
-				  <span class="d-block"><a href="/perfil">@{{admin.username}}</a></span>
+				  <span class="d-block"><a href="/perfil">{{admin.email}}</a></span>
 				</div>
 				<div class="col-md-8">
-				  <select class="form-select" id="roles" required (change)="onChangeSelect(admin.name, $event)">
+				  <select class="form-select" id="roles" required (change)="onChangeSelect(admin.firstname, admin.uid, $event)">
 					  <option value="">Administrador</option>
 					  <option>Vecino</option>
 					  <option>Superadministrador</option>
 				  </select>
 			  </div>
-				  <i class="material-icons" (click)="onClickDelete(admin.name)">clear</i>
+				  <i class="material-icons" (click)="onClickDelete(admin.firstname, admin.uid)">clear</i>
 			  </div>
 		</ng-container >
 	</div>
   
-	<div class="my-3 p-3 bg-body rounded shadow-sm">
-		<h6 class="border-bottom pb-2 mb-0">Por Confirmar</h6>
-		<ng-container *ngFor="let persona of toConfirm">
-			<div class="d-flex text-muted pt-3">
-				<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
-				<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
-				  <div class="d-flex justify-content-between">
-					<strong class="text-gray-dark">{{persona.name}}</strong>
-				  </div>
-				  <span class="d-block"><a href="/perfil">{{persona.username}}</a></span>
-				</div>
-				<div class="col-md-8">
-				  <select class="form-select" id="roles" required (change)="onChangeSelect(persona.name, $event)">
-					  <option value="">Por Confirmar</option>
-					  <option >Administrador</option>
-					  <option>Vecino</option>
-					  <option>Superadministrador</option>
-				  </select>
-			  </div>
-				  <i class="material-icons" (click)="onClickDelete(persona.name)">clear</i>
-			  </div>
-		</ng-container >
-	</div>
+
 	  <div class="my-3 p-3 bg-body rounded shadow-sm">
 		<h6 class="border-bottom pb-2 mb-0">Vecinos</h6>
 		<ng-container *ngFor="let vecino of neighbors">
@@ -60,18 +62,18 @@
 				<svg class="bd-placeholder-img flex-shrink-0 me-2 rounded" width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 32x32" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#007bff"/><text x="50%" y="50%" fill="#007bff" dy=".3em">32x32</text></svg>
 				<div class="pb-3 mb-0 small lh-sm border-bottom w-100">
 				  <div class="d-flex justify-content-between">
-					<strong class="text-gray-dark">{{vecino.name}}</strong>
+					<strong class="text-gray-dark">{{vecino.firstname + " "+vecino.lastname}}</strong>
 				  </div>
-				  <span class="d-block"><a href="/perfil">{{vecino.username}}</a></span>
+				  <span class="d-block"><a href="/perfil">{{vecino.email}}</a></span>
 				</div>
 				<div class="col-md-8">
-				  <select class="form-select" id="roles" required (change)="onChangeSelect(vecino.name, $event)">
+				  <select class="form-select" id="roles" required (change)="onChangeSelect(vecino.firstname, vecino.uid, $event)">
 					  <option value="">Vecino</option>
 					  <option>Administrador</option>
 					  <option>Superadministrador</option>
 				  </select>
 			  </div>
-				  <i class="material-icons" (click)="onClickDelete(vecino.name)">clear</i>
+				  <i class="material-icons" (click)="onClickDelete(vecino.firstname, vecino.uid)">clear</i>
 			  </div>
 		</ng-container >
 	</div>
