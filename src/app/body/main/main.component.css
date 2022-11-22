@@ -2,8 +2,10 @@
 	float: right;
 	width: 80%;
 	height: 100vh;
+	padding: 3rem;
 }
 #d-block{
     font-size: large;
     color: red;
 }
+

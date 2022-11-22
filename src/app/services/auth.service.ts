@@ -44,7 +44,7 @@ export class AuthService {
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['sidebar']);
+            this.router.navigate(['main']);
           };
         });
       })
@@ -74,7 +74,7 @@ export class AuthService {
         this.SetUserData(result.user, additionalData);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            this.router.navigate(['sidebar']);
+            this.router.navigate(['main']);
           };
         });
       })

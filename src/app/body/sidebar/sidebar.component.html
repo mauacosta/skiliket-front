@@ -132,19 +132,19 @@
 <!--Inicia sidebar-->
 <div class="row" style="display: inline-flex;" id="sidebar">
 	<div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
-		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+		<a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none" data-title="¡Bienvenidx!" data-intro="Esta guía interactiva te ayudara a entender mejor SKILIKET">
 			<img class="logo" src="../../assets/img/logo.svg">
 		</a>
 		<hr>
 		<ul class="nav nav-pills flex-column mb-auto">
-			<li class="nav-item">
+			<li class="nav-item" data-title="Intro" data-intro="En esta sección te platicamos con mejor detalle el Objetivo de Skiliket y puedes repetir esta guía.">
 				<a href="/main" class="nav-link link-dark" aria-current="page">
 					<i class="bi bi-hand-index-thumb"></i>
 					Inicio
 				</a>
 			</li>
 			<li>
-				<a href="/noticias" class="nav-link link-dark">
+				<a href="/noticias" class="nav-link link-dark" data-title="Eventos" data-intro="Conoce los eventos que afectan tu comunidad en esta sección.">
 					<i class="bi bi-newspaper"></i>
 					Eventos
 				</a>
@@ -156,19 +156,20 @@
 				</a>
 			</li>
 			<li>
-				<a href="/estadisticas/Enero" class="nav-link link-dark">
+				<a href="/estadisticas/Enero" class="nav-link link-dark" data-title="Estadisticas" data-intro="Ingresa aquí para analizar estadisticas generada por tu comunidad. ¡Igual puedes descargar para compartir!">
 					<i class="bi bi-bar-chart"></i>
 					Estadisticas
 				</a>
 			</li>
-			<li>
+			<li data-title="Reportes" data-intro="En esta sección puedes ver estadisticas sobre los reportes generados">
 				<a href="/reportes" class="nav-link link-dark">
 					<i class="bi bi-file-earmark-bar-graph"></i>
 					Reportes
 				</a>
+			</li>
 		</ul>
 		<hr>
-		<div class="dropdown">
+		<div class="dropdown" data-title="Mi Perfil" data-intro="Crea Eventos y Reportes. Igualmente puedes actualizar y revisar tu información.">
 			<a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle"
 				data-bs-toggle="dropdown" aria-expanded="false">
 				<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="" width="32" height="32" class="rounded-circle me-2">
@@ -179,7 +180,7 @@
 						Nueva noticia...</a></li>
 				<li><a class="dropdown-item" data-bs-toggle="modal" (click)="anadirQuejaModal()"
 						data-bs-target="#quejaModal">
-						Nueva queja...</a></li>
+						Nuevo Reporte...</a></li>
 				<li><a class="dropdown-item" href="/perfil">Perfil</a></li>
 				<li>
 					<hr class="dropdown-divider">

@@ -27,7 +27,7 @@ const routes: Routes = [
 	{ path: 'estadisticas/:Mes', component: EstadisticasComponent },
 	{ path: 'tablero', component: TableroComponent },
 	{ path: 'noticias', component: NoticiasComponent },
-	{ path: 'main', component: MainComponent },
+	{ path: 'main', component: MainComponent, canActivate: [AuthGuard] },
 	{ path: 'sidebar', component: SidebarComponent, canActivate: [AuthGuard] },
 	{ path: 'header', component: HeaderComponent },
 	{ path: 'perfil', component: PerfilComponent, canActivate: [AuthGuard] },
