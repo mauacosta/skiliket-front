@@ -35,14 +35,14 @@
 				<div class="col-12">
 					<label for="email" class="form-label">Correo</label>
 					<input type="email" class="form-control" name="correo" placeholder="juan@ejemplo.com"
-						[(ngModel)]="correo" value="{{queja.correo}}"  name="correo">
+						[(ngModel)]="correo" value="{{queja.correo ? queja.correo : this.userData.email }}"  name="correo">
 					<div class="invalid-feedback">
 						Favor de escribir un correo valido de contacto.
 					</div>
 				</div>
 				<div class="col-12">
 					<label for="address" class="form-label">Dirección del incidente</label>
-					<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion" value="{{queja.direccion}}" 
+					<input type="text" class="form-control" name="direccion" [(ngModel)]="direccion" value="{{queja.direccion ? queja.direccion : this.userData.address}}" 
 					name="direccion"
 						placeholder="15630 Teresa Urrea" required>
 					<div class="invalid-feedback">

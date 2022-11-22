@@ -1,8 +1,8 @@
 <div class="container">
 	<div class="py-5 text-center">
 		<img class="d-block mx-auto mb-4" src="../../assets/img/logo.png" alt="" width="200" height="auto">
-		<h2>Formulario de noticia</h2>
-		<p class="lead">Llene los campos adyacentes para dar de alta está noticia/reporte en su localidad
+		<h2>Formulario de Evento</h2>
+		<p class="lead">Llene los campos adyacentes para dar de alta un evento en su localidad
 		</p>
 	</div>
 
@@ -12,7 +12,7 @@
 			<div class="row g-3">
 				<div class="col-sm-6">
 					<label for="firstName" class="form-label">Nombre(s)</label>
-					<input type="text"  [(ngModel)]="nombre" value="{{noticia.nombre}}" name="nombre"  class="form-control" id="firstName" placeholder="" required>
+					<input type="text"  [(ngModel)]="nombre" value="{{noticia.nombre ? noticia.nombre : this.userData.firstname}}" name="nombre"  class="form-control" id="firstName" placeholder="" required>
 					<div class="invalid-feedback">
 						Nombre valido es requerido.
 					</div>
@@ -20,7 +20,7 @@
 
 				<div class="col-sm-6">
 					<label for="lastName" class="form-label">Apellidos</label>
-					<input type="text"  [(ngModel)]="apellido" value="{{noticia.apellido}}" name="apellido"  class="form-control" id="lastName" placeholder="" value="" required>
+					<input type="text"  [(ngModel)]="apellido" value="{{noticia.apellido ? noticia.apellido : this.userData.lastname}}" name="apellido"  class="form-control" id="lastName" placeholder="" value="" required>
 					<div class="invalid-feedback">
 						Apellidos validos son requeridos
 					</div>
@@ -36,7 +36,7 @@
 
 				<div class="col-12">
 					<label for="email" class="form-label">Correo</label>
-					<input type="email"  [(ngModel)]="correoNoticia" value="{{noticia.correo}}" name="correoNoticia"  class="form-control" id="email" placeholder="juan@ejemplo.com">
+					<input type="email"  [(ngModel)]="correoNoticia" value="{{noticia.correo ? noticia.correo : this.userData.email}}" name="correoNoticia"  class="form-control" id="email" placeholder="juan@ejemplo.com">
 					<div class="invalid-feedback">
 						Favor de escribir un correo valido de contacto.
 					</div>
@@ -44,17 +44,27 @@
 
 				<div class="col-12">
 					<label for="address" class="form-label">Dirección del incidente</label>
-					<input type="text"  [(ngModel)]="direccionNoticia" value="{{noticia.direccion}}" name="direccionNoticia"  class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
+					<input type="text"  [(ngModel)]="direccionNoticia" value="{{noticia.direccion ? noticia.direccion : this.userData.address}}" name="direccionNoticia"  class="form-control" id="address" placeholder="15630 Teresa Urrea" required>
 					<div class="invalid-feedback">
 						Favor de introducir la dirección de lo sucedido.
 					</div>
 				</div>
 				<div class="col-md-8">
 					<label for="country" class="form-label">Colonia</label>
-					<select class="form-select"  [(ngModel)]="coloniaNoticia" value="{{noticia.colonia}}" name="coloniaNoticia"  id="country" required>
+					<select class="form-select"  [(ngModel)]="coloniaNoticia" value="{{noticia.colonia ? noticia.colonia : this.userData.neighborhood}}" name="coloniaNoticia"  id="country" required>
 						<option value="">Escoger...</option>
-						<option value="San Bartolo el Chico">San Bartolo el Chico</option>
-						<option value="Teresa Urrea">Teresa Urrea</option>
+						<option>San Bartolo el Chico</option>
+						<option>Coyoacán</option>
+						<option>San Miguel Chapultepec</option>
+						<option>San Miguel Topilejo</option>
+						<option>San Miguel Xico</option>
+						<option>Tepepan</option>
+						<option>San Miguel Totolapan</option>
+						<option>Polanco</option>
+						<option>Acatlán</option>
+						<option>Campestre Churubusco</option>
+						<option>San Miguel Ajusco</option>
+						<option>Teresa Urrea</option>
 					</select>
 					<div class="invalid-feedback">
 						Fabor de seleccionar una colonia
@@ -63,7 +73,7 @@
 
 				<div class="col-md-4">
 					<label for="zip" class="form-label">Codigo Postal</label>
-					<input type="text" class="form-control"  [(ngModel)]="codigoPostal" value="{{noticia.codigoPostal}}" name="codigoPostal"   id="zip" placeholder="" required>
+					<input type="text" class="form-control"  [(ngModel)]="codigoPostal" value="{{noticia.codigoPostal ? noticia.codigoPostal : userData.zipcode}}" name="codigoPostal"   id="zip" placeholder="" required>
 					<div class="invalid-feedback">
 						Codigo Postal requerido.
 					</div>
@@ -84,15 +94,15 @@
 			<hr class="my-4">
 			<a >
 				<button (click)="anadirNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaAlta" *ngIf="noticia.agregarNoticia === 0"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
-					Dar de alta la noticia</button>
+					Dar de alta el evento</button>
 			</a>
 			<a >
 				<button (click)="editarNoticia()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="noticia.agregarNoticia !== 0  &&  (this.userData.userType == 'Vecino')"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
-					Editar la noticia</button>
+					Editar el evento</button>
 			</a>
 			<a >
 				<button (click)="editarNoticiaAdmin()"  data-bs-toggle="modal" data-bs-target="#noticiaEditada" *ngIf="this.agregarNoticia !== 0 && (this.userData.userType == 'Administrador' || this.userData.userType == 'Superadministrador')"  class="w-100 btn btn-primary btn-lg" type="submit" style="margin-bottom: 2vh;">
-					Confirmar alta de la noticia</button>
+					Confirmar alta de el evento</button>
 			</a>
 		</div>
 	</div>
